@@ -1,0 +1,12 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="irina" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe0b2" />
+      <stop offset="100%" stop-color="#ff8f5a" />
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="48" fill="url(#irina)" />
+  <circle cx="120" cy="90" r="40" fill="white" fill-opacity="0.9" />
+  <rect x="60" y="132" width="120" height="80" rx="40" fill="white" fill-opacity="0.9" />
+  <text x="120" y="208" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#ff7a3d">Ирина</text>
+</svg>

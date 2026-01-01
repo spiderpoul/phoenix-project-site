@@ -1,0 +1,74 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "landing"
+    label: "Лендинг"
+    files:
+      - name: "landing"
+        label: "Контент лендинга"
+        file: "content/landing.json"
+        format: "json"
+        fields:
+          - { label: "Hero title", name: "hero_title", widget: "string" }
+          - { label: "Hero subtitle", name: "hero_subtitle", widget: "text" }
+          - label: "Hero CTA primary"
+            name: "hero_cta_primary"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - label: "Hero CTA secondary"
+            name: "hero_cta_secondary"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "Phoenix animation asset", name: "phoenix_animation_asset", widget: "string" }
+          - { label: "About text", name: "about_text", widget: "text" }
+          - { label: "About points", name: "about_points", widget: "list" }
+          - { label: "Process steps", name: "process_steps", widget: "list" }
+          - { label: "Value points", name: "value_points", widget: "list" }
+          - label: "Contacts"
+            name: "contacts"
+            widget: "object"
+            fields:
+              - { label: "Telegram", name: "telegram", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Form", name: "form", widget: "string" }
+          - label: "FAQ"
+            name: "faq_items"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+  - name: "heroes"
+    label: "Герои"
+    folder: "content/heroes"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Company", name: "company", widget: "string", required: false }
+      - { label: "Short phrase", name: "short_phrase", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - label: "Socials"
+        name: "socials"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Full story", name: "body", widget: "markdown" }
