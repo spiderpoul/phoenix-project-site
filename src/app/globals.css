@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+.prose-ember {
+  @apply prose prose-slate max-w-none dark:prose-invert;
+}
+
+.prose-ember a {
+  @apply text-ember-600 no-underline hover:text-ember-500;
+}
+
+.glow-card {
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
+}
