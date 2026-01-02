@@ -72,7 +72,7 @@ export default function HeroesSlider({ heroes }) {
         aria-label="Список героев"
       >
         {heroes.map((hero) => (
-          <div key={hero.slug} className="min-w-[260px] flex-1 sm:min-w-[280px] lg:min-w-[320px]">
+          <div key={hero.slug} className="min-w-[300px] flex-1 sm:min-w-[340px] lg:min-w-[360px]">
             <HeroCard hero={hero} variant="compact" />
           </div>
         ))}

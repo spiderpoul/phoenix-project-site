@@ -13,9 +13,10 @@ export default function FeaturedHeroes({ heroes }) {
         <HeroesSlider heroes={heroes} />
         <a
           href="/heroes"
-          className="inline-flex w-full items-center justify-center rounded-full border border-slate-200/70 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-ember-500/60 hover:text-ember-600 dark:border-slate-700/70 dark:text-slate-200"
+          className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-slate-200/70 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-ember-500/60 hover:text-ember-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-slate-700/70 dark:text-slate-200 dark:focus-visible:ring-offset-slate-950"
         >
           Посмотреть всех героев
+          <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
