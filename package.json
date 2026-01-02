@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "admin": "concurrently -k -n admin,site \"decap-server\" \"next dev\"",
+    "admin": "node scripts/start-admin.js",
     "prebuild": "node scripts/generate-heroes-index.js && node scripts/generate-sitemap.js",
     "build": "next build",
     "export": "next export",
