@@ -37,3 +37,12 @@ body {
 .gradient-text {
   @apply bg-gradient-to-r from-ember-500 via-orange-400 to-amber-400 bg-clip-text text-transparent;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
