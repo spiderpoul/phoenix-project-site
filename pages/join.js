@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
+import ValueForHeroSection from '../components/ValueForHeroSection';
 import join from '../content/join.json';
 
 export default function JoinPage() {
@@ -9,7 +10,8 @@ export default function JoinPage() {
         <title>{join.title} — Debug выгорания</title>
         <meta name="description" content={join.subtitle} />
       </Head>
-      <section className="py-16">
+      <ValueForHeroSection content={join.value} />
+      <section id="how-to" className="pb-16 pt-8">
         <div className="mx-auto grid max-w-5xl gap-10 px-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="flex flex-col gap-6">
             <div>
