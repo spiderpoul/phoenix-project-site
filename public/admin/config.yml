@@ -1,0 +1,95 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "home"
+    label: "Главная"
+    files:
+      - name: "home"
+        label: "Контент главной"
+        file: "content/home.json"
+        format: "json"
+        fields:
+          - { label: "Hero title", name: "hero_title", widget: "string" }
+          - { label: "Hero subtitle", name: "hero_subtitle", widget: "text" }
+          - label: "Hero CTA primary"
+            name: "hero_cta_primary"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - label: "Hero CTA secondary"
+            name: "hero_cta_secondary"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "About preview", name: "about_preview", widget: "text" }
+          - { label: "Featured count", name: "featured_count", widget: "number", default: 6 }
+
+  - name: "about"
+    label: "О проекте"
+    files:
+      - name: "about"
+        label: "Страница \"О проекте\""
+        file: "content/about.json"
+        format: "json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+  - name: "join"
+    label: "Как стать участником"
+    files:
+      - name: "join"
+        label: "Страница \"Стать участником\""
+        file: "content/join.json"
+        format: "json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Steps", name: "steps", widget: "list" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "Notes", name: "notes", widget: "list" }
+
+  - name: "heroes"
+    label: "Герои"
+    folder: "content/heroes"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "md"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Company", name: "company", widget: "string", required: false }
+      - { label: "Short phrase", name: "short_phrase", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Weight", name: "weight", widget: "number", default: 0 }
+      - label: "Socials"
+        name: "socials"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Type", name: "type", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+      - { label: "Full story", name: "body", widget: "markdown" }
