@@ -2,11 +2,11 @@
   "name": "phoenix-project-site",
   "private": true,
   "scripts": {
-    "dev": "cross-env NEXT_DISABLE_PATCH_INCORRECT_LOCKFILE=1 next dev",
-    "admin": "concurrently -k -n admin,site \"decap-server\" \"cross-env NEXT_DISABLE_PATCH_INCORRECT_LOCKFILE=1 next dev\"",
+    "dev": "node scripts/next-run.js dev",
+    "admin": "concurrently -k -n admin,site \"decap-server\" \"node scripts/next-run.js dev\"",
     "prebuild": "node scripts/generate-heroes-index.js && node scripts/generate-sitemap.js",
-    "build": "cross-env NEXT_DISABLE_PATCH_INCORRECT_LOCKFILE=1 next build",
-    "export": "cross-env NEXT_DISABLE_PATCH_INCORRECT_LOCKFILE=1 next export",
+    "build": "node scripts/next-run.js build",
+    "export": "node scripts/next-run.js export",
     "deploy": "node scripts/deploy.js",
     "lint": "next lint"
   },
@@ -24,11 +24,9 @@
     "remark-html": "^16.0.1"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.7",
-    "@tailwindcss/typography": "^0.5.13",
-    "@tailwindcss/line-clamp": "^0.4.4"
+    "@tailwindcss/typography": "^0.5.13"
   }
 }
