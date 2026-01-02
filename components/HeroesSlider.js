@@ -67,7 +67,7 @@ export default function HeroesSlider({ heroes }) {
       </div>
       <div
         ref={listRef}
-        className="no-scrollbar flex gap-5 overflow-x-auto scroll-smooth pb-2 pt-4"
+        className="no-scrollbar flex gap-5 overflow-x-auto scroll-smooth pb-4 pt-10"
         role="list"
         aria-label="Список героев"
       >
