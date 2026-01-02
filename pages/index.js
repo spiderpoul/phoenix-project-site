@@ -48,7 +48,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <PhoenixAnimation src="/images/phoenix.svg" />
+          <PhoenixAnimation src="/images/phoenix.png" />
         </div>
       </section>
 
