@@ -52,14 +52,12 @@ export default function HeroesSection() {
   };
 
   return (
-    <section id="heroes" className="scroll-mt-24 py-16">
+    <section className="py-16">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4">
         <div className="flex flex-col gap-3">
-          <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Герои</p>
-          <h2 className="section-title">Истории IT-фениксов</h2>
-          <p className="muted max-w-2xl">
-            Используйте поиск и фильтры, чтобы найти историю по компании, тегам или ключевой фразе.
-          </p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Каталог</p>
+          <h1 className="section-title">Все герои проекта</h1>
+          <p className="muted max-w-2xl">Поиск работает по имени, компании, тегам и тексту истории.</p>
         </div>
         <div className="grid gap-4 rounded-2xl border border-slate-200/60 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/60 md:grid-cols-3">
           <div className="md:col-span-2">
@@ -121,7 +119,7 @@ export default function HeroesSection() {
         {filteredHeroes.length ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredHeroes.map((hero) => (
-              <HeroCard key={hero.slug} hero={hero} />
+              <HeroCard key={hero.slug} hero={hero} variant="full" />
             ))}
           </div>
         ) : (

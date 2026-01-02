@@ -28,6 +28,7 @@ const heroes = files
       photo: data.photo,
       company: data.company || '',
       short_phrase: data.short_phrase,
+      weight: data.weight || 0,
       tags: data.tags || [],
       socials: data.socials || [],
       full_story: content

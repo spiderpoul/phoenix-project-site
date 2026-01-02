@@ -8,6 +8,7 @@ tags:
   - Стартап
   - Переосмысление
   - Продукт
+weight: 6
 socials:
   - type: github
     url: https://github.com/sergeyphoenix

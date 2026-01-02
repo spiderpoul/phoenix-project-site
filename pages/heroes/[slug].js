@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import ThemeToggle from '../../components/ThemeToggle';
+import Layout from '../../components/Layout';
 import { getAllHeroes, getHeroBySlug, parseMarkdown } from '../../lib/content';
 
 export async function getStaticPaths() {
@@ -36,7 +36,7 @@ export default function HeroPage({ hero, otherHeroes }) {
   const ogImage = '/images/og-cover.svg';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-white to-orange-50/40 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
+    <Layout>
       <Head>
         <title>{ogTitle}</title>
         <meta name="description" content={ogDescription} />
@@ -45,36 +45,6 @@ export default function HeroPage({ hero, otherHeroes }) {
         <meta property="og:image" content={ogImage} />
         <meta property="twitter:card" content="summary_large_image" />
       </Head>
-
-      <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/70">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-ember-500 to-amber-400 text-lg font-semibold text-white shadow-sm">
-              ϟ
-            </span>
-            <span className="hidden sm:inline">Debug выгорания</span>
-          </Link>
-          <div className="flex items-center gap-3">
-            <a
-              href="/#heroes"
-              className="rounded-full border border-slate-200/70 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-ember-500/60 hover:text-ember-600 dark:border-slate-700/70 dark:text-slate-200 sm:hidden"
-            >
-              Назад
-            </a>
-            <nav className="hidden items-center gap-4 text-sm text-slate-600 dark:text-slate-300 sm:flex">
-              <a href="/#about" className="transition hover:text-ember-600">О проекте</a>
-              <a href="/#heroes" className="transition hover:text-ember-600">Все фениксы</a>
-              <a
-                href="/#heroes"
-                className="rounded-full border border-slate-200/70 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-ember-500/60 hover:text-ember-600 dark:border-slate-700/70 dark:text-slate-200"
-              >
-                Назад
-              </a>
-            </nav>
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
 
       <main className="mx-auto flex max-w-5xl flex-col gap-12 px-4 py-12">
         <section className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
@@ -141,10 +111,6 @@ export default function HeroPage({ hero, otherHeroes }) {
           </section>
         ) : null}
       </main>
-
-      <footer className="border-t border-slate-200/60 py-8 text-center text-xs text-slate-500 dark:border-slate-800/80 dark:text-slate-400">
-        Аккуратная ссылка на проект: <Link href="/" className="text-ember-600 hover:underline">Debug выгорания</Link>
-      </footer>
-    </div>
+    </Layout>
   );
 }

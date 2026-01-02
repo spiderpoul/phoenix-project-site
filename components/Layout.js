@@ -2,12 +2,10 @@ import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 
 const navItems = [
-  { href: '#about', label: 'О проекте' },
-  { href: '#process', label: 'Процесс' },
-  { href: '#heroes', label: 'Фениксы' },
-  { href: '#value', label: 'Ценность' },
-  { href: '#contacts', label: 'Контакты' },
-  { href: '#faq', label: 'FAQ' }
+  { href: '/', label: 'Главная' },
+  { href: '/heroes', label: 'Герои' },
+  { href: '/about', label: 'О проекте' },
+  { href: '/join', label: 'Стать участником' }
 ];
 
 export default function Layout({ children }) {

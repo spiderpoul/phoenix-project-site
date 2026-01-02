@@ -8,6 +8,7 @@ tags:
   - Ребут
   - Карьера
   - Энергия
+weight: 7
 socials:
   - type: website
     url: https://irina.dev

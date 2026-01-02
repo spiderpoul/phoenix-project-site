@@ -8,6 +8,7 @@ tags:
   - Трансформация
   - Лидерство
   - Баланс
+weight: 8
 socials:
   - type: telegram
     url: https://t.me/annaphoenix

@@ -11,8 +11,9 @@ function SocialIcon({ type }) {
   return <span className="text-sm">{icons[type] || '🔗'}</span>;
 }
 
-export default function HeroCard({ hero }) {
-  const visibleTags = hero.tags.slice(0, 3);
+export default function HeroCard({ hero, variant = 'full' }) {
+  const maxTags = variant === 'compact' ? 2 : 3;
+  const visibleTags = hero.tags.slice(0, maxTags);
   const extraCount = hero.tags.length - visibleTags.length;
 
   return (
@@ -32,7 +33,9 @@ export default function HeroCard({ hero }) {
           {hero.company && <p className="text-sm text-slate-500 dark:text-slate-300">{hero.company}</p>}
         </div>
       </div>
-      <p className="line-clamp-2 text-sm text-slate-600 dark:text-slate-200">{hero.short_phrase}</p>
+      <p className={`${variant === 'compact' ? 'line-clamp-1' : 'line-clamp-2'} text-sm text-slate-600 dark:text-slate-200`}>
+        {hero.short_phrase}
+      </p>
       <div className="flex flex-wrap gap-2">
         {visibleTags.map((tag) => (
           <span key={tag} className="tag">

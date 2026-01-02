@@ -8,12 +8,12 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "landing"
-    label: "Лендинг"
+  - name: "home"
+    label: "Главная"
     files:
-      - name: "landing"
-        label: "Контент лендинга"
-        file: "content/landing.json"
+      - name: "home"
+        label: "Контент главной"
+        file: "content/home.json"
         format: "json"
         fields:
           - { label: "Hero title", name: "hero_title", widget: "string" }
@@ -30,24 +30,44 @@ collections:
             fields:
               - { label: "Text", name: "text", widget: "string" }
               - { label: "Href", name: "href", widget: "string" }
-          - { label: "Phoenix animation asset", name: "phoenix_animation_asset", widget: "string" }
-          - { label: "About text", name: "about_text", widget: "text" }
-          - { label: "About points", name: "about_points", widget: "list" }
-          - { label: "Process steps", name: "process_steps", widget: "list" }
-          - { label: "Value points", name: "value_points", widget: "list" }
-          - label: "Contacts"
-            name: "contacts"
-            widget: "object"
-            fields:
-              - { label: "Telegram", name: "telegram", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
-              - { label: "Form", name: "form", widget: "string" }
-          - label: "FAQ"
-            name: "faq_items"
+          - { label: "About preview", name: "about_preview", widget: "text" }
+          - { label: "Featured count", name: "featured_count", widget: "number", default: 6 }
+
+  - name: "about"
+    label: "О проекте"
+    files:
+      - name: "about"
+        label: "Страница \"О проекте\""
+        file: "content/about.json"
+        format: "json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Sections"
+            name: "sections"
             widget: "list"
             fields:
-              - { label: "Question", name: "question", widget: "string" }
-              - { label: "Answer", name: "answer", widget: "text" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+  - name: "join"
+    label: "Как стать участником"
+    files:
+      - name: "join"
+        label: "Страница \"Стать участником\""
+        file: "content/join.json"
+        format: "json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Steps", name: "steps", widget: "list" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "Notes", name: "notes", widget: "list" }
 
   - name: "heroes"
     label: "Герои"
@@ -63,6 +83,7 @@ collections:
       - { label: "Company", name: "company", widget: "string", required: false }
       - { label: "Short phrase", name: "short_phrase", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Weight", name: "weight", widget: "number", default: 0 }
       - label: "Socials"
         name: "socials"
         widget: "list"

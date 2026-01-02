@@ -5,6 +5,7 @@
     "photo": "/images/heroes/anna.svg",
     "company": "SkyLabs",
     "short_phrase": "После двух лет выгорания Анна вернулась в индустрию и построила команду мечты.",
+    "weight": 8,
     "tags": ["Трансформация", "Лидерство", "Баланс"],
     "socials": [
       { "type": "telegram", "url": "https://t.me/annaphoenix" },
@@ -18,6 +19,7 @@
     "photo": "/images/heroes/irina.svg",
     "company": "CloudWay",
     "short_phrase": "Ирина вернулась в разработку после перерыва и сменила стек на более комфортный.",
+    "weight": 7,
     "tags": ["Ребут", "Карьера", "Энергия"],
     "socials": [
       { "type": "website", "url": "https://irina.dev" }
@@ -30,6 +32,7 @@
     "photo": "/images/heroes/sergey.svg",
     "company": "NovaTech",
     "short_phrase": "Сергей ушёл из стартапа, чтобы восстановиться, и вернулся с новым продуктом.",
+    "weight": 6,
     "tags": ["Стартап", "Переосмысление", "Продукт"],
     "socials": [
       { "type": "github", "url": "https://github.com/sergeyphoenix" }
