@@ -15,18 +15,24 @@ export default function HeroCard({ hero, variant = 'full' }) {
   const maxTags = variant === 'compact' ? 2 : 3;
   const visibleTags = hero.tags.slice(0, maxTags);
   const extraCount = hero.tags.length - visibleTags.length;
+  const imageSizeClasses =
+    variant === 'compact' ? 'h-48 w-48 sm:h-52 sm:w-52' : 'h-24 w-24 sm:h-28 sm:w-28';
+  const cardPaddingTop = variant === 'compact' ? 'pt-32' : 'pt-24';
+  const imageOffsetClass = variant === 'compact' ? '-translate-y-[40%]' : '-translate-y-2/3';
 
   return (
     <Link
       href={`/heroes/${hero.slug}`}
-      className="card card-hover group relative flex h-full flex-col gap-5 overflow-visible px-6 pb-6 pt-24"
+      className={`card card-hover group relative flex h-full flex-col gap-5 overflow-visible px-6 pb-6 ${cardPaddingTop}`}
     >
-      <div className="absolute left-1/2 top-0 z-10 flex -translate-x-1/2 -translate-y-2/3 items-center justify-center">
+      <div
+        className={`absolute left-1/2 top-0 z-10 flex -translate-x-1/2 ${imageOffsetClass} items-center justify-center`}
+      >
         <div className="rounded-full border border-white bg-white p-1.5 shadow-sm dark:border-slate-900 dark:bg-slate-900">
           <img
             src={hero.photo}
             alt={hero.name}
-            className="h-24 w-24 rounded-full object-cover sm:h-28 sm:w-28"
+            className={`${imageSizeClasses} rounded-full object-cover`}
             loading="lazy"
           />
         </div>
