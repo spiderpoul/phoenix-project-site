@@ -102,6 +102,40 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "text" }
           - { label: "Steps", name: "steps", widget: "list" }
+          - label: "FAQ section"
+            name: "faqSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string", default: "FAQ" }
+              - { label: "Subtitle", name: "subtitle", widget: "text", required: false }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "question", widget: "string", maxLength: 120 }
+                  - { label: "Answer", name: "answer", widget: "text", maxLength: 1200 }
+                  - { label: "Order", name: "order", widget: "number", required: false }
+                  - { label: "Featured", name: "isFeatured", widget: "boolean", required: false }
+              - label: "Behavior"
+                name: "behavior"
+                widget: "object"
+                fields:
+                  - label: "Mode"
+                    name: "mode"
+                    widget: "select"
+                    options:
+                      - { label: "Single", value: "single" }
+                      - { label: "Multi", value: "multi" }
+                    default: "single"
+                  - { label: "Default open index", name: "defaultOpenIndex", widget: "number", required: false }
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Primary label", name: "primaryLabel", widget: "string", required: false }
+                  - { label: "Primary href", name: "primaryHref", widget: "string", required: false }
+                  - { label: "Secondary label", name: "secondaryLabel", widget: "string", required: false }
+                  - { label: "Secondary href", name: "secondaryHref", widget: "string", required: false }
           - label: "CTA"
             name: "cta"
             widget: "object"

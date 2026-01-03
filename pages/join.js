@@ -1,14 +1,34 @@
 import Head from 'next/head';
 import Layout from '../components/Layout';
+import FaqSection from '../components/FaqSection';
 import ValueForHeroSection from '../components/ValueForHeroSection';
 import join from '../content/join.json';
 
 export default function JoinPage() {
+  const faqItems = join.faqSection?.items || [];
+  const faqJsonLd = faqItems.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
+      }
+    : null;
+
   return (
     <Layout>
       <Head>
         <title>{join.title} — Debug выгорания</title>
         <meta name="description" content={join.subtitle} />
+        {faqJsonLd ? (
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+        ) : null}
       </Head>
       <ValueForHeroSection content={join.value} />
       <section id="how-to" className="pb-16 pt-8">
@@ -52,6 +72,7 @@ export default function JoinPage() {
           </div>
         </div>
       </section>
+      <FaqSection section={join.faqSection} />
     </Layout>
   );
 }
