@@ -41,14 +41,55 @@ collections:
         file: "content/about.json"
         format: "json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Hero title", name: "heroTitle", widget: "string" }
+          - { label: "Hero subtitle", name: "heroSubtitle", widget: "string" }
+          - { label: "Hero lead", name: "heroLead", widget: "markdown" }
+          - { label: "Primary CTA text", name: "heroPrimaryCtaText", widget: "string" }
+          - { label: "Primary CTA href", name: "heroPrimaryCtaHref", widget: "string", default: "/join" }
+          - { label: "Secondary CTA text", name: "heroSecondaryCtaText", widget: "string" }
+          - { label: "Secondary CTA href", name: "heroSecondaryCtaHref", widget: "string", default: "/heroes" }
+          - { label: "Hero note", name: "heroNote", widget: "string", required: false }
           - label: "Sections"
             name: "sections"
             widget: "list"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Section id", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Body", name: "body", widget: "markdown", required: false }
+              - label: "Variant"
+                name: "variant"
+                widget: "select"
+                options: ["text", "cards", "timeline", "bullets", "cta"]
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Icon key", name: "icon", widget: "string", required: false }
+                  - { label: "Title", name: "title", widget: "string", required: false }
+                  - { label: "Description", name: "description", widget: "markdown", required: false }
+                  - { label: "Href", name: "href", widget: "string", required: false }
+          - label: "Final CTA title"
+            name: "finalCtaTitle"
+            widget: "string"
+          - label: "Final CTA text"
+            name: "finalCtaText"
+            widget: "markdown"
+          - label: "Final CTA primary text"
+            name: "finalCtaPrimaryText"
+            widget: "string"
+          - label: "Final CTA primary href"
+            name: "finalCtaPrimaryHref"
+            widget: "string"
+            default: "/join"
+          - label: "Final CTA secondary text"
+            name: "finalCtaSecondaryText"
+            widget: "string"
+            required: false
+          - label: "Final CTA secondary href"
+            name: "finalCtaSecondaryHref"
+            widget: "string"
+            required: false
 
   - name: "join"
     label: "Как стать участником"
