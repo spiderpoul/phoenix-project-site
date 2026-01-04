@@ -1,5 +1,6 @@
 require('dotenv').config();
 const path = require('path');
+const fs = require('fs');
 const ftp = require('basic-ftp');
 
 const {
@@ -15,6 +16,11 @@ if (!FTP_HOST || !FTP_USER || !FTP_PASSWORD || !FTP_REMOTE_DIR) {
 }
 
 const localDir = path.join(process.cwd(), 'out');
+const adminDir = path.join(localDir, 'admin');
+
+if (fs.existsSync(adminDir)) {
+  fs.rmSync(adminDir, { recursive: true, force: true });
+}
 
 async function deploy() {
   const client = new ftp.Client();
