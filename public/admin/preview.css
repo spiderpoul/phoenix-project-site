@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  margin: 0;
+  color: #111827;
+}
+
+.cms-preview {
+  padding: 24px;
+  line-height: 1.6;
+}
+
+.cms-preview h1,
+.cms-preview h2,
+.cms-preview h3 {
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.cms-preview h1 {
+  font-size: 28px;
+}
+
+.cms-preview h2 {
+  font-size: 22px;
+  margin-top: 28px;
+}
+
+.cms-preview h3 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.cms-preview p {
+  margin: 0 0 12px;
+}
+
+.cms-preview ul {
+  margin: 0 0 12px 20px;
+  padding: 0;
+}
+
+.cms-preview li {
+  margin-bottom: 6px;
+}
+
+.cms-preview .muted {
+  color: #6b7280;
+}
+
+.cms-preview .pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.cms-preview .section {
+  padding: 16px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cms-preview .section:first-of-type {
+  border-top: none;
+}
+
+.cms-preview .cta {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #f3f4f6;
+  border-radius: 12px;
+}
