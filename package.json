@@ -8,7 +8,8 @@
     "build": "next build",
     "export": "next export",
     "deploy": "node scripts/deploy.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "basic-ftp": "^5.0.5",

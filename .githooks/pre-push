@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+if [ -z "$FTP_HOST" ]; then
+  echo "FTP_HOST not set; skipping build and deploy."
+  exit 0
+fi
+
+echo "FTP_HOST detected; running build, export, and deploy."
+npm run build
+npm run export
+npm run deploy
