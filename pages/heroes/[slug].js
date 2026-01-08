@@ -49,7 +49,7 @@ export default function HeroPage({ hero, otherHeroes }) {
 
       <main className="mx-auto flex max-w-5xl flex-col gap-12 px-4 py-12">
         <section className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
-           <div className="card flex flex-col gap-6 p-6 pt-14 sm:p-8 sm:pt-16">
+          <div className="card flex flex-col gap-6 p-6 pt-14 sm:p-8 sm:pt-16">
             <div className="flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-br from-ember-500/10 via-white/60 to-sky-500/10 p-6 dark:from-ember-500/20 dark:via-slate-900/40 dark:to-sky-500/20">
               <Image
                 src={hero.photo}
@@ -59,6 +59,17 @@ export default function HeroPage({ hero, otherHeroes }) {
                 className="h-44 w-44 rounded-3xl object-cover ring-4 ring-ember-500/30 shadow-lg shadow-ember-500/20 sm:h-52 sm:w-52"
                 sizes="(min-width: 1024px) 11rem, 11rem"
               />
+              {hero.company && <p className="text-sm text-slate-500 dark:text-slate-300">{hero.company}</p>}
+              <p className="text-center text-base leading-relaxed text-slate-600 dark:text-slate-200">
+                {hero.short_phrase}
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {hero.tags.map((tag) => (
+                  <span key={tag} className="tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
               <h1 className="text-center text-3xl font-semibold text-slate-950 dark:text-white sm:text-4xl">
                 {hero.name}
               </h1>
