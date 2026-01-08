@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { getAllHeroes, getHeroBySlug, parseMarkdown } from '../../lib/content';
@@ -50,10 +51,13 @@ export default function HeroPage({ hero, otherHeroes }) {
         <section className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
           <div className="card flex flex-col gap-6 p-6 pt-14 sm:p-8 sm:pt-16">
             <div className="flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-br from-ember-500/10 via-white/60 to-sky-500/10 p-6 dark:from-ember-500/20 dark:via-slate-900/40 dark:to-sky-500/20">
-              <img
+              <Image
                 src={hero.photo}
                 alt={hero.name}
+                width={176}
+                height={176}
                 className="-mt-12 h-44 w-44 rounded-full object-cover ring-4 ring-ember-500/30 shadow-lg shadow-ember-500/20 sm:h-52 sm:w-52"
+                sizes="(min-width: 1024px) 11rem, 11rem"
               />
               <h1 className="text-center text-3xl font-semibold text-slate-950 dark:text-white sm:text-4xl">
                 {hero.name}
@@ -98,7 +102,14 @@ export default function HeroPage({ hero, otherHeroes }) {
               {otherHeroes.map((item) => (
                 <Link key={item.slug} href={`/heroes/${item.slug}`} className="card card-hover p-4">
                   <div className="flex items-center gap-3">
-                    <img src={item.photo} alt={item.name} className="h-14 w-14 rounded-full object-cover" />
+                    <Image
+                      src={item.photo}
+                      alt={item.name}
+                      width={56}
+                      height={56}
+                      className="h-14 w-14 rounded-2xl object-cover"
+                      sizes="56px"
+                    />
                     <div>
                       <p className="text-sm font-semibold text-slate-900 dark:text-white">{item.name}</p>
                       <p className="text-xs text-slate-500 dark:text-slate-300">{item.company}</p>
