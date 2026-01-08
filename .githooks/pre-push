@@ -8,5 +8,4 @@ fi
 
 echo "FTP_HOST detected; running build, export, and deploy."
 npm run build
-npm run export
 npm run deploy
