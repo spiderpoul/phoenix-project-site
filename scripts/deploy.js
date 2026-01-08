@@ -142,13 +142,20 @@ async function ensureRemoteDir(client, remoteDir, baseDir) {
   await client.cd(baseDir);
 }
 
-async function runPool(items, limit, worker) {
+async function runPool(items, limit, createWorker) {
   const queue = [...items];
   const workers = Array.from({ length: Math.min(limit, queue.length) }, async () => {
-    while (queue.length) {
-      const item = queue.shift();
-      if (!item) return;
-      await worker(item);
+    const worker = await createWorker();
+    try {
+      while (queue.length) {
+        const item = queue.shift();
+        if (!item) return;
+        await worker(item);
+      }
+    } finally {
+      if (typeof worker.close === 'function') {
+        await worker.close();
+      }
     }
   });
   await Promise.all(workers);
@@ -170,6 +177,52 @@ async function deploy() {
   client.ftp.verbose = parseBoolean(FTP_VERBOSE);
   const remoteBase = toPosixPath(FTP_REMOTE_DIR);
   const remoteManifestPath = path.posix.join(remoteBase, manifestName);
+
+  async function createPoolClient() {
+    const poolClient = new ftp.Client();
+    poolClient.ftp.verbose = parseBoolean(FTP_VERBOSE);
+    await poolClient.access({
+      host: FTP_HOST,
+      user: FTP_USER,
+      password: FTP_PASSWORD,
+      secure: false
+    });
+    await poolClient.ensureDir(remoteBase);
+    return poolClient;
+  }
+
+  async function createUploadWorker() {
+    const poolClient = await createPoolClient();
+    const worker = async (relPath) => {
+      const localAbs = path.join(localDir, relPath.split('/').join(path.sep));
+      const remoteAbs = path.posix.join(remoteBase, relPath);
+      const remoteDir = path.posix.dirname(remoteAbs);
+      await ensureRemoteDir(poolClient, remoteDir, remoteBase);
+      await poolClient.uploadFrom(localAbs, remoteAbs);
+    };
+    worker.close = async () => {
+      poolClient.close();
+    };
+    return worker;
+  }
+
+  async function createDeleteWorker() {
+    const poolClient = await createPoolClient();
+    const worker = async (relPath) => {
+      const remoteAbs = path.posix.join(remoteBase, relPath);
+      try {
+        await poolClient.remove(remoteAbs);
+      } catch (error) {
+        if (!isMissingRemoteManifest(error)) {
+          throw error;
+        }
+      }
+    };
+    worker.close = async () => {
+      poolClient.close();
+    };
+    return worker;
+  }
 
   try {
     await client.access({
@@ -230,25 +283,10 @@ async function deploy() {
       return;
     }
 
-    await runPool(toUpload, deployConcurrency, async (relPath) => {
-      const localAbs = path.join(localDir, relPath.split('/').join(path.sep));
-      const remoteAbs = path.posix.join(remoteBase, relPath);
-      const remoteDir = path.posix.dirname(remoteAbs);
-      await ensureRemoteDir(client, remoteDir, remoteBase);
-      await client.uploadFrom(localAbs, remoteAbs);
-    });
+    await runPool(toUpload, deployConcurrency, createUploadWorker);
 
     if (deployDelete && toDelete.length) {
-      await runPool(toDelete, deployConcurrency, async (relPath) => {
-        const remoteAbs = path.posix.join(remoteBase, relPath);
-        try {
-          await client.remove(remoteAbs);
-        } catch (error) {
-          if (!isMissingRemoteManifest(error)) {
-            throw error;
-          }
-        }
-      });
+      await runPool(toDelete, deployConcurrency, createDeleteWorker);
     }
 
     await uploadManifest(client, remoteManifestPath, localManifest);
