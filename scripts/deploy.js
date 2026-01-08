@@ -212,15 +212,16 @@ async function deploy() {
       const remoteDir = path.posix.dirname(remoteAbs);
       const startedAt = Date.now();
       try {
+        const stats = await fs.promises.stat(localAbs);
         console.log(`FTP: preparing upload ${relPath} -> ${remoteAbs}`);
         await ensureRemoteDir(poolClient, remoteDir, remoteBase);
-        console.log(`FTP: uploading ${relPath}`);
+        console.log(`FTP: uploading ${relPath} (${stats.size} bytes)`);
         await poolClient.uploadFrom(localAbs, remoteAbs);
         const elapsedMs = Date.now() - startedAt;
         console.log(`FTP: uploaded ${relPath} in ${elapsedMs}ms`);
       } catch (error) {
         const elapsedMs = Date.now() - startedAt;
-        console.error(`FTP: upload failed ${relPath} after ${elapsedMs}ms`, error);
+        console.error(`FTP: upload failed ${relPath} (${localAbs} -> ${remoteAbs}) after ${elapsedMs}ms`, error);
         throw error;
       }
     };
