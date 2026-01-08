@@ -16,7 +16,8 @@ const {
   DEPLOY_DRY_RUN,
   DEPLOY_CONCURRENCY,
   DEPLOY_MANIFEST_NAME,
-  DEPLOY_IGNORE
+  DEPLOY_IGNORE,
+  FTP_TIMEOUT_MS
 } = process.env;
 
 if (!FTP_HOST || !FTP_USER || !FTP_PASSWORD || !FTP_REMOTE_DIR) {
@@ -30,6 +31,7 @@ const deployFull = parseBoolean(DEPLOY_FULL);
 const deployDelete = DEPLOY_DELETE === undefined ? true : parseBoolean(DEPLOY_DELETE);
 const deployDryRun = parseBoolean(DEPLOY_DRY_RUN);
 const deployConcurrency = Number.parseInt(DEPLOY_CONCURRENCY, 10) || 3;
+const ftpTimeoutMs = Number.parseInt(FTP_TIMEOUT_MS, 10);
 const ignoredBasenames = new Set(['.DS_Store', 'Thumbs.db']);
 const ignoredDirnames = new Set(['admin']);
 
@@ -172,15 +174,26 @@ function logPlan(title, items, limit = 50) {
   }
 }
 
+function applyFtpTimeout(client) {
+  if (Number.isFinite(ftpTimeoutMs) && ftpTimeoutMs > 0) {
+    client.ftp.timeout = ftpTimeoutMs;
+  }
+}
+
 async function deploy() {
   const client = new ftp.Client();
   client.ftp.verbose = parseBoolean(FTP_VERBOSE);
+  applyFtpTimeout(client);
   const remoteBase = toPosixPath(FTP_REMOTE_DIR);
   const remoteManifestPath = path.posix.join(remoteBase, manifestName);
 
   async function createPoolClient() {
     const poolClient = new ftp.Client();
     poolClient.ftp.verbose = parseBoolean(FTP_VERBOSE);
+    if (parseBoolean(FTP_VERBOSE)) {
+      console.log('FTP: opening new pooled connection');
+    }
+    applyFtpTimeout(poolClient);
     await poolClient.access({
       host: FTP_HOST,
       user: FTP_USER,
@@ -197,10 +210,24 @@ async function deploy() {
       const localAbs = path.join(localDir, relPath.split('/').join(path.sep));
       const remoteAbs = path.posix.join(remoteBase, relPath);
       const remoteDir = path.posix.dirname(remoteAbs);
-      await ensureRemoteDir(poolClient, remoteDir, remoteBase);
-      await poolClient.uploadFrom(localAbs, remoteAbs);
+      const startedAt = Date.now();
+      try {
+        console.log(`FTP: preparing upload ${relPath} -> ${remoteAbs}`);
+        await ensureRemoteDir(poolClient, remoteDir, remoteBase);
+        console.log(`FTP: uploading ${relPath}`);
+        await poolClient.uploadFrom(localAbs, remoteAbs);
+        const elapsedMs = Date.now() - startedAt;
+        console.log(`FTP: uploaded ${relPath} in ${elapsedMs}ms`);
+      } catch (error) {
+        const elapsedMs = Date.now() - startedAt;
+        console.error(`FTP: upload failed ${relPath} after ${elapsedMs}ms`, error);
+        throw error;
+      }
     };
     worker.close = async () => {
+      if (parseBoolean(FTP_VERBOSE)) {
+        console.log('FTP: closing pooled connection');
+      }
       poolClient.close();
     };
     return worker;
@@ -275,6 +302,7 @@ async function deploy() {
       : [];
 
     console.log(`Summary: total=${Object.keys(localFiles).length}, upload=${toUpload.length}, skip=${toSkip.length}, delete=${toDelete.length}`);
+    console.log(`Deploy options: concurrency=${deployConcurrency}, delete=${deployDelete}, full=${deployFull}, dryRun=${deployDryRun}, timeoutMs=${Number.isFinite(ftpTimeoutMs) ? ftpTimeoutMs : 'default'}`);
 
     if (deployDryRun) {
       console.log('Dry run enabled; skipping remote operations.');
