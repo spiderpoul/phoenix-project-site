@@ -55,24 +55,22 @@ export default function HeroPage({ hero, otherHeroes }) {
               alt={hero.name}
               width={176}
               height={176}
-              className="h-44 w-44 rounded-3xl object-cover"
+              className="h-44 w-44 rounded-3xl object-cover ring-4 ring-ember-500/30 shadow-lg shadow-ember-500/20 sm:h-52 sm:w-52"
               sizes="(min-width: 1024px) 11rem, 11rem"
             />
             <div>
               <h1 className="text-3xl font-semibold text-slate-900 dark:text-white">{hero.name}</h1>
               {hero.company && <p className="text-sm text-slate-500 dark:text-slate-300">{hero.company}</p>}
-            </div>
-            <p className="text-sm text-slate-600 dark:text-slate-200">{hero.short_phrase}</p>
-            <div className="flex flex-wrap gap-2">
-              {hero.tags.map((tag) => (
-                <span key={tag} className="tag">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="mt-2 flex items-center gap-3 rounded-2xl border border-ember-500/30 bg-ember-500/10 px-4 py-3 text-xs text-ember-600 dark:text-ember-400">
-              <span className="text-base">ϟ</span>
-              <span>Герой книги «Debug выгорания: 50 историй IT-фениксов»</span>
+              <p className="text-center text-base leading-relaxed text-slate-600 dark:text-slate-200">
+                {hero.short_phrase}
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {hero.tags.map((tag) => (
+                  <span key={tag} className="tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-6">
