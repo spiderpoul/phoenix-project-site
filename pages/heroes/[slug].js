@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { getAllHeroes, getHeroBySlug, parseMarkdown } from '../../lib/content';
@@ -49,10 +50,13 @@ export default function HeroPage({ hero, otherHeroes }) {
       <main className="mx-auto flex max-w-5xl flex-col gap-12 px-4 py-12">
         <section className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
           <div className="card flex flex-col items-start gap-4 p-6">
-            <img
+            <Image
               src={hero.photo}
               alt={hero.name}
+              width={176}
+              height={176}
               className="h-44 w-44 rounded-3xl object-cover"
+              sizes="(min-width: 1024px) 11rem, 11rem"
             />
             <div>
               <h1 className="text-3xl font-semibold text-slate-900 dark:text-white">{hero.name}</h1>
@@ -98,7 +102,14 @@ export default function HeroPage({ hero, otherHeroes }) {
               {otherHeroes.map((item) => (
                 <Link key={item.slug} href={`/heroes/${item.slug}`} className="card card-hover p-4">
                   <div className="flex items-center gap-3">
-                    <img src={item.photo} alt={item.name} className="h-14 w-14 rounded-2xl object-cover" />
+                    <Image
+                      src={item.photo}
+                      alt={item.name}
+                      width={56}
+                      height={56}
+                      className="h-14 w-14 rounded-2xl object-cover"
+                      sizes="56px"
+                    />
                     <div>
                       <p className="text-sm font-semibold text-slate-900 dark:text-white">{item.name}</p>
                       <p className="text-xs text-slate-500 dark:text-slate-300">{item.company}</p>

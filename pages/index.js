@@ -4,6 +4,7 @@ import PhoenixAnimation from '../components/PhoenixAnimation';
 import FeaturedHeroes from '../components/FeaturedHeroes';
 import heroesIndex from '../data/heroes-index.json';
 import home from '../content/home.json';
+import phoenixImage from '../public/images/phoenix.png';
 
 export default function Home() {
   const featuredHeroes = [...heroesIndex]
@@ -48,7 +49,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <PhoenixAnimation src="/images/phoenix.png" />
+          <PhoenixAnimation image={phoenixImage} />
         </div>
       </section>
 
