@@ -9,7 +9,7 @@
     "export": "next export",
     "deploy": "node scripts/deploy.js",
     "lint": "next lint",
-    "prepare": "git config core.hooksPath .githooks"
+    "prepare": "husky install"
   },
   "dependencies": {
     "basic-ftp": "^5.0.5",
@@ -25,9 +25,10 @@
     "remark-html": "^16.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "autoprefixer": "^10.4.19",
+    "husky": "^9.1.7",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.7",
-    "@tailwindcss/typography": "^0.5.13"
+    "tailwindcss": "^3.4.7"
   }
 }
