@@ -2,6 +2,7 @@
   "name": "phoenix-project-site",
   "private": true,
   "scripts": {
+    "start": "npm run dev & npm run admin",
     "dev": "next dev",
     "admin": "decap-server --port 8081",
     "prebuild": "node scripts/generate-heroes-index.js && node scripts/generate-sitemap.js",
