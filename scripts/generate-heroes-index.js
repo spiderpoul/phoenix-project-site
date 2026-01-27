@@ -11,6 +11,7 @@ if (!fs.existsSync(heroesDir)) {
 }
 
 const files = fs.readdirSync(heroesDir).filter((file) => file.endsWith('.md'));
+const getSlugFromFile = (file) => path.basename(file, path.extname(file));
 
 const heroes = files
   .map((file) => {
@@ -23,14 +24,14 @@ const heroes = files
     }
 
     return {
-      slug: data.slug,
+      slug: data.slug || getSlugFromFile(file),
       name: data.name,
       photo: data.photo,
-      company: data.company || '',
+      position: data.position || data.company || '',
       short_phrase: data.short_phrase,
       weight: data.weight || 0,
-      tags: data.tags || [],
-      socials: data.socials || [],
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      socials: Array.isArray(data.socials) ? data.socials : [],
       full_story: content
     };
   })

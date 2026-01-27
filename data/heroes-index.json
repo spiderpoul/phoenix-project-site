@@ -1,75 +1,9 @@
 [
   {
-    "slug": "andrey-salkov",
-    "name": "Андрей Сальков",
-    "photo": "/images/uploads/photo_2026-01-27_00-07-50.jpg",
-    "company": "php-разработчик",
-    "short_phrase": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался",
-    "weight": 0,
-    "tags": [],
-    "socials": [
-      {
-        "type": "Telegram",
-        "url": "https://t.me/qualmii"
-      },
-      {
-        "url": "https://t.me/FoxDev_Heart",
-        "type": "FoxDev_Heart"
-      }
-    ],
-    "full_story": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался\n"
-  },
-  {
-    "slug": "ivan-morshagin",
-    "name": "Иван Морщагин",
-    "photo": "/images/uploads/photo_2026-01-27_00-17-35.jpg",
-    "company": "IT-консультант, трекер, организатор хакатонов по ИИ",
-    "short_phrase": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу",
-    "weight": 0,
-    "tags": [],
-    "socials": [
-      {
-        "type": "Telegram",
-        "url": "https://t.me/ivan_mor"
-      },
-      {
-        "url": "https://t.me/It_rebel",
-        "type": "Группа Telegram"
-      },
-      {
-        "url": "https://www.youtube.com/@IvanSkAInet",
-        "type": "YouTube"
-      }
-    ],
-    "full_story": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу\n"
-  },
-  {
-    "slug": "monica-dabas",
-    "name": "Моника Дабас",
-    "photo": "/images/uploads/photo_2026-01-27_00-12-37.jpg",
-    "company": "системный аналитик",
-    "short_phrase": "Я привыкла игнорировать свои желания",
-    "weight": 0,
-    "tags": [
-      "аналитика"
-    ],
-    "socials": [
-      {
-        "url": "https://t.me/lemirka",
-        "type": "Telegram"
-      },
-      {
-        "url": "https://t.me/creative_analytics",
-        "type": "Группа в Telegram"
-      }
-    ],
-    "full_story": "Я привыкла игнорировать свои желания\n"
-  },
-  {
     "slug": "alexandr-krylov",
     "name": "Александр Крылов",
     "photo": "/images/uploads/photo_2026-01-26_23-53-15.jpg",
-    "company": "CPO продукта Штурвал",
+    "position": "CPO продукта Штурвал",
     "short_phrase": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь",
     "weight": 0,
     "tags": [
@@ -96,10 +30,54 @@
     "full_story": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь\n"
   },
   {
-    "slug": "maria-goncharova",
+    "slug": "andrey-salkov",
+    "name": "Андрей Сальков",
+    "photo": "/images/uploads/photo_2026-01-27_00-07-50.jpg",
+    "position": "php-разработчик",
+    "short_phrase": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался",
+    "weight": 0,
+    "tags": [],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/qualmii"
+      },
+      {
+        "url": "https://t.me/FoxDev_Heart",
+        "type": "FoxDev_Heart"
+      }
+    ],
+    "full_story": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался\n"
+  },
+  {
+    "slug": "ivan-morshagin",
+    "name": "Иван Морщагин",
+    "photo": "/images/uploads/photo_2026-01-27_00-17-35.jpg",
+    "position": "IT-консультант, трекер, организатор хакатонов по ИИ",
+    "short_phrase": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу",
+    "weight": 0,
+    "tags": [],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/ivan_mor"
+      },
+      {
+        "url": "https://t.me/It_rebel",
+        "type": "Группа Telegram"
+      },
+      {
+        "url": "https://www.youtube.com/@IvanSkAInet",
+        "type": "YouTube"
+      }
+    ],
+    "full_story": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу\n"
+  },
+  {
+    "slug": "marina-goncharova",
     "name": "Марина Гончарова",
     "photo": "/images/uploads/photo_2026-01-27_00-24-39.jpg",
-    "company": "Старший менеджер IT-проектов, Купер",
+    "position": "Старший менеджер IT-проектов, Купер",
     "short_phrase": "«Проще сделать самой»: роковая фраза, которая остановила карьеру",
     "weight": 0,
     "tags": [
@@ -107,5 +85,27 @@
     ],
     "socials": [],
     "full_story": "«Проще сделать самой»: роковая фраза, которая остановила карьеру\n"
+  },
+  {
+    "slug": "monica-dabas",
+    "name": "Моника Дабас",
+    "photo": "/images/uploads/photo_2026-01-27_00-12-37.jpg",
+    "position": "системный аналитик",
+    "short_phrase": "Я привыкла игнорировать свои желания",
+    "weight": 0,
+    "tags": [
+      "аналитика"
+    ],
+    "socials": [
+      {
+        "url": "https://t.me/lemirka",
+        "type": "Telegram"
+      },
+      {
+        "url": "https://t.me/creative_analytics",
+        "type": "Группа в Telegram"
+      }
+    ],
+    "full_story": "Я привыкла игнорировать свои желания\n"
   }
 ]

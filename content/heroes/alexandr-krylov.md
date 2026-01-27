@@ -2,7 +2,7 @@
 slug: alexandr-krylov
 name: Александр Крылов
 photo: /images/uploads/photo_2026-01-26_23-53-15.jpg
-company: CPO продукта Штурвал
+position: CPO продукта Штурвал
 short_phrase: Как переход в топ-менеджмент заставил меня пересмотреть жизнь
 tags:
   - топ-менеджмент

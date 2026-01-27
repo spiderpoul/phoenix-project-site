@@ -35,6 +35,20 @@ export default function HeroPage({ hero, otherHeroes }) {
   const ogTitle = `${hero.name} — ${hero.short_phrase}`;
   const ogDescription = hero.short_phrase;
   const ogImage = '/images/og-cover.svg';
+  const tags = Array.isArray(hero.tags) ? hero.tags : [];
+  const socials = Array.isArray(hero.socials) ? hero.socials : [];
+
+  const getSocialIcon = (type) => {
+    const icons = {
+      telegram: '✈️',
+      linkedin: '🔗',
+      twitter: '🐦',
+      github: '💻',
+      youtube: '▶️',
+      website: '🌐'
+    };
+    return icons[type?.toLowerCase()] || '🔗';
+  };
 
   return (
     <Layout>
@@ -62,17 +76,33 @@ export default function HeroPage({ hero, otherHeroes }) {
               <h1 className="text-center text-3xl font-semibold text-slate-950 dark:text-white sm:text-4xl">
                 {hero.name}
               </h1>
-              {hero.company && <p className="text-sm text-slate-500 dark:text-slate-300">{hero.company}</p>}
+              {hero.position && <p className="text-sm text-slate-500 dark:text-slate-300">{hero.position}</p>}
               <p className="text-center text-base leading-relaxed text-slate-600 dark:text-slate-200">
                 {hero.short_phrase}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
-                {hero.tags.map((tag) => (
+                {tags.map((tag) => (
                   <span key={tag} className="tag">
                     {tag}
                   </span>
                 ))}
               </div>
+              {socials.length ? (
+                <div className="flex flex-wrap justify-center gap-2">
+                  {socials.map((social) => (
+                    <a
+                      key={`${social.type}-${social.url}`}
+                      href={social.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/80 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-ember-500/60 hover:text-ember-600 dark:border-slate-700/70 dark:bg-slate-950 dark:text-slate-200"
+                    >
+                      <span aria-hidden="true">{getSocialIcon(social.type)}</span>
+                      <span>{social.type || 'Ссылка'}</span>
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="flex flex-col gap-6">
@@ -112,7 +142,7 @@ export default function HeroPage({ hero, otherHeroes }) {
                     />
                     <div>
                       <p className="text-sm font-semibold text-slate-900 dark:text-white">{item.name}</p>
-                      <p className="text-xs text-slate-500 dark:text-slate-300">{item.company}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-300">{item.position}</p>
                     </div>
                   </div>
                   <p className="mt-3 line-clamp-2 text-xs text-slate-600 dark:text-slate-200">{item.short_phrase}</p>

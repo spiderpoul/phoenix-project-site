@@ -2,12 +2,21 @@ import Head from 'next/head';
 import Layout from '../components/Layout';
 import PhoenixAnimation from '../components/PhoenixAnimation';
 import FeaturedHeroes from '../components/FeaturedHeroes';
-import heroesIndex from '../data/heroes-index.json';
 import home from '../content/home.json';
 import phoenixImage from '../public/images/phoenix.png';
+import { getAllHeroes } from '../lib/content';
 
-export default function Home() {
-  const featuredHeroes = [...heroesIndex]
+export async function getStaticProps() {
+  const heroes = getAllHeroes();
+  return {
+    props: {
+      heroes
+    }
+  };
+}
+
+export default function Home({ heroes }) {
+  const featuredHeroes = [...heroes]
     .sort((a, b) => {
       const weightDiff = (b.weight || 0) - (a.weight || 0);
       if (weightDiff !== 0) {
