@@ -77,9 +77,11 @@ export default function HeroPage({ hero, otherHeroes }) {
                 {hero.name}
               </h1>
               {hero.position && (
-                <p className="text-center text-sm text-slate-500 dark:text-slate-300">{hero.position}</p>
+                <p className="whitespace-pre-line text-center text-sm text-slate-500 dark:text-slate-300">
+                  {hero.position}
+                </p>
               )}
-              <p className="text-center text-base leading-relaxed text-slate-600 dark:text-slate-200">
+              <p className="whitespace-pre-line text-center text-base leading-relaxed text-slate-600 dark:text-slate-200">
                 {hero.short_phrase}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
@@ -144,10 +146,14 @@ export default function HeroPage({ hero, otherHeroes }) {
                     />
                     <div>
                       <p className="text-sm font-semibold text-slate-900 dark:text-white">{item.name}</p>
-                      <p className="text-xs text-slate-500 dark:text-slate-300">{item.position}</p>
+                      <p className="whitespace-pre-line text-xs text-slate-500 dark:text-slate-300">
+                        {item.position}
+                      </p>
                     </div>
                   </div>
-                  <p className="mt-3 line-clamp-2 text-xs text-slate-600 dark:text-slate-200">{item.short_phrase}</p>
+                  <p className="mt-3 line-clamp-2 whitespace-pre-line text-xs text-slate-600 dark:text-slate-200">
+                    {item.short_phrase}
+                  </p>
                 </Link>
               ))}
             </div>
