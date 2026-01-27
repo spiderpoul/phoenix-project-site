@@ -99,7 +99,7 @@ export default function HeroesSection({ heroes = [] }) {
           </div>
         </div>
         {filteredHeroes.length ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-6 gap-y-12 pt-10 sm:grid-cols-2 lg:grid-cols-3">
             {filteredHeroes.map((hero) => (
               <HeroCard key={hero.slug} hero={hero} variant="full" />
             ))}
