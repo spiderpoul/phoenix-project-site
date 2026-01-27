@@ -1,7 +1,6 @@
 ---
-slug: alexandr-krylov
 name: Александр Крылов
-photo: /images/uploads/photo_2026-01-26_23-53-15.jpg
+photo: /images/uploads/александр-крылов-преза.jpg
 position: CPO продукта Штурвал
 short_phrase: Как переход в топ-менеджмент заставил меня пересмотреть жизнь
 tags:
@@ -16,6 +15,7 @@ socials:
     url: https://t.me/devopsforlove
   - type: Podcast
     url: https://www.youtube.com/@devopsforlove
+slug: alexandr-krylov
 published: true
 ---
 Как переход в топ-менеджмент заставил меня пересмотреть жизнь
