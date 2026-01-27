@@ -3,7 +3,7 @@ slug: andrey-vazhenin
 name: Андрей Важенин
 photo: /images/heroes/alexei.svg
 position: SRE
-short_phrase: Мои грыжи и разрывы: итоговый лог всех непрожитых мною эмоций
+short_phrase: "Мои грыжи и разрывы: итоговый лог всех непрожитых мною эмоций"
 tags:
   - разработка
 weight: 0
