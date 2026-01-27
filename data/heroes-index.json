@@ -1,138 +1,111 @@
 [
   {
-    "slug": "alexei-volkov",
-    "name": "Алексей Волков",
-    "photo": "/images/heroes/alexei.svg",
-    "company": "QuantumSoft",
-    "short_phrase": "Алексей пересобрал карьеру после выгорания и теперь развивает менторские программы.",
-    "weight": 4,
-    "tags": [
-      "Менторство",
-      "Карьера",
-      "Инженерия"
-    ],
+    "slug": "andrey-salkov",
+    "name": "Андрей Сальков",
+    "photo": "/images/uploads/photo_2026-01-27_00-07-50.jpg",
+    "company": "php-разработчик",
+    "short_phrase": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался",
+    "weight": 0,
+    "tags": [],
     "socials": [
       {
-        "type": "linkedin",
-        "url": "https://linkedin.com/in/alexei-volkov"
+        "type": "Telegram",
+        "url": "https://t.me/qualmii"
       },
       {
-        "type": "github",
-        "url": "https://github.com/avolkov"
+        "url": "https://t.me/FoxDev_Heart",
+        "type": "FoxDev_Heart"
       }
     ],
-    "full_story": "\nАлексей сделал паузу после серии крупных релизов. Он переоценил цели и запустил программы поддержки инженеров, которые помогают держать баланс между скоростью и качеством.\n"
+    "full_story": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался\n"
   },
   {
-    "slug": "anna-rogova",
-    "name": "Анна Рогова",
-    "photo": "/images/heroes/anna.svg",
-    "company": "SkyLabs",
-    "short_phrase": "После двух лет выгорания Анна вернулась в индустрию и построила команду мечты.",
-    "weight": 8,
-    "tags": [
-      "Трансформация",
-      "Лидерство",
-      "Баланс"
-    ],
+    "slug": "ivan-morshagin",
+    "name": "Иван Морщагин",
+    "photo": "/images/uploads/photo_2026-01-27_00-17-35.jpg",
+    "company": "IT-консультант, трекер, организатор хакатонов по ИИ",
+    "short_phrase": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу",
+    "weight": 0,
+    "tags": [],
     "socials": [
       {
-        "type": "telegram",
-        "url": "https://t.me/annaphoenix"
+        "type": "Telegram",
+        "url": "https://t.me/ivan_mor"
       },
       {
-        "type": "linkedin",
-        "url": "https://linkedin.com/in/annaphoenix"
-      }
-    ],
-    "full_story": "\nАнна пережила тяжёлый период выгорания, когда работа перестала приносить радость. Она взяла паузу, пересобрала приоритеты и нашла новый смысл в развитии людей.\n\nСейчас Анна развивает культуру поддержки внутри команды, внедряет практики устойчивости и делится опытом на внутренних митапах.\n"
-  },
-  {
-    "slug": "dmitry-kruglov",
-    "name": "Дмитрий Круглов",
-    "photo": "/images/heroes/dmitry.svg",
-    "company": "DataForge",
-    "short_phrase": "Дмитрий превратил выгорание в личный исследовательский проект и нашёл новый ритм жизни.",
-    "weight": 6,
-    "tags": [
-      "Аналитика",
-      "Осознанность",
-      "Перезапуск"
-    ],
-    "socials": [
-      {
-        "type": "github",
-        "url": "https://github.com/dkruglov"
+        "url": "https://t.me/It_rebel",
+        "type": "Группа Telegram"
       },
       {
-        "type": "website",
-        "url": "https://dkruglov.dev"
+        "url": "https://www.youtube.com/@IvanSkAInet",
+        "type": "YouTube"
       }
     ],
-    "full_story": "\nДмитрий ушёл из продукта, когда понял, что больше не слышит себя. Он собрал карту собственных триггеров, пересмотрел приоритеты и вернулся в IT как исследователь процессов и устойчивости.\n"
+    "full_story": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу\n"
   },
   {
-    "slug": "irina-vasina",
-    "name": "Ирина Васина",
-    "photo": "/images/heroes/irina.svg",
-    "company": "CloudWay",
-    "short_phrase": "Ирина вернулась в разработку после перерыва и сменила стек на более комфортный.",
-    "weight": 7,
+    "slug": "monica-dabas",
+    "name": "Моника Дабас",
+    "photo": "/images/uploads/photo_2026-01-27_00-12-37.jpg",
+    "company": "системный аналитик",
+    "short_phrase": "Я привыкла игнорировать свои желания",
+    "weight": 0,
     "tags": [
-      "Ребут",
-      "Карьера",
-      "Энергия"
+      "аналитика"
     ],
     "socials": [
       {
-        "type": "website",
-        "url": "https://irina.dev"
-      }
-    ],
-    "full_story": "\nИрина делится, как справилась с чувством вины за паузу и почему решила сменить направление. Её история — про мягкий переход, поддержку коллег и честный диалог с собой.\n\nТеперь она помогает новичкам проходить первые шаги в разработке и пишет о профилактике выгорания.\n"
-  },
-  {
-    "slug": "ksenia-morozova",
-    "name": "Ксения Морозова",
-    "photo": "/images/heroes/ksenia.svg",
-    "company": "CloudWave",
-    "short_phrase": "Ксения научилась ставить границы и собрала команду поддержки вокруг себя.",
-    "weight": 5,
-    "tags": [
-      "Дизайн",
-      "Границы",
-      "Комьюнити"
-    ],
-    "socials": [
-      {
-        "type": "telegram",
-        "url": "https://t.me/ksenia_creative"
+        "url": "https://t.me/lemirka",
+        "type": "Telegram"
       },
       {
-        "type": "linkedin",
-        "url": "https://linkedin.com/in/ksenia-creatives"
+        "url": "https://t.me/creative_analytics",
+        "type": "Группа в Telegram"
       }
     ],
-    "full_story": "\nКсения искала баланс между быстрыми релизами и личной жизнью. Теперь она помогает командам внедрять практики устойчивости и бережного взаимодействия.\n"
+    "full_story": "Я привыкла игнорировать свои желания\n"
   },
   {
-    "slug": "sergey-bystrov",
-    "name": "Сергей Быстров",
-    "photo": "/images/heroes/sergey.svg",
-    "company": "NovaTech",
-    "short_phrase": "Сергей ушёл из стартапа, чтобы восстановиться, и вернулся с новым продуктом.",
-    "weight": 6,
+    "slug": "alexandr-krylov",
+    "name": "Александр Крылов",
+    "photo": "/images/uploads/photo_2026-01-26_23-53-15.jpg",
+    "company": "CPO продукта Штурвал",
+    "short_phrase": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь",
+    "weight": 0,
     "tags": [
-      "Стартап",
-      "Переосмысление",
-      "Продукт"
+      "топ-менеджмент"
     ],
     "socials": [
       {
-        "type": "github",
-        "url": "https://github.com/sergeyphoenix"
+        "type": "Telegram",
+        "url": "https://t.me/darkbenladan"
+      },
+      {
+        "type": "K8S сообщество",
+        "url": "https://t.me/+NU1F9DTpHLc3NTQy"
+      },
+      {
+        "type": "DevOpsForLove",
+        "url": "https://t.me/devopsforlove"
+      },
+      {
+        "type": "Podcast",
+        "url": "https://www.youtube.com/@devopsforlove"
       }
     ],
-    "full_story": "\nИстория Сергея — про смелость остановиться и посмотреть на бизнес иначе. В паузе он изучил новые рынки и перезапустил продукт с опорой на здоровье команды.\n\nСейчас его подход строится на уважении к личным границам, а продукт растёт за счёт понятной ценности.\n"
+    "full_story": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь\n"
+  },
+  {
+    "slug": "maria-goncharova",
+    "name": "Марина Гончарова",
+    "photo": "/images/uploads/photo_2026-01-27_00-24-39.jpg",
+    "company": "Старший менеджер IT-проектов, Купер",
+    "short_phrase": "«Проще сделать самой»: роковая фраза, которая остановила карьеру",
+    "weight": 0,
+    "tags": [
+      "управление"
+    ],
+    "socials": [],
+    "full_story": "«Проще сделать самой»: роковая фраза, которая остановила карьеру\n"
   }
 ]
