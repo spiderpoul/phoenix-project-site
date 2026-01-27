@@ -76,7 +76,9 @@ export default function HeroPage({ hero, otherHeroes }) {
               <h1 className="text-center text-3xl font-semibold text-slate-950 dark:text-white sm:text-4xl">
                 {hero.name}
               </h1>
-              {hero.position && <p className="text-sm text-slate-500 dark:text-slate-300">{hero.position}</p>}
+              {hero.position && (
+                <p className="text-center text-sm text-slate-500 dark:text-slate-300">{hero.position}</p>
+              )}
               <p className="text-center text-base leading-relaxed text-slate-600 dark:text-slate-200">
                 {hero.short_phrase}
               </p>
