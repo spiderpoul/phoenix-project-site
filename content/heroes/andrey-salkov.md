@@ -2,8 +2,9 @@
 slug: andrey-salkov
 name: Андрей Сальков
 photo: /images/uploads/photo_2026-01-27_00-07-50.jpg
-company: php-разработчик
+position: php-разработчик
 short_phrase: Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался
+tags: []
 weight: 0
 socials:
   - type: Telegram

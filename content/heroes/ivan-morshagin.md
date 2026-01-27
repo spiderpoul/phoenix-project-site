@@ -2,9 +2,10 @@
 slug: ivan-morshagin
 name: Иван Морщагин
 photo: /images/uploads/photo_2026-01-27_00-17-35.jpg
-company: IT-консультант, трекер, организатор хакатонов по ИИ
+position: IT-консультант, трекер, организатор хакатонов по ИИ
 short_phrase: Пик карьеры как ловушка. Как блестящий рост приводит к
   экзистенциальному коллапсу
+tags: []
 weight: 0
 socials:
   - type: Telegram

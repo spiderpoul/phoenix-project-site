@@ -148,16 +148,16 @@ collections:
     label: "Герои"
     folder: "content/heroes"
     create: true
-    slug: "{{slug}}"
+    slug: "{{name}}"
+    identifier_field: "name"
     format: "frontmatter"
     extension: "md"
     fields:
-      - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Photo", name: "photo", widget: "image" }
-      - { label: "Company", name: "company", widget: "string", required: false }
+      - { label: "Position", name: "position", widget: "string", required: false }
       - { label: "Short phrase", name: "short_phrase", widget: "text" }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Weight", name: "weight", widget: "number", default: 0 }
       - label: "Socials"
         name: "socials"

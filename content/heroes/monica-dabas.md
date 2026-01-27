@@ -2,7 +2,7 @@
 slug: monica-dabas
 name: Моника Дабас
 photo: /images/uploads/photo_2026-01-27_00-12-37.jpg
-company: системный аналитик
+position: системный аналитик
 short_phrase: Я привыкла игнорировать свои желания
 tags:
   - аналитика

@@ -7,11 +7,12 @@ const heroesDir = path.join(process.cwd(), 'content', 'heroes');
 const publicDir = path.join(process.cwd(), 'public');
 
 const files = fs.readdirSync(heroesDir).filter((file) => file.endsWith('.md'));
+const getSlugFromFile = (file) => path.basename(file, path.extname(file));
 const heroes = files
   .map((file) => {
     const fullPath = path.join(heroesDir, file);
     const { data } = matter(fs.readFileSync(fullPath, 'utf8'));
-    return data.published === false ? null : data.slug;
+    return data.published === false ? null : data.slug || getSlugFromFile(file);
   })
   .filter(Boolean);
 

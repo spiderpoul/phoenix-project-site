@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import HeroCard from './HeroCard';
-import heroesIndex from '../data/heroes-index.json';
 
 const unique = (list) => Array.from(new Set(list)).sort();
 
-export default function HeroesSection() {
+export default function HeroesSection({ heroes = [] }) {
   const [query, setQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
-  const [company, setCompany] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
 
   useEffect(() => {
@@ -15,31 +13,31 @@ export default function HeroesSection() {
     return () => clearTimeout(timer);
   }, [query]);
 
-  const companies = useMemo(() => unique(heroesIndex.map((hero) => hero.company).filter(Boolean)), []);
-  const tags = useMemo(() => unique(heroesIndex.flatMap((hero) => hero.tags)), []);
+  const tags = useMemo(
+    () => unique(heroes.flatMap((hero) => (Array.isArray(hero.tags) ? hero.tags : []))),
+    [heroes]
+  );
 
   const filteredHeroes = useMemo(() => {
-    return heroesIndex.filter((hero) => {
+    return heroes.filter((hero) => {
+      const tagsList = Array.isArray(hero.tags) ? hero.tags : [];
       const haystack = [
         hero.name,
-        hero.company,
+        hero.position,
         hero.short_phrase,
-        hero.tags.join(' '),
-        hero.full_story
+        tagsList.join(' '),
+        hero.content
       ]
         .filter(Boolean)
         .join(' ')
         .toLowerCase();
 
       const matchesQuery = debouncedQuery ? haystack.includes(debouncedQuery) : true;
-      const matchesCompany = company ? hero.company === company : true;
-      const matchesTags = selectedTags.length
-        ? selectedTags.every((tag) => hero.tags.includes(tag))
-        : true;
+      const matchesTags = selectedTags.length ? selectedTags.every((tag) => tagsList.includes(tag)) : true;
 
-      return matchesQuery && matchesCompany && matchesTags;
+      return matchesQuery && matchesTags;
     });
-  }, [company, debouncedQuery, selectedTags]);
+  }, [debouncedQuery, heroes, selectedTags]);
 
   const toggleTag = (tag) => {
     setSelectedTags((prev) => (prev.includes(tag) ? prev.filter((item) => item !== tag) : [...prev, tag]));
@@ -47,7 +45,6 @@ export default function HeroesSection() {
 
   const resetFilters = () => {
     setQuery('');
-    setCompany('');
     setSelectedTags([]);
   };
 
@@ -57,34 +54,19 @@ export default function HeroesSection() {
         <div className="flex flex-col gap-3">
           <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Каталог</p>
           <h1 className="section-title">Все герои проекта</h1>
-          <p className="muted max-w-2xl">Поиск работает по имени, компании, тегам и тексту истории.</p>
+          <p className="muted max-w-2xl">Поиск работает по имени, должности, тегам и тексту истории.</p>
         </div>
-        <div className="grid gap-4 rounded-2xl border border-slate-200/60 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/60 md:grid-cols-3">
-          <div className="md:col-span-2">
+        <div className="grid gap-4 rounded-2xl border border-slate-200/60 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/60">
+          <div>
             <label className="text-xs font-semibold uppercase tracking-widest text-slate-500">Поиск</label>
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Имя, компания, тег, фраза"
+              placeholder="Имя, должность, тег, фраза"
               className="mt-2 w-full rounded-xl border border-slate-200/70 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-ember-500/60 dark:border-slate-800/70 dark:bg-slate-950 dark:text-slate-200"
             />
           </div>
           <div>
-            <label className="text-xs font-semibold uppercase tracking-widest text-slate-500">Компания</label>
-            <select
-              value={company}
-              onChange={(event) => setCompany(event.target.value)}
-              className="mt-2 w-full rounded-xl border border-slate-200/70 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-ember-500/60 dark:border-slate-800/70 dark:bg-slate-950 dark:text-slate-200"
-            >
-              <option value="">Все компании</option>
-              {companies.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="md:col-span-3">
             <label className="text-xs font-semibold uppercase tracking-widest text-slate-500">Теги</label>
             <div className="mt-3 flex flex-wrap gap-2">
               {tags.map((tag) => (
