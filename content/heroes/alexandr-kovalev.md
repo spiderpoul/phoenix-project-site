@@ -5,8 +5,7 @@ photo: /images/heroes/alexei.svg
 position: Руководитель группы разработки, Ozon
 short_phrase: Когда тебя любят клиенты и ненавидит твоё здоровье
 tags:
-  - клиенты
-  - здоровье
+  - топ-менеджмент
 weight: 0
 socials:
   - type: Telegram

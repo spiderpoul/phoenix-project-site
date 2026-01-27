@@ -5,8 +5,7 @@ photo: /images/heroes/ksenia.svg
 position: CPO digital, билайн
 short_phrase: Когда утонули три кита, всплыл самозванец
 tags:
-  - самозванец
-  - кризис
+  - топ-менеджмент
 weight: 0
 socials:
   - type: Telegram

@@ -5,8 +5,7 @@ photo: /images/heroes/alexei.svg
 position: SRE
 short_phrase: Мои грыжи и разрывы: итоговый лог всех непрожитых мною эмоций
 tags:
-  - здоровье
-  - эмоции
+  - разработка
 weight: 0
 socials:
   - type: Telegram

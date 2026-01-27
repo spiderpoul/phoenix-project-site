@@ -5,8 +5,7 @@ photo: /images/heroes/alexei.svg
 position: FPGA дизайнер
 short_phrase: Когда архитектура компании – legacy
 tags:
-  - архитектура
-  - legacy
+  - разработка
 weight: 0
 socials:
   - type: Telegram

@@ -5,8 +5,7 @@ photo: /images/heroes/irina.svg
 position: Ведущий бизнес-аналитик, АО "ПравоТех"
 short_phrase: Когда под ногами нет ни одной опоры
 tags:
-  - неопределенность
-  - поддержка
+  - аналитика
 weight: 0
 socials:
   - type: Telegram

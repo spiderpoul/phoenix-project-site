@@ -5,8 +5,7 @@ photo: /images/heroes/alexei.svg
 position: Фронтенд-разработчик, Контур
 short_phrase: Я был слишком занят «чужой» карьерой, чтобы услышать детскую мечту
 tags:
-  - карьера
-  - мечта
+  - разработка
 weight: 0
 socials:
   - type: Telegram

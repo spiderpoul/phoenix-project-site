@@ -5,8 +5,7 @@ photo: /images/heroes/alexei.svg
 position: Старший разработчик систем искусственного интеллекта
 short_phrase: Жадность до результата: в чем опасность системы целей-лестниц
 tags:
-  - цели
-  - результат
+  - разработка
 weight: 0
 socials:
   - type: Telegram

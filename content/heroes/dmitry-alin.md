@@ -5,8 +5,7 @@ photo: /images/heroes/dmitry.svg
 position: Тимлид
 short_phrase: Карьерный лифт сломался между этажами «Скучно» и «Не мое»
 tags:
-  - карьера
-  - поиск себя
+  - топ-менеджмент
 weight: 0
 socials:
   - type: Telegram

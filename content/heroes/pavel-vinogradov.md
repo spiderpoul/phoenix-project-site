@@ -5,8 +5,7 @@ photo: /images/heroes/alexei.svg
 position: Старший разработчик, MPSTATS
 short_phrase: «Вот наймем людей, и всё наладится» – ловушка для ответственных
 tags:
-  - менеджмент
-  - ответственность
+  - разработка
 weight: 0
 socials:
   - type: Telegram

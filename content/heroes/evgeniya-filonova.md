@@ -5,8 +5,7 @@ photo: /images/heroes/ksenia.svg
 position: Middle QA Manual, Dats.Team
 short_phrase: Выгорание – это когда игра становится не в кайф
 tags:
-  - выгорание
-  - мотивация
+  - аналитика
 weight: 0
 socials:
   - type: Telegram

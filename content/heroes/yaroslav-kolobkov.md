@@ -5,8 +5,7 @@ photo: /images/heroes/alexei.svg
 position: Senior frontend developer
 short_phrase: «Решить любой ценой»: как упорство привело в тупик выгорания
 tags:
-  - упорство
-  - выгорание
+  - разработка
 weight: 0
 socials:
   - type: Telegram

@@ -5,8 +5,7 @@ photo: /images/heroes/anna.svg
 position: CEO и арт-директор дизайн-студии [ n u t i c h ]
 short_phrase: За паникой «денег нет!» скрывалось глубокое «я не верю в себя…»
 tags:
-  - тревога
-  - уверенность
+  - топ-менеджмент
 weight: 0
 socials:
   - type: Telegram

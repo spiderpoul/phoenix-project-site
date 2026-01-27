@@ -5,8 +5,7 @@ photo: /images/heroes/ksenia.svg
 position: Директор по продукту в Топвизоре
 short_phrase: Сравнение себя с другими съело меня быстрее дедлайнов
 tags:
-  - сравнение
-  - дедлайны
+  - топ-менеджмент
 weight: 0
 socials:
   - type: Telegram
