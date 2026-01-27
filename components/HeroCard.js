@@ -38,11 +38,13 @@ export default function HeroCard({ hero, variant = 'full' }) {
       </div>
       <div className="mt-6 flex flex-col items-center text-center">
         <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{hero.name}</h3>
-        {hero.position && <p className="text-sm text-slate-500 dark:text-slate-300">{hero.position}</p>}
+        {hero.position && (
+          <p className="whitespace-pre-line text-sm text-slate-500 dark:text-slate-300">{hero.position}</p>
+        )}
       </div>
       <div className="space-y-2 text-sm text-slate-600 dark:text-slate-200">
         <p className="text-xs font-semibold uppercase tracking-widest text-ember-500">О чем история</p>
-        <p className={`${variant === 'compact' ? 'line-clamp-4' : 'line-clamp-5'}`}>
+        <p className={`whitespace-pre-line ${variant === 'compact' ? 'line-clamp-4' : 'line-clamp-5'}`}>
           {hero.short_phrase}
         </p>
       </div>
