@@ -155,7 +155,7 @@ collections:
     fields:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Photo", name: "photo", widget: "image" }
-      - { label: "Position", name: "position", widget: "string", required: false }
+      - { label: "Position", name: "position", widget: "text", required: false }
       - { label: "Short phrase", name: "short_phrase", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Weight", name: "weight", widget: "number", default: 0 }
