@@ -1,7 +1,6 @@
 ---
-slug: alexandr-lebedev
 name: Александр Лебедев
-photo: /images/heroes/alexei.svg
+photo: /images/uploads/photo_2026-01-27_22-21-55.jpg
 position: Старший разработчик систем искусственного интеллекта
 short_phrase: "Жадность до результата: в чем опасность системы целей-лестниц"
 tags:
@@ -14,6 +13,7 @@ socials:
     url: https://t.me/philosphyai
   - type: VK
     url: https://vk.com/hard_work_player
+slug: alexandr-lebedev
 published: true
 ---
 Жадность до результата: в чем опасность системы целей-лестниц

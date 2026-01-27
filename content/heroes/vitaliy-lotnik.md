@@ -1,7 +1,6 @@
 ---
-slug: vitaliy-lotnik
 name: Виталий Лотник
-photo: /images/heroes/alexei.svg
+photo: /images/uploads/photo_2026-01-27_22-22-15.jpg
 position: FPGA дизайнер
 short_phrase: Когда архитектура компании – legacy
 tags:
@@ -14,6 +13,7 @@ socials:
     url: https://t.me/catch_the_tango
   - type: VK
     url: https://vk.com/vlotnik
+slug: vitaliy-lotnik
 published: true
 ---
 Когда архитектура компании – legacy

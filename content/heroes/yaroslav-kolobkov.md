@@ -1,7 +1,6 @@
 ---
-slug: yaroslav-kolobkov
 name: Ярослав Колобков
-photo: /images/heroes/alexei.svg
+photo: /images/uploads/photo_2026-01-27_22-25-40.jpg
 position: Senior frontend developer
 short_phrase: "«Решить любой ценой»: как упорство привело в тупик выгорания"
 tags:
@@ -12,6 +11,7 @@ socials:
     url: https://t.me/Yarisson
   - type: Telegram канал
     url: https://t.me/mythsfer
+slug: yaroslav-kolobkov
 published: true
 ---
 «Решить любой ценой»: как упорство привело в тупик выгорания

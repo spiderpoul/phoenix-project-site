@@ -1,7 +1,6 @@
 ---
-slug: yuliya-fedotova
 name: Юлия Федотова
-photo: /images/heroes/ksenia.svg
+photo: /images/uploads/photo_2026-01-27_22-21-24.jpg
 position: Директор по продукту в Топвизоре
 short_phrase: Сравнение себя с другими съело меня быстрее дедлайнов
 tags:
@@ -14,6 +13,7 @@ socials:
     url: https://t.me/tetya_yulia
   - type: Канал Топвизора
     url: https://t.me/topvisor
+slug: yuliya-fedotova
 published: true
 ---
 Сравнение себя с другими съело меня быстрее дедлайнов

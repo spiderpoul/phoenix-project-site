@@ -1,7 +1,6 @@
 ---
-slug: pavel-vinogradov
 name: Павел Виноградов
-photo: /images/heroes/alexei.svg
+photo: /images/uploads/photo_2026-01-27_22-20-46.jpg
 position: Старший разработчик, MPSTATS
 short_phrase: «Вот наймем людей, и всё наладится» – ловушка для ответственных
 tags:
@@ -16,6 +15,7 @@ socials:
     url: https://t.me/turmag_songs
   - type: VK
     url: https://vk.com/turmagger
+slug: pavel-vinogradov
 published: true
 ---
 «Вот наймем людей, и всё наладится» – ловушка для ответственных
