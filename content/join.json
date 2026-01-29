@@ -112,14 +112,14 @@
     },
     "cta": {
       "primaryLabel": "Оставить заявку",
-      "primaryHref": "https://t.me/phoenix_book",
+      "primaryHref": "https://t.me/julia_uvarova_psy",
       "secondaryLabel": "Задать вопрос",
-      "secondaryHref": "https://t.me/phoenix_book"
+      "secondaryHref": "https://t.me/julia_uvarova_psy"
     }
   },
   "cta": {
     "text": "Написать в Telegram",
-    "href": "https://t.me/phoenix_book"
+    "href": "https://t.me/julia_uvarova_psy"
   },
   "notes": [
     "Можно использовать псевдоним",
