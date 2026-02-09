@@ -1,0 +1,997 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Креативная Россия — лендинг</title>
+  <meta name="description" content="Книга «Креативная Россия: как превратить любовь к культуре и месту в успешный проект» — интервью с героями креативных индустрий с психологическим комментарием." />
+
+  <style>
+    :root{
+      /* ===== Palette: добро и любовь ===== */
+      --bg: #FFF7F1;
+      --paper: #FFFFFF;
+      --text: #1A1716;
+      --muted: #6A5F5B;
+      --line: #F0DDD3;
+
+      --accent: #E4576E;
+      --accent-2: #F39A5A;
+      --accent-ink: #FFFFFF;
+
+      --radius: 14px;
+      --shadow-soft: 0 12px 30px rgba(26,23,22,.07);
+
+      --max: 1160px;
+      --gutter: 24px;
+
+      --h1: clamp(2.2rem, 4.6vw, 3.7rem);
+      --h2: clamp(1.6rem, 2.6vw, 2.35rem);
+      --h3: clamp(1.1rem, 1.4vw, 1.35rem);
+      --p: 1.05rem;
+      --lh: 1.65;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: var(--lh);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    .container{
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    /* Header */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,247,241,.78);
+      border-bottom: 1px solid rgba(240,221,211,.9);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 650;
+      letter-spacing: .2px;
+    }
+    .brand-mark{
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(120% 120% at 20% 10%, rgba(228,87,110,.18), rgba(228,87,110,.03)),
+        radial-gradient(120% 120% at 90% 80%, rgba(243,154,90,.16), rgba(243,154,90,.02));
+      display:grid; place-items:center;
+      color: var(--text);
+      font-weight: 850;
+      font-size: 13px;
+    }
+    nav ul{
+      list-style:none;
+      margin:0; padding:0;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    nav a{
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    nav a:hover{
+      background: rgba(228,87,110,.08);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      font-weight: 650;
+      font-size: 0.95rem;
+      cursor:pointer;
+      background: var(--paper);
+      box-shadow: 0 1px 0 rgba(26,23,22,.04);
+      transition: transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, filter .2s ease;
+      text-decoration:none;
+      user-select:none;
+      white-space: nowrap;
+    }
+    .btn:hover{ text-decoration:none; box-shadow: var(--shadow-soft); }
+    .btn:active{ transform: translateY(1px); }
+    .btn.primary{
+      color: var(--accent-ink);
+      border-color: rgba(228,87,110,.28);
+      background: linear-gradient(135deg, rgba(228,87,110,1), rgba(243,154,90,1));
+      box-shadow: 0 14px 28px rgba(228,87,110,.22);
+    }
+    .btn.primary:hover{
+      filter: saturate(1.02);
+      box-shadow: 0 18px 36px rgba(228,87,110,.26);
+    }
+
+    /* Sections */
+    section{
+      padding: 92px 0;
+      border-top: 1px solid rgba(240,221,211,.85);
+    }
+    section:first-of-type{ border-top: 0; }
+
+    h1{
+      font-size: var(--h1);
+      line-height: 1.05;
+      margin: 16px 0 14px;
+      letter-spacing: -0.02em;
+    }
+    h2{
+      font-size: var(--h2);
+      line-height: 1.12;
+      margin: 0 0 16px;
+      letter-spacing: -0.01em;
+    }
+    h3{
+      font-size: var(--h3);
+      line-height: 1.2;
+      margin: 0 0 10px;
+    }
+    p{
+      font-size: var(--p);
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+    .muted{ color: var(--muted); }
+    .kicker{
+      font-size: 0.88rem;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-size: 0.9rem;
+      border: 1px solid var(--line);
+      background: rgba(255,247,241,.72);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: var(--muted);
+    }
+
+    .card{
+      background: rgba(255,255,255,.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+    }
+    .card-pad{ padding: 22px; }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .grid-4{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .section-head{
+      display:flex;
+      gap: 18px;
+      align-items:flex-end;
+      justify-content:space-between;
+      margin-bottom: 26px;
+      flex-wrap:wrap;
+    }
+    .section-head p{
+      margin:0;
+      max-width: 60ch;
+      color: var(--muted);
+    }
+
+    .item{ padding: 18px; }
+
+    .quote{
+      padding: 22px;
+      border-left: 3px solid rgba(228,87,110,.70);
+      background: rgba(255,255,255,.70);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      margin-top: 18px;
+    }
+    .quote p{ margin: 0; font-size: 1.1rem; }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step{ padding: 18px; }
+    .num{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      display:grid; place-items:center;
+      font-weight: 850;
+      color: var(--text);
+      background:
+        radial-gradient(120% 120% at 20% 15%, rgba(228,87,110,.18), rgba(228,87,110,.03)),
+        radial-gradient(120% 120% at 85% 85%, rgba(243,154,90,.16), rgba(243,154,90,.02)),
+        rgba(255,255,255,.7);
+      margin-bottom: 12px;
+    }
+
+    .price{
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin: 8px 0 14px;
+    }
+    .price strong{
+      font-size: 2.1rem;
+      letter-spacing: -.02em;
+    }
+    .price span{
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    ul.clean{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    ul.clean li{ margin: 8px 0; }
+
+    /* ===== Hero ===== */
+    .hero2{
+      padding: 54px 0 70px;
+      border-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero2::before{
+      content:"";
+      position:absolute;
+      inset: -25%;
+      background:
+        radial-gradient(55% 55% at 16% 18%, rgba(228,87,110,.18), rgba(228,87,110,0) 62%),
+        radial-gradient(52% 52% at 78% 34%, rgba(243,154,90,.18), rgba(243,154,90,0) 62%),
+        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0));
+      transform: rotate(8deg);
+      pointer-events:none;
+    }
+
+    .hero2-inner{
+      position: relative;
+      display:grid;
+      grid-template-columns: 1fr 400px;
+      gap: 28px;
+      align-items: start;
+    }
+    .hero2-left{ padding: 18px 0; }
+
+    .hero2-title{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:baseline;
+      gap: 10px;
+    }
+    .hero2-title .label{
+      font-size: .92rem;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: rgba(255,255,255,.65);
+    }
+    .hero2-lead{
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 62ch;
+    }
+    .hero2-cta{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 18px;
+    }
+    .microcopy{ font-size: .95rem; color: var(--muted); }
+
+    .divider{
+      height: 1px;
+      background: rgba(240,221,211,.95);
+      margin: 18px 0 0;
+    }
+
+    /* ===== Logo placeholder (simple image, no frame, no background) ===== */
+    .logo-slot{
+      width: 400px;           /* desktop width */
+      max-width: 100%;
+      justify-self: end;
+      padding-top: 22px;
+    }
+    .logo-slot img{
+      width: 100%;
+      height: auto;
+      display:block;
+      object-fit: contain;
+    }
+
+    /* ===== Accordion: smooth animation with JS (no <details>) ===== */
+    .faq{
+      display:grid;
+      gap: 10px;
+    }
+    .acc{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .acc-btn{
+      width: 100%;
+      text-align: left;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      padding: 14px 16px;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      color: var(--text);
+      font-weight: 650;
+    }
+    .acc-btn:focus-visible{
+      outline: 0;
+      box-shadow: 0 0 0 4px rgba(228,87,110,.14);
+    }
+    .acc-icon{
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      display:grid;
+      place-items:center;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,247,241,.6);
+      color: var(--muted);
+      transition: transform .22s ease, background .22s ease, color .22s ease;
+    }
+    .acc.is-open .acc-icon{
+      transform: rotate(45deg);
+      background: rgba(228,87,110,.10);
+      color: var(--text);
+    }
+
+    .acc-panel{
+      height: 0;
+      overflow: hidden;
+      transition: height .32s cubic-bezier(.2,.8,.2,1);
+      will-change: height;
+    }
+    .acc-content{
+      padding: 0 16px 14px 16px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .acc-content p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer{
+      padding: 44px 0;
+      border-top: 1px solid rgba(240,221,211,.85);
+      color: var(--muted);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:start;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      nav{ display:none; }
+      .hero2-inner{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-4{ grid-template-columns: 1fr 1fr; }
+      .steps{ grid-template-columns: 1fr 1fr; }
+      .footer-grid{ grid-template-columns: 1fr; }
+
+      .logo-slot{
+        width: min(400px, 100%);
+        justify-self: start;
+        padding-top: 10px;
+      }
+    }
+    @media (max-width: 520px){
+      section{ padding: 72px 0; }
+      .hero2{ padding: 46px 0 62px; }
+      .grid-4{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="На главную">
+          <span class="brand-mark">KR</span>
+          <span>Креативная Россия</span>
+        </a>
+
+        <nav aria-label="Основная навигация">
+          <ul>
+            <li><a href="#about">О книге</a></li>
+            <li><a href="#benefits">Выгоды</a></li>
+            <li><a href="#process">Процесс</a></li>
+            <li><a href="#pricing">Условия</a></li>
+            <li><a href="#team">Команда</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <a class="btn primary" href="https://t.me/kudinman" target="_blank" rel="noopener">Написать в Telegram</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero2" id="top">
+      <div class="container">
+        <div class="hero2-inner">
+          <div class="hero2-left">
+            <div class="hero2-title">
+              <span class="label">Книга-интервью · 30+ героев</span>
+              <span class="label">Союз «Люди. Реки. Лес»</span>
+            </div>
+
+            <h1>Креативная Россия<br/>
+              <span class="muted">как превратить любовь к культуре и месту в успешный проект</span>
+            </h1>
+
+            <p class="hero2-lead">
+              Глубокий и откровенный разговор с героями креативных индустрий: истоки, испытания, преодоление и внутренний «двигатель».
+              Каждое интервью сопровождается психологическим комментарием.
+            </p>
+
+            <div class="hero2-cta">
+              <a class="btn primary" href="https://t.me/kudinman" target="_blank" rel="noopener">Стать героем — написать в Telegram</a>
+              <span class="microcopy">Официально · договор · возможна рассрочка 2–3 платежа</span>
+            </div>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:10px;">
+              <span class="badge">~10 страниц на героя</span>
+              <span class="badge">20 экземпляров участнику</span>
+              <span class="badge">Участие 50 000 ₽</span>
+              <span class="badge">PDF + fb2</span>
+            </div>
+          </div>
+
+          <!-- LOGO: just an image (no background, no frame), desktop width 400px -->
+          <aside class="logo-slot" aria-label="Логотип проекта">
+            <img src="./logo.png" alt="Логотип проекта" />
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">О книге</div>
+            <h2>Не просто сборник интервью — навигатор и источник вдохновения</h2>
+          </div>
+          <p>
+            Мы создаём «живую карту» современного российского креатива, где личный путь, вызовы и психология
+            успеха значат не меньше, чем результат.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card card-pad">
+            <h3>О чём разговор</h3>
+            <p class="muted">
+              Интервью строится вокруг вашего пути: истоки проекта, ключевые сложности, моменты,
+              когда хотелось всё бросить, и то, что помогло пройти через это.
+            </p>
+            <ul class="clean">
+              <li><strong>Истоки:</strong> почему вы начали и что стало точкой отсчёта</li>
+              <li><strong>Испытания:</strong> кризисы, сложности, развилки</li>
+              <li><strong>Преодоление:</strong> решения, сила, опора</li>
+              <li><strong>Внутренний «двигатель»:</strong> ценности, мотивы, вдохновение</li>
+            </ul>
+
+            <div class="quote" role="note" aria-label="Цитата">
+              <p>«Доверие к человеку усиливает доверие к его продукту»</p>
+            </div>
+          </div>
+
+          <div class="card card-pad">
+            <h3>Для кого книга</h3>
+            <div style="display:grid; gap:12px; margin-top: 12px;">
+              <div class="card item" style="background: rgba(255,255,255,.70); box-shadow:none;">
+                <h3 style="margin-bottom:6px;">Ценители и осознанные потребители</h3>
+                <p class="muted">Образованные люди, выбирающие продукты со смыслом, историей и философией.</p>
+              </div>
+              <div class="card item" style="background: rgba(255,255,255,.70); box-shadow:none;">
+                <h3 style="margin-bottom:6px;">Профессиональное сообщество и инвесторы</h3>
+                <p class="muted">Партнёры, журналисты, менеджеры культурных проектов и инвесторы в поиске сильных идей.</p>
+              </div>
+              <div class="card item" style="background: rgba(255,255,255,.70); box-shadow:none;">
+                <h3 style="margin-bottom:6px;">Будущие созидатели</h3>
+                <p class="muted">Люди с идеями, которым нужны примеры и смелость, чтобы начать свой путь.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Выгоды</div>
+            <h2>Участие — инвестиция в личный бренд и «долгую» историю</h2>
+          </div>
+          <p>
+            Вы получаете не только публикацию, а набор активов и инструментов, которые можно использовать
+            для продаж, партнёрств и медийности.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card item">
+            <h3>Материальный артефакт</h3>
+            <p class="muted">От 20 экземпляров солидной книги: продавать, дарить партнёрам, использовать как корпоративный подарок.</p>
+          </div>
+          <div class="card item">
+            <h3>Позиционирование и статус</h3>
+            <p class="muted">Попадание в сообщество креативных лидеров. Упоминание рядом с другими сильными героями.</p>
+          </div>
+          <div class="card item">
+            <h3>Упакованная история</h3>
+            <p class="muted">Профессионально оформленная глава — «визитная карточка» для СМИ и деловых контактов.</p>
+          </div>
+          <div class="card item">
+            <h3>Нетворкинг</h3>
+            <p class="muted">Контакт с другими участниками проекта — формально и неформально.</p>
+          </div>
+          <div class="card item">
+            <h3>Медийность</h3>
+            <p class="muted">Упоминания в материалах продвижения: анонсы, посты, возможные медиапартнёры.</p>
+          </div>
+          <div class="card item">
+            <h3>Наследие</h3>
+            <p class="muted">История в книжном формате живёт дольше, чем пост, и усиливает доверие к вашему делу.</p>
+          </div>
+        </div>
+
+        <div class="card card-pad" style="margin-top: 16px;">
+          <h3>Дополнительно: страница героя + QR-код</h3>
+          <p class="muted" style="margin:0;">
+            Информация о вас размещается в экосистеме проекта. Читатель по QR-коду сможет перейти на вашу страницу
+            и приобрести вашу продукцию или услуги.
+          </p>
+        </div>
+
+        <div style="margin-top: 16px;">
+          <a class="btn primary" href="https://t.me/kudinman" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Процесс</div>
+            <h2>Как проходит работа над главой героя</h2>
+          </div>
+          <p>Спокойно, бережно и профессионально: от доверительной беседы до согласования и издания.</p>
+        </div>
+
+        <div class="steps">
+          <div class="card step">
+            <div class="num">1</div>
+            <h3>Интервью ~ 1 час</h3>
+            <p class="muted">Онлайн-встреча в тёплой обстановке. Юлия мягко ведёт разговор, помогая раскрыть главное.</p>
+          </div>
+          <div class="card step">
+            <div class="num">2</div>
+            <h3>Обработка текста</h3>
+            <p class="muted">Диалог превращается в формат «вопрос — ответ», сохраняя вашу манеру речи.</p>
+          </div>
+          <div class="card step">
+            <div class="num">3</div>
+            <h3>Согласование</h3>
+            <p class="muted">Вы читаете главу дважды: «по ощущениям» и «по деталям». Доводим до сильного результата.</p>
+          </div>
+          <div class="card step">
+            <div class="num">4</div>
+            <h3>Верстка и издание</h3>
+            <p class="muted">Книга выстроена как единое путешествие. Добавляются психологические комментарии.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Условия</div>
+            <h2>Стоимость участия и что входит</h2>
+          </div>
+          <p>Прозрачный пакет: создание главы, издание книги, экземпляры и экспозиция в экосистеме проекта.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card card-pad">
+            <div class="price">
+              <strong>50 000 ₽</strong>
+              <span>участие героя</span>
+            </div>
+
+            <h3>Включено</h3>
+            <ul class="clean">
+              <li>Глубокое авторское интервью</li>
+              <li>Профессиональная обработка и согласование главы</li>
+              <li>Редактура, корректура, верстка, дизайн обложки</li>
+              <li>Печать тиража в профессиональном издательстве</li>
+              <li><strong>20 авторских экземпляров</strong> для использования в продвижении</li>
+              <li>Персональная страница в экосистеме проекта + QR-код</li>
+              <li>Дистрибуция через партнерскую сеть</li>
+            </ul>
+
+            <div style="margin-top: 16px;">
+              <a class="btn primary" href="https://t.me/kudinman" target="_blank" rel="noopener">Стать героем — написать в Telegram</a>
+            </div>
+
+            <p class="muted" style="margin-top: 12px; font-size:.95rem;">
+              Работаем официально. Возможна оплата по счёту или переводом. Рассрочка 2–3 платежа — по договорённости.
+            </p>
+          </div>
+
+          <div class="card card-pad">
+            <h3>Дополнительные условия</h3>
+            <ul class="clean">
+              <li><strong>Не входит:</strong> доставка печатных книг в ваш город (логистика оплачивается отдельно).</li>
+              <li><strong>Самовывоз:</strong> Москва, Санкт-Петербург, Нижний Новгород, Иваново — по договоренности.</li>
+              <li><strong>Доп. экземпляры:</strong> можно заказать перед сдачей в издательство (ориентир ~500 ₽/шт.).</li>
+              <li><strong>Электронная версия:</strong> PDF и fb2. Для героев — промокод на скидку, возможен бесплатный код.</li>
+            </ul>
+
+            <div class="quote" style="margin-top:16px;">
+              <p>Вы инвестируете в сильный рекламный актив — вашу главу — и получаете инструменты для монетизации.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">FAQ</div>
+            <h2>Частые вопросы</h2>
+          </div>
+          <p>Коротко и по делу. Самый быстрый путь — написать в Telegram.</p>
+        </div>
+
+        <!-- Smooth accordion -->
+        <div class="faq" data-accordion>
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Как будет проходить интервью?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Онлайн-встреча (телемост) около 1 часа. Формат — доверительная беседа. Юлия мягко направляет разговор,
+                  чтобы вы раскрыли самое важное, без жёсткого сценария.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Что происходит после интервью?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Мы оформляем диалог в текст «вопрос — ответ» и присылаем вам на согласование.
+                  Рекомендуем вычитать дважды: «по ощущениям» и «по деталям». Доводим до результата, который вам нравится.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Книга будет просто сборником интервью?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Нет. Книга выстроена как единое путешествие: от первых искр идеи к осознанному успеху.
+                  В каждой главе — уникальная история героя + психологический комментарий.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Сколько героев и какой объем главы?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Не менее 30 героев. На каждого — около 10 страниц (объём может варьироваться, главное — пользу и смысл).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Что входит в стоимость 50 000 ₽?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Интервью, обработка и согласование главы, работа над целостностью книги, редактура/корректура/верстка/дизайн,
+                  печать тиража, 20 авторских экземпляров, персональная страница в экосистеме проекта и дистрибуция.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Будет ли договор и как оплачивать участие?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Да, работаем официально (ИП). Можно выставить счёт или принять перевод. Рассрочка 2–3 платежа — по договорённости.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Когда выйдет книга?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Сроки зависят от набора героев. При полном наборе: месяц на интервью и согласования, месяц на написание и сборку книги,
+                  две недели на верстку и около месяца на печать.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              <span>Будет ли электронная книга и как она распространяется?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <div class="acc-content">
+                <p>
+                  Да, планируются PDF и fb2. Герои получат промокод для продажи цифровой версии со скидкой (при необходимости — код на бесплатную копию).
+                  Бумажные книги распространяются участниками и дополнительно через мероприятия и экосистему проекта.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px;">
+          <a class="btn primary" href="https://t.me/kudinman" target="_blank" rel="noopener">Задать вопрос в Telegram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="gap:10px;">
+            <span class="brand-mark">KR</span>
+            <span>Креативная Россия</span>
+          </div>
+          <p class="muted" style="margin-top:10px;">
+            Книга-интервью о героях креативных индустрий России: путь, испытания, преодоление и внутренняя мотивация — с психологическим комментарием.
+          </p>
+          <p class="muted" style="margin:0;">© <span id="year"></span></p>
+        </div>
+
+        <div>
+          <p class="muted" style="margin-top:0;">
+            Навигация: <a href="#about">О книге</a> · <a href="#benefits">Выгоды</a> · <a href="#process">Процесс</a> ·
+            <a href="#pricing">Условия</a> · <a href="#faq">FAQ</a>
+          </p>
+          <p class="muted" style="margin:10px 0 0;">
+            Контакт: <a href="https://t.me/kudinman" target="_blank" rel="noopener">@kudinman</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Smooth accordion animation (height transition)
+    const accordions = document.querySelectorAll('[data-accordion] .acc');
+    const closeOthers = true; // поставить false, если хочешь, чтобы можно было открыть несколько
+
+    function setPanelHeight(acc, open) {
+      const panel = acc.querySelector('.acc-panel');
+      if (!panel) return;
+
+      if (open) {
+        panel.style.height = panel.scrollHeight + 'px';
+        // after transition, set to auto for responsive content
+        panel.addEventListener('transitionend', function onEnd(e){
+          if (e.propertyName !== 'height') return;
+          panel.style.height = 'auto';
+          panel.removeEventListener('transitionend', onEnd);
+        });
+      } else {
+        // if currently auto, lock current height then animate to 0
+        const current = panel.scrollHeight;
+        panel.style.height = current + 'px';
+        // next frame => 0
+        requestAnimationFrame(() => {
+          panel.style.height = '0px';
+        });
+      }
+    }
+
+    accordions.forEach(acc => {
+      const btn = acc.querySelector('.acc-btn');
+      const panel = acc.querySelector('.acc-panel');
+      if (!btn || !panel) return;
+
+      // init
+      panel.style.height = '0px';
+
+      btn.addEventListener('click', () => {
+        const isOpen = acc.classList.contains('is-open');
+
+        if (closeOthers) {
+          accordions.forEach(other => {
+            if (other === acc) return;
+            if (other.classList.contains('is-open')) {
+              other.classList.remove('is-open');
+              other.querySelector('.acc-btn')?.setAttribute('aria-expanded', 'false');
+              setPanelHeight(other, false);
+            }
+          });
+        }
+
+        if (!isOpen) {
+          acc.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+          // set explicit height to animate
+          panel.style.height = panel.scrollHeight + 'px';
+          // then let helper switch to auto after animation
+          panel.addEventListener('transitionend', function onEnd(e){
+            if (e.propertyName !== 'height') return;
+            panel.style.height = 'auto';
+            panel.removeEventListener('transitionend', onEnd);
+          });
+        } else {
+          acc.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          // if auto => lock and collapse
+          const current = panel.scrollHeight;
+          panel.style.height = current + 'px';
+          requestAnimationFrame(() => {
+            panel.style.height = '0px';
+          });
+        }
+      });
+
+      // handle responsive changes while open
+      window.addEventListener('resize', () => {
+        if (!acc.classList.contains('is-open')) return;
+        // if auto, temporarily set to scrollHeight to avoid jump
+        panel.style.height = 'auto';
+      });
+    });
+  </script>
+</body>
+</html>
