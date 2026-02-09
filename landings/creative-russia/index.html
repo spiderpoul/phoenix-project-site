@@ -445,6 +445,38 @@
       gap: 16px;
       align-items:start;
     }
+    .author-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+      gap: 28px;
+      align-items:start;
+    }
+    .author-photo{
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: var(--shadow-soft);
+      display:grid;
+      place-items:center;
+    }
+    .author-photo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+    }
+    .author-details summary{
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+    .author-details summary::marker{
+      color: var(--accent);
+    }
 
     /* Responsive */
     @media (max-width: 980px){
@@ -455,6 +487,8 @@
       .grid-4{ grid-template-columns: 1fr 1fr; }
       .steps{ grid-template-columns: 1fr 1fr; }
       .footer-grid{ grid-template-columns: 1fr; }
+      .author-grid{ grid-template-columns: 1fr; }
+      .author-photo{ width: 200px; height: 200px; }
 
       .logo-slot{
         width: min(400px, 100%);
@@ -744,6 +778,42 @@
       </div>
     </section>
 
+    <!-- Author -->
+    <section id="author">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Автор</div>
+            <h2>О писателе</h2>
+          </div>
+          <p>Коротко о человеке, который бережно раскрывает истории героев.</p>
+        </div>
+
+        <div class="author-grid">
+          <div class="author-photo">
+            <img src="/images/author-placeholder.jpg" alt="Фото Юлии Уваровой" />
+          </div>
+          <div>
+            <h3>Юлия Уварова — психолог, писатель, маркетолог, предприниматель.</h3>
+            <p>Автор четырех книг, одна из которых — «Debug выгорания: истории IT-Фениксов».</p>
+
+            <details class="author-details">
+              <summary>Показать подробнее</summary>
+              <p>
+                Для меня главная ценность — это люди. Я люблю раскрывать красоту людей и доносить их смыслы на широкую аудиторию. Меня вдохновляет творчество. Не верю в «успешный успех», зато верю в настоящие истории — с взлетами и падениями.
+              </p>
+              <p>
+                В своих книгах я раскрываю проекты через доверие к их создателям. Для меня важно показать не только приятные моменты карьеры, но и как человек справился с неудачей или трудным периодом. Это вдохновляет читателей не опускать руки в своей жизни, а также формирует теплое отношение к Героям книги. В этом и есть секрет сильного личного бренда и роста продаж.
+              </p>
+              <p>
+                Я предвкушаю прикоснуться к Героям креативных индустрий и раскрыть красоту их историй и проектов!
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section id="faq">
       <div class="container">
@@ -898,6 +968,14 @@
             Книга-интервью о героях креативных индустрий России: путь, испытания, преодоление и внутренняя мотивация — с психологическим комментарием.
           </p>
           <p class="muted" style="margin:0;">© <span id="year"></span></p>
+          <p class="muted" style="margin-top:10px;">
+            Проект реализуется в рамках объединения «Урбанистический форум» —
+            <a href="https://UrbanConf.ru" target="_blank" rel="noopener">UrbanConf</a>,
+            <a href="https://UrbanConf.ru" target="_blank" rel="noopener">UrbanConf.ru</a>,
+            <a href="https://vk.ru/urbanconf" target="_blank" rel="noopener">VK</a>,
+            а также союза «Люди. Реки. Лес» —
+            <a href="https://vk.ru/ludirekiles" target="_blank" rel="noopener">VK</a>.
+          </p>
         </div>
 
         <div>
