@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import HeroAvatar from './HeroAvatar';
 
 function SocialIcon({ type }) {
   const icons = {
@@ -26,12 +26,11 @@ export default function HeroCard({ hero, variant = 'full' }) {
     >
       <div className="absolute left-1/2 top-0 z-10 flex -translate-x-1/2 -translate-y-[23%] items-center justify-center">
         <div className="rounded-full border border-white bg-white p-1.5 shadow-sm dark:border-slate-900 dark:bg-slate-900">
-          <Image
-            src={hero.photo}
-            alt={hero.name}
-            width={132}
-            height={132}
-            className="h-33 w-33 rounded-full object-cover sm:h-33 sm:w-33"
+          <HeroAvatar
+            name={hero.name}
+            photo={hero.photo}
+            size={132}
+            className="h-33 w-33 rounded-full object-cover text-3xl sm:h-33 sm:w-33"
             sizes="(min-width: 640px) 8.25rem, 8.25rem"
           />
         </div>

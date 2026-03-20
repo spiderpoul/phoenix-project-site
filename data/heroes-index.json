@@ -1,8 +1,34 @@
 [
   {
+    "slug": "alexandr-kovalev",
+    "name": "Александр Ковалёв",
+    "photo": "/images/uploads/photo_2026-01-27_22-23-02.jpg",
+    "position": "Руководитель группы разработки, Ozon",
+    "short_phrase": "Когда тебя любят клиенты и ненавидит твоё здоровье",
+    "weight": 0,
+    "tags": [
+      "топ-менеджмент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/alkov"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/alkovpro"
+      },
+      {
+        "type": "Website",
+        "url": "https://alkov.pro"
+      }
+    ],
+    "full_story": "Когда тебя любят клиенты и ненавидит твоё здоровье\n"
+  },
+  {
     "slug": "alexandr-krylov",
     "name": "Александр Крылов",
-    "photo": "/images/uploads/photo_2026-01-26_23-53-15.jpg",
+    "photo": "/images/uploads/александр-крылов-преза.jpg",
     "position": "CPO продукта Штурвал",
     "short_phrase": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь",
     "weight": 0,
@@ -30,13 +56,105 @@
     "full_story": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь\n"
   },
   {
+    "slug": "alexandr-lebedev",
+    "name": "Александр Лебедев",
+    "photo": "/images/uploads/photo_2026-01-27_22-21-55.jpg",
+    "position": "Старший разработчик систем искусственного интеллекта",
+    "short_phrase": "Жадность до результата: в чем опасность системы целей-лестниц",
+    "weight": 0,
+    "tags": [
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/HardWorkPlayer_2_0"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/philosphyai"
+      },
+      {
+        "type": "VK",
+        "url": "https://vk.com/hard_work_player"
+      }
+    ],
+    "full_story": "Жадность до результата: в чем опасность системы целей-лестниц\n"
+  },
+  {
+    "slug": "andrey-chuyan",
+    "name": "Андрей Чуян",
+    "position": "DevOps-инженер",
+    "short_phrase": "«1+1=11: как DevOps-инженер победил выгорание с помощью семьи и AI»",
+    "weight": 0,
+    "tags": [
+      "devops"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/Andrey_Chuyan"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/IT_Chuyana"
+      }
+    ],
+    "full_story": "«1+1=11: как DevOps-инженер победил выгорание с помощью семьи и AI»\n"
+  },
+  {
+    "slug": "andrey-girin",
+    "name": "Андрей Гирин",
+    "position": "Партнёр | Лидеры изменений",
+    "short_phrase": "«От тебя больше вреда, чем пользы»: фраза, которая запустила мою управленческую трансформацию",
+    "weight": 0,
+    "tags": [
+      "управление"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/AndreiGirin"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/proagilerussia"
+      }
+    ],
+    "full_story": "«От тебя больше вреда, чем пользы»: фраза, которая запустила мою управленческую трансформацию\n"
+  },
+  {
+    "slug": "andrey-gulyaykin",
+    "name": "Андрей Гуляйкин",
+    "photo": "/images/uploads/photo_2026-01-27_22-18-08.jpg",
+    "position": "Фронтенд-разработчик, Контур",
+    "short_phrase": "Я был слишком занят «чужой» карьерой, чтобы услышать детскую мечту",
+    "weight": 0,
+    "tags": [
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/andrew_walker91"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/canicomein"
+      }
+    ],
+    "full_story": "Я был слишком занят «чужой» карьерой, чтобы услышать детскую мечту\n"
+  },
+  {
     "slug": "andrey-salkov",
     "name": "Андрей Сальков",
     "photo": "/images/uploads/photo_2026-01-27_00-07-50.jpg",
     "position": "php-разработчик",
     "short_phrase": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался",
     "weight": 0,
-    "tags": [],
+    "tags": [
+      "разработка"
+    ],
     "socials": [
       {
         "type": "Telegram",
@@ -50,13 +168,213 @@
     "full_story": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался\n"
   },
   {
+    "slug": "andrey-vazhenin",
+    "name": "Андрей Важенин",
+    "photo": "/images/uploads/photo_2026-01-27_22-24-42.jpg",
+    "position": "SRE",
+    "short_phrase": "Мои грыжи и разрывы: итоговый лог всех непрожитых мною эмоций",
+    "weight": 0,
+    "tags": [
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/ag0n1k"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/sahn_der"
+      }
+    ],
+    "full_story": "Мои грыжи и разрывы: итоговый лог всех непрожитых мною эмоций\n"
+  },
+  {
+    "slug": "anna-prokopeva",
+    "name": "Анна Прокопьева",
+    "photo": "/images/uploads/photo_2026-01-27_22-25-16.jpg",
+    "position": "CEO и арт-директор дизайн-студии\n[ n u t i c h ]",
+    "short_phrase": "За паникой «денег нет!» скрывалось глубокое «я не верю в себя…»",
+    "weight": 0,
+    "tags": [
+      "топ-менеджмент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/anna_prokopyeva"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/nutich_life"
+      }
+    ],
+    "full_story": "За паникой «денег нет!» скрывалось глубокое «я не верю в себя…»\n"
+  },
+  {
+    "slug": "anna-shiryaeva",
+    "name": "Анна Ширяева",
+    "position": "Организатор MoscowJS",
+    "short_phrase": "«Я уперлась в потолок, но выше была только я сама»",
+    "weight": 0,
+    "tags": [
+      "сообщество"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/numbingmist"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/it_wildlife"
+      }
+    ],
+    "full_story": "«Я уперлась в потолок, но выше была только я сама»\n"
+  },
+  {
+    "slug": "danila-fokin",
+    "name": "Данила Фокин",
+    "position": "Руководитель направления системного анализа",
+    "short_phrase": "«Выгораю не от нагрузки, а от несостыковки»",
+    "weight": 0,
+    "tags": [
+      "аналитика"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/sotoros"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/fokin_media"
+      }
+    ],
+    "full_story": "«Выгораю не от нагрузки, а от несостыковки»\n"
+  },
+  {
+    "slug": "dmitry-alin",
+    "name": "Дмитрий Алин",
+    "photo": "/images/uploads/photo_2026-01-27_22-23-39.jpg",
+    "position": "Тимлид",
+    "short_phrase": "Карьерный лифт сломался между этажами «Скучно» и «Не мое»",
+    "weight": 0,
+    "tags": [
+      "топ-менеджмент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/raiserspb"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/live_php"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/live_php_news"
+      }
+    ],
+    "full_story": "Карьерный лифт сломался между этажами «Скучно» и «Не мое»\n"
+  },
+  {
+    "slug": "ekaterina-lysenko",
+    "name": "Екатерина Лысенко",
+    "position": "TechProduct",
+    "short_phrase": "Как можно превратиться в «говно» и потерять себя даже в компании мечты",
+    "weight": 0,
+    "tags": [
+      "продукт"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/eslysenko"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/ValueGoalsDDD"
+      }
+    ],
+    "full_story": "Как можно превратиться в «говно» и потерять себя даже в компании мечты\n"
+  },
+  {
+    "slug": "ekaterina-samsonova",
+    "name": "Екатерина Самсонова",
+    "position": "Основатель Grow IT, со-основатель и консультант Convergate",
+    "short_phrase": "«Систему создала я сама»: как жажда строить с нуля приводит и к свободе, и к новым выгораниям",
+    "weight": 0,
+    "tags": [
+      "предпринимательство"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/SEkaterin"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/GrowIT_Samsonova"
+      }
+    ],
+    "full_story": "«Систему создала я сама»: как жажда строить с нуля приводит и к свободе, и к новым выгораниям\n"
+  },
+  {
+    "slug": "evgeniya-filonova",
+    "name": "Евгения Филонова",
+    "photo": "/images/uploads/photo_2026-01-27_22-24-23.jpg",
+    "position": "Middle QA Manual, Dats.Team",
+    "short_phrase": "Выгорание – это когда игра становится не в кайф",
+    "weight": 0,
+    "tags": [
+      "QA"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/Tais_iz_Afin"
+      },
+      {
+        "type": "VK",
+        "url": "https://vk.com/evga_f"
+      }
+    ],
+    "full_story": "Выгорание – это когда игра становится не в кайф\n"
+  },
+  {
+    "slug": "irina-mikhailova",
+    "name": "Ирина Михайлова",
+    "photo": "/images/uploads/photo_2026-01-27_22-26-04.jpg",
+    "position": "Ведущий бизнес-аналитик, АО \"ПравоТех\"",
+    "short_phrase": "Когда под ногами нет ни одной опоры",
+    "weight": 0,
+    "tags": [
+      "аналитика"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/mihailova"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/mihailova_tech"
+      }
+    ],
+    "full_story": "Когда под ногами нет ни одной опоры\n"
+  },
+  {
     "slug": "ivan-morshagin",
     "name": "Иван Морщагин",
     "photo": "/images/uploads/photo_2026-01-27_00-17-35.jpg",
     "position": "IT-консультант, трекер, организатор хакатонов по ИИ",
     "short_phrase": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу",
     "weight": 0,
-    "tags": [],
+    "tags": [
+      "аналитика"
+    ],
     "socials": [
       {
         "type": "Telegram",
@@ -74,6 +392,49 @@
     "full_story": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу\n"
   },
   {
+    "slug": "konstantin-chuykov",
+    "name": "Константин Чуйков",
+    "position": "Автор проекта «Вайб-кодинг по Чуйкову», лидер сообщества Vibe Coding Community, IT-Предприниматель",
+    "short_phrase": "«Я надеялся, что армия поможет вылечить выгорание»",
+    "weight": 0,
+    "tags": [
+      "предпринимательство"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/chuikoff"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/vibe_coding"
+      }
+    ],
+    "full_story": "«Я надеялся, что армия поможет вылечить выгорание»\n"
+  },
+  {
+    "slug": "lena-konkova",
+    "name": "Лена Конькова",
+    "photo": "/images/uploads/photo_2026-01-27_22-22-36.jpg",
+    "position": "CPO digital, билайн",
+    "short_phrase": "Когда утонули три кита, всплыл самозванец",
+    "weight": 0,
+    "tags": [
+      "топ-менеджмент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/pleasury"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/balanciada"
+      }
+    ],
+    "full_story": "Когда утонули три кита, всплыл самозванец\n"
+  },
+  {
     "slug": "marina-goncharova",
     "name": "Марина Гончарова",
     "photo": "/images/uploads/photo_2026-01-27_00-24-39.jpg",
@@ -81,7 +442,7 @@
     "short_phrase": "«Проще сделать самой»: роковая фраза, которая остановила карьеру",
     "weight": 0,
     "tags": [
-      "управление"
+      "топ-менеджмент"
     ],
     "socials": [],
     "full_story": "«Проще сделать самой»: роковая фраза, которая остановила карьеру\n"
@@ -107,5 +468,285 @@
       }
     ],
     "full_story": "Я привыкла игнорировать свои желания\n"
+  },
+  {
+    "slug": "oleg-skiryuk",
+    "name": "Олег Скирюк",
+    "position": "Frontend Team Lead",
+    "short_phrase": "«Выгорание – это индикатор, что ты взял на себя слишком много»",
+    "weight": 0,
+    "tags": [
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/skiryukoleg"
+      }
+    ],
+    "full_story": "«Выгорание – это индикатор, что ты взял на себя слишком много»\n"
+  },
+  {
+    "slug": "pavel-vinogradov",
+    "name": "Павел Виноградов",
+    "photo": "/images/uploads/photo_2026-01-27_22-20-46.jpg",
+    "position": "Старший разработчик, MPSTATS",
+    "short_phrase": "«Вот наймем людей, и всё наладится» – ловушка для ответственных",
+    "weight": 0,
+    "tags": [
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/Turmag"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/ITMagicWorld"
+      },
+      {
+        "type": "Telegram музыка",
+        "url": "https://t.me/turmag_songs"
+      },
+      {
+        "type": "VK",
+        "url": "https://vk.com/turmagger"
+      }
+    ],
+    "full_story": "«Вот наймем людей, и всё наладится» – ловушка для ответственных\n"
+  },
+  {
+    "slug": "rustam-karimov",
+    "name": "Рустам Каримов",
+    "position": "Предприниматель",
+    "short_phrase": "Я променял код на бизнес мечты и погряз в ксерокопиях и тоске",
+    "weight": 0,
+    "tags": [
+      "предпринимательство"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/Rustik_Karimov"
+      }
+    ],
+    "full_story": "Я променял код на бизнес мечты и погряз в ксерокопиях и тоске\n"
+  },
+  {
+    "slug": "sergey-zadorozhny",
+    "name": "Сергей Задорожный",
+    "photo": "/images/uploads/photo_2026-01-27_22-24-01.jpg",
+    "position": "Руководитель Platform Engineering и Enabling Team в банке «Центр-инвест». Техлид, деврел",
+    "short_phrase": "Осознанное выгорание: когда сопротивление – это система",
+    "weight": 0,
+    "tags": [
+      "топ-менеджмент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/SergeySabbath"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/IT_Friday"
+      }
+    ],
+    "full_story": "Осознанное выгорание: когда сопротивление – это система\n"
+  },
+  {
+    "slug": "sonya-lvova",
+    "name": "Соня Львова",
+    "position": "Руководитель ux-редактуры",
+    "short_phrase": "«Ты не выгорел, ты просто хочешь пить»",
+    "weight": 0,
+    "tags": [
+      "контент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/seeuspacecowboy"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/uxw_sobor"
+      }
+    ],
+    "full_story": "«Ты не выгорел, ты просто хочешь пить»\n"
+  },
+  {
+    "slug": "timur-sagitov",
+    "name": "Тимур Сагитов",
+    "position": "основатель онлайн-школы по программированию\n/\nfullstack разработчик на C++, python, typescript",
+    "short_phrase": "Ошибка на 1,5 миллиона: как я перепутал упорство с саморазрушением",
+    "weight": 0,
+    "tags": [
+      "предпринимательство",
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/timfromit"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/sudoteach"
+      }
+    ],
+    "full_story": "Ошибка на 1,5 миллиона: как я перепутал упорство с саморазрушением\n"
+  },
+  {
+    "slug": "vitaliy-lotnik",
+    "name": "Виталий Лотник",
+    "photo": "/images/uploads/photo_2026-01-27_22-22-15.jpg",
+    "position": "FPGA дизайнер",
+    "short_phrase": "Когда архитектура компании – legacy",
+    "weight": 0,
+    "tags": [
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/Amurak"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/catch_the_tango"
+      },
+      {
+        "type": "VK",
+        "url": "https://vk.com/vlotnik"
+      }
+    ],
+    "full_story": "Когда архитектура компании – legacy\n"
+  },
+  {
+    "slug": "vitaliy-myagkov",
+    "name": "Виталий Мягков",
+    "position": "Предприниматель",
+    "short_phrase": "Я выпускал успешных предпринимателей пачками, а сам выгорел",
+    "weight": 0,
+    "tags": [
+      "предпринимательство"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/VitaliiMyagkov"
+      },
+      {
+        "type": "VK личный",
+        "url": "https://vk.com/vmyagkov82"
+      },
+      {
+        "type": "VK бренд",
+        "url": "https://vk.com/vsmyagkov"
+      },
+      {
+        "type": "VK образовательный центр",
+        "url": "https://vk.com/kyrsirzn"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/itservisy"
+      }
+    ],
+    "full_story": "Я выпускал успешных предпринимателей пачками, а сам выгорел\n"
+  },
+  {
+    "slug": "vladimir-pashkovsky",
+    "name": "Владимир Пашковский",
+    "photo": "/images/uploads/photo_2026-01-27_22-23-18.jpg",
+    "position": "Тимлид команды DevOps в компании «Магнит»",
+    "short_phrase": "Как я покупал свою незаменимость сверхурочными и потерял интерес ко всему",
+    "weight": 0,
+    "tags": [
+      "топ-менеджмент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/coolbobah"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/secrets_of_devops"
+      }
+    ],
+    "full_story": "Как я покупал свою незаменимость сверхурочными и потерял интерес ко всему\n"
+  },
+  {
+    "slug": "vladislav-lukashenko",
+    "name": "Владислав Лукашенко",
+    "photo": "/images/uploads/photo_2026-01-27_22-18-58.jpg",
+    "position": "Руководитель SEO и web-аналитики, Тензор",
+    "short_phrase": "Идеальный, но лишний сотрудник: как система уволила того, кто ее наладил",
+    "weight": 0,
+    "tags": [
+      "аналитика"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/vlukashenko"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/vlukaspro"
+      }
+    ],
+    "full_story": "Идеальный, но лишний сотрудник: как система уволила того, кто ее наладил\n"
+  },
+  {
+    "slug": "yaroslav-kolobkov",
+    "name": "Ярослав Колобков",
+    "photo": "/images/uploads/photo_2026-01-27_22-25-40.jpg",
+    "position": "Senior frontend developer",
+    "short_phrase": "«Решить любой ценой»: как упорство привело в тупик выгорания",
+    "weight": 0,
+    "tags": [
+      "разработка"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/Yarisson"
+      },
+      {
+        "type": "Telegram канал",
+        "url": "https://t.me/mythsfer"
+      }
+    ],
+    "full_story": "«Решить любой ценой»: как упорство привело в тупик выгорания\n"
+  },
+  {
+    "slug": "yuliya-fedotova",
+    "name": "Юлия Федотова",
+    "photo": "/images/uploads/photo_2026-01-27_22-21-24.jpg",
+    "position": "Директор по продукту в Топвизоре",
+    "short_phrase": "Сравнение себя с другими съело меня быстрее дедлайнов",
+    "weight": 0,
+    "tags": [
+      "топ-менеджмент"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/x_dogma_x"
+      },
+      {
+        "type": "Продакт тётя Юля",
+        "url": "https://t.me/tetya_yulia"
+      },
+      {
+        "type": "Канал Топвизора",
+        "url": "https://t.me/topvisor"
+      }
+    ],
+    "full_story": "Сравнение себя с другими съело меня быстрее дедлайнов\n"
   }
 ]

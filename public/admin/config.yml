@@ -154,7 +154,7 @@ collections:
     extension: "md"
     fields:
       - { label: "Name", name: "name", widget: "string" }
-      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
       - { label: "Position", name: "position", widget: "text", required: false }
       - { label: "Short phrase", name: "short_phrase", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
