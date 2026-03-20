@@ -1,7 +1,8 @@
 ---
 name: Андрей Чуян
+photo: /images/uploads/photo_2026-03-21_01-09-16.jpg
 position: DevOps-инженер
-short_phrase: '«1+1=11: как DevOps-инженер победил выгорание с помощью семьи и AI»'
+short_phrase: "«1+1=11: как DevOps-инженер победил выгорание с помощью семьи и AI»"
 tags:
   - devops
 weight: 0

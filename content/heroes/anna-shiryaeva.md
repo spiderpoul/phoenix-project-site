@@ -1,5 +1,6 @@
 ---
 name: Анна Ширяева
+photo: /images/uploads/photo_2026-03-21_01-06-30.jpg
 position: Организатор MoscowJS
 short_phrase: «Я уперлась в потолок, но выше была только я сама»
 tags:

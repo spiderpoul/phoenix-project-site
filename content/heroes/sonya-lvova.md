@@ -1,7 +1,8 @@
 ---
 name: Соня Львова
+photo: /images/uploads/photo_2026-03-21_01-09-21.jpg
 position: Руководитель ux-редактуры
-short_phrase: '«Ты не выгорел, ты просто хочешь пить»'
+short_phrase: «Ты не выгорел, ты просто хочешь пить»
 tags:
   - контент
 weight: 0
