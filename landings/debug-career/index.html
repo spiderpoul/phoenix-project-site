@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debug карьеры — Кризисы переходов</title>
+  <style>
+    :root {
+      --bg: #fffdf9;
+      --bg-soft: #fff8f1;
+      --surface: #ffffff;
+      --surface-soft: #fffaf5;
+      --text: #201814;
+      --muted: #70635b;
+      --line: rgba(32, 24, 20, 0.07);
+      --line-accent: rgba(244, 122, 32, 0.14);
+      --accent: #f47a20;
+      --accent-dark: #d6610e;
+      --accent-soft: rgba(244, 122, 32, 0.08);
+      --shadow-sm: 0 10px 28px rgba(67, 31, 6, 0.04);
+      --shadow-md: 0 18px 46px rgba(67, 31, 6, 0.06);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: 1140px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(244,122,32,0.06), transparent 24%),
+        linear-gradient(180deg, #fffdf9 0%, #fff8f2 100%);
+      line-height: 1.62;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin: 0; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+    }
+
+    .section { padding: 48px 0; }
+    .section-sm { padding: 38px 0; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 253, 249, 0.88);
+      border-bottom: 1px solid rgba(32,24,20,0.05);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #ffb66f);
+      box-shadow: 0 0 0 8px rgba(244,122,32,0.10);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(244,122,32,0.18);
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+
+    h1 {
+      font-size: clamp(34px, 4.8vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 690px;
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+      max-width: 820px;
+      text-wrap: balance;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      font-size: clamp(18px, 2vw, 21px);
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .hero { padding: 34px 0 20px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.5fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-media,
+    .card,
+    .step,
+    .price-card,
+    .soft-box,
+    .faq-item,
+    .stat,
+    .phoenix-hero-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-copy,
+    .hero-media {
+      border-radius: 34px;
+    }
+
+    .hero-copy { padding: 42px; }
+
+    .hero-sub {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 720px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 34px;
+    }
+
+    .meta-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      border: 1px solid var(--line-accent);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-media {
+      padding: 18px;
+      display: flex;
+      align-items: stretch;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      min-height: 248px;
+      border-radius: 26px;
+      border: 1px dashed rgba(244,122,32,0.22);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px;
+      color: var(--accent-dark);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+    }
+
+    .card-grid-2,
+    .card-grid-3,
+    .timeline,
+    .conditions-grid,
+    .author-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .timeline { grid-template-columns: repeat(4, 1fr); }
+    .conditions-grid { grid-template-columns: 0.95fr 1.05fr; align-items: start; }
+    .author-grid { grid-template-columns: 240px 1fr; align-items: start; }
+
+    .card,
+    .step,
+    .price-card,
+    .soft-box {
+      border-radius: 26px;
+      padding: 28px;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .rich-text {
+      display: grid;
+      gap: 14px;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .roles-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .role-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line-accent);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .price {
+      font-size: clamp(44px, 5vw, 64px);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--accent-dark);
+      margin: 18px 0 12px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--surface-soft);
+      border: 1px solid rgba(32,24,20,0.05);
+    }
+
+    .check-mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex: 0 0 22px;
+      margin-top: 2px;
+    }
+
+    .qr-note {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(244,122,32,0.08), rgba(255,255,255,0.92));
+      border: 1px solid var(--line-accent);
+    }
+
+    .small-note {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .author-photo {
+      width: 100%;
+      height: 260px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(67, 31, 6, 0.08);
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .author-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .faq-item {
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .faq-button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      padding: 22px 24px;
+      text-align: left;
+      font: inherit;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      cursor: pointer;
+    }
+
+    .faq-button span:last-child {
+      color: var(--accent-dark);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .faq-content {
+      display: none;
+      padding: 0 24px 22px;
+      color: var(--muted);
+    }
+
+    .faq-item.active .faq-content { display: block; }
+
+    .slider-wrap {
+      position: relative;
+      margin-top: 28px;
+      padding-top: 22px;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .slider-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 1px solid var(--line-accent);
+      background: #fff;
+      color: var(--accent-dark);
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .heroes-slider {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(220px, 220px);
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 42px 2px 10px;
+      scrollbar-width: none;
+    }
+
+    .heroes-slider::-webkit-scrollbar { display: none; }
+
+    .phoenix-hero-card {
+      position: relative;
+      padding: 84px 20px 22px;
+      border-radius: 30px;
+      text-align: center;
+      scroll-snap-align: start;
+      min-height: 250px;
+    }
+
+    .phoenix-hero-avatar-wrap {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -34%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .phoenix-hero-avatar-ring {
+      background: #fff;
+      border: 1px solid rgba(32,24,20,0.06);
+      border-radius: 999px;
+      padding: 6px;
+      box-shadow: 0 10px 24px rgba(67,31,6,0.08);
+    }
+
+    .phoenix-hero-avatar,
+    .phoenix-hero-placeholder {
+      width: 108px;
+      height: 108px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      object-fit: cover;
+    }
+
+    .phoenix-hero-placeholder {
+      background: linear-gradient(135deg, rgba(244,122,32,0.16), rgba(244,122,32,0.05));
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+    }
+
+    .phoenix-hero-name {
+      font-size: 20px;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .phoenix-hero-role {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      white-space: pre-line;
+    }
+
+    .cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 36px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, #fff6ee, #ffffff 64%);
+      border: 1px solid var(--line-accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .footer { padding: 0; }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .card-grid-3,
+      .timeline,
+      .conditions-grid,
+      .author-grid { grid-template-columns: 1fr; }
+      .card-grid-2,
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .author-photo { max-width: 340px; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(calc(100% - 28px), var(--container)); }
+      .nav { flex-direction: column; align-items: flex-start; }
+      .nav-links { display: none; }
+      .hero-copy { padding: 30px; }
+      .section { padding: 34px 0; }
+      .section-sm { padding: 28px 0; }
+      .stats,
+      .card-grid-2,
+      .card-grid-3,
+      .timeline { grid-template-columns: 1fr; }
+      .btns { width: 100%; }
+      .btn { width: 100%; }
+      .image-placeholder { min-height: 180px; }
+      .heroes-slider { grid-auto-columns: minmax(210px, 210px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark"></span>
+        <span>Debug карьеры</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">О проекте</a>
+        <a href="#why">Об участии</a>
+        <a href="#forwhom">Для кого</a>
+        <a href="#process">Процесс</a>
+        <a href="#conditions">Условия</a>
+        <a href="#brand">Личный бренд</a>
+        <a href="#author">Об авторе</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary" href="#cta">Стать героем книги</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Книга о выходе из карьерного пепла</div>
+          <h1>Debug карьеры. Кризисы переходов. Истории IT-Фениксов</h1>
+          <p class="lead">Глубокое интервью с героями IT-индустрии (тех. специалистами, менеджерами, тимлидами и основателями бизнеса), которые смогли не застрять в кризисе при переходе с одного карьерного уровня на другой.</p>
+          <div class="hero-sub">
+            <p>Каждое интервью сопровождается психологическим комментарием.</p>
+          </div>
+          <div class="meta-row">
+            <span class="meta-pill">Официально · договор · возможна рассрочка 2–3 платежа</span>
+            <span class="meta-pill">~10 страниц на героя</span>
+            <span class="meta-pill">15 экземпляров участнику</span>
+            <span class="meta-pill">PDF + fb2</span>
+          </div>
+          <div class="btns">
+            <a class="btn btn-primary" href="#cta">Стать героем книги</a>
+            <a class="btn btn-secondary" href="#social-proof">Посмотреть героев прошлого проекта</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="./logo.png" style="width: 400px; height: fit-content;" />
+        </div>
+      </div>
+
+      <div class="container stats">
+        <div class="stat"><span class="stat-value">30</span><p class="muted">реальных историй героев IT-индустрии</p></div>
+        <div class="stat"><span class="stat-value">~10 стр.</span><p class="muted">объём главы на каждого героя</p></div>
+        <div class="stat"><span class="stat-value">15</span><p class="muted">авторских экземпляров участнику</p></div>
+        <div class="stat"><span class="stat-value">85 000 ₽</span><p class="muted">стоимость участия героя</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="eyebrow">О проекте</div>
+        <h2>Почему появилась эта книга</h2>
+        <div class="rich-text">
+          <p>«Синдром Феникса» в психологии — это метафора, описывающая способность человека психологически «возрождаться» после тяжелых кризисов, травм или эмоционального выгорания, становясь сильнее и мудрее.</p>
+          <p>Данная книга призвана стать навигатором и источником уверенности для тех, кто в IT проходит подобные кризисы переходов и стремятся не просто пережить их, а по-настоящему преодолеть. Особенно сейчас, в эпоху сбоя карьерной матрицы, когда старые правила больше не работают, а новый уровень требует другой версии тебя.</p>
+          <p>Мы собрали 30 реальных историй героев, квалифицированных IT-специалистов о страхах, провалах и переломных моментах в карьере, анализе ошибок, адаптации к новым условиям — и о том, как из этого выбираются, чтобы расти дальше.</p>
+          <p><strong>Это не советы. Это опыт с конкретными рекомендациями.</strong></p>
+          <p>В фокусе: практические навыки, управленческие принципы, инструменты и ключевые решения, которые позволяют преодолеть кризисные периоды при смене карьерного уровня — от специалиста к руководителю команды и дальше к собственному бизнесу.</p>
+        </div>
+        <div class="roles-row">
+          <span class="role-pill">Dev</span>
+          <span class="role-pill">QA</span>
+          <span class="role-pill">PM</span>
+          <span class="role-pill">Design</span>
+          <span class="role-pill">Founders</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="why">
+      <div class="container">
+        <div class="eyebrow">Об участии</div>
+        <h2>Для героев книги участие в проекте — это инвестиция в личный бренд и «долгую» историю</h2>
+        <p class="lead">Вы получаете не только публикацию, а набор активов и инструментов, которые можно использовать для продаж, партнёрств и медийности.</p>
+        <div class="card-grid-3" style="margin-top: 24px;">
+          <article class="card"><div class="icon">1</div><h3>Книга делает вас видимым для крупных работодателей</h3><p class="muted">Крупные компании ищут тех, кому уже доверяют. Участие в книге — это публичный актив, который работает на вас 24/7. Вас начинают искать сами, а не вы их.</p></article>
+          <article class="card"><div class="icon">2</div><h3>Книга доказывает вашу экспертизу и зрелость</h3><p class="muted">На senior, lead и C-level позициях решения о найме принимаются на основе доверия. Ваша история в книге — доказательство того, что вы прошли через кризисы, сделали выводы и стали сильнее.</p></article>
+          <article class="card"><div class="icon">3</div><h3>Книга делает личный бренд за вас</h3><p class="muted">Один раз даёте интервью — получаете готовый, изданный актив, который годами работает на ваш бренд. Её можно показывать партнёрам, рекрутерам, использовать в переговорах.</p></article>
+          <article class="card"><div class="icon">4</div><h3>Книга становится вашим социальным доказательством</h3><p class="muted">Потенциальные клиенты на менторинг/курсы видят вас как признанного эксперта ещё до первого диалога. Это увеличивает доверие и конверсию в платные заявки.</p></article>
+          <article class="card"><div class="icon">5</div><h3>Книга объединяет с 30 такими же героями</h3><p class="muted">Это закрытое сообщество равных, которое перерастает в совместные проекты, партнёрства, переходы в сильные команды и взаимные рекомендации.</p></article>
+          <article class="card"><div class="icon">6</div><h3>Книга даёт готовую публикацию без выгорания от написания</h3><p class="muted">Вы видите, как устроен издательский проект изнутри, и получаете статус «я в книге», который работает на вас.</p></article>
+          <article class="card"><div class="icon">7</div><h3>Книга делает вашу историю навигатором для других</h3><p class="muted">Вы помогаете изменить культуру IT — туда, где о сложном говорят открыто, а не шепотом.</p></article>
+        </div>
+        <div class="qr-note">
+          <h3>Дополнительно: страница героя + QR-код</h3>
+          <p class="muted">Информация о вас размещается в экосистеме проекта. Читатель по QR-коду прямо из книги сможет перейти на вашу страницу, ознакомиться с вашим резюме, приобрести ваши услуги.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="forwhom">
+      <div class="container">
+        <div class="eyebrow">Для кого</div>
+        <h2>Кому подойдёт участие в книге</h2>
+        <div class="card-grid-3" style="margin-top: 24px;">
+          <article class="card"><div class="icon">01</div><h3>Вы хотите ускорить карьерный рост</h3><p class="muted">Получить вакансию своей мечты и расти по карьерной лестнице осознанно.</p></article>
+          <article class="card"><div class="icon">02</div><h3>Вам уже нужна не только экспертиза, но и репутация</h3><p class="muted">Одних навыков становится недостаточно, когда следующий шаг требует доверия к имени.</p></article>
+          <article class="card"><div class="icon">03</div><h3>Нужно развивать личный бренд без блога на износ</h3><p class="muted">Вы понимаете ценность публичности, но не хотите жить в режиме бесконечных постов.</p></article>
+          <article class="card"><div class="icon">04</div><h3>Вы продаёте экспертные услуги</h3><p class="muted">Коучинг, консалтинг или менторинг требуют дополнительного социального доказательства.</p></article>
+          <article class="card"><div class="icon">05</div><h3>Не хватает сильного окружения равных</h3><p class="muted">Проходить сложные карьерные этапы в одиночку тяжелее, чем внутри сильного круга.</p></article>
+          <article class="card"><div class="icon">06</div><h3>Вы давно хотели оказаться в книге</h3><p class="muted">Но писать свою самостоятельно — слишком долго, тяжело или просто не до этого.</p></article>
+          <article class="card"><div class="icon">07</div><h3>Важно оставить след и быть полезным другим</h3><p class="muted">Хочется, чтобы ваш опыт помогал тем, кто прямо сейчас проходит свой кризис.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="eyebrow">Процесс</div>
+        <h2>Как проходит работа над главой героя</h2>
+        <p class="lead">Спокойно, бережно и профессионально: от доверительной беседы до согласования и издания.</p>
+        <div class="timeline" style="margin-top: 24px;">
+          <article class="step"><div class="step-number">1</div><h3>Интервью ~ 1 час</h3><p class="muted">Онлайн-встреча в тёплой обстановке. Юлия мягко ведёт разговор, помогая раскрыть главное.</p></article>
+          <article class="step"><div class="step-number">2</div><h3>Обработка текста</h3><p class="muted">Диалог превращается в формат «вопрос — ответ», сохраняя вашу манеру речи.</p></article>
+          <article class="step"><div class="step-number">3</div><h3>Согласование</h3><p class="muted">Вы читаете главу дважды: «по ощущениям» и «по деталям». Доводим до сильного результата.</p></article>
+          <article class="step"><div class="step-number">4</div><h3>Верстка и издание</h3><p class="muted">Книга выстроена как единое путешествие. Добавляются психологические комментарии для читателя.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="conditions">
+      <div class="container conditions-grid">
+        <div class="price-card">
+          <div class="eyebrow">Условия</div>
+          <h2>Стоимость участия и что входит</h2>
+          <p class="muted">Прозрачный пакет: создание главы, издание книги, экземпляры и экспозиция в экосистеме проекта.</p>
+          <div class="price">85 000 ₽</div>
+          <p class="muted">участие героя</p>
+          <div class="btns" style="margin-top: 24px;">
+            <a class="btn btn-primary" href="#cta">Оставить заявку</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Включено</h3>
+          <div class="check-list">
+            <div class="check-item"><span class="check-mark">✓</span><div>Глубокое авторское интервью</div></div>
+            <div class="check-item"><span class="check-mark">✓</span><div>Профессиональная обработка и согласование главы</div></div>
+            <div class="check-item"><span class="check-mark">✓</span><div>Редактура, корректура, верстка, дизайн обложки</div></div>
+            <div class="check-item"><span class="check-mark">✓</span><div>Печать тиража в профессиональном издательстве</div></div>
+            <div class="check-item"><span class="check-mark">✓</span><div>15 авторских экземпляров для использования в продвижении</div></div>
+            <div class="check-item"><span class="check-mark">✓</span><div>Персональная страница в экосистеме проекта + QR-код</div></div>
+            <div class="check-item"><span class="check-mark">✓</span><div>Дистрибуция через партнерскую сеть</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="extra">
+      <div class="container">
+        <div class="eyebrow">Дополнительные условия</div>
+        <h2>Организационные детали участия</h2>
+        <div class="card-grid-3" style="margin-top: 24px;">
+          <article class="card"><div class="icon">01</div><h3>Получение экземпляров книги</h3><p class="muted">Самовывоз в Москве — вы можете забрать свои авторские экземпляры лично.</p><p class="small-note">Доставка в другие города возможна транспортными компаниями за счёт получателя. Доставка печатных книг в ваш город не входит в стоимость участия.</p></article>
+          <article class="card"><div class="icon">02</div><h3>Продажа книги</h3><p class="muted">Книга будет представлена на всех крупных маркетплейсах страны.</p></article>
+          <article class="card"><div class="icon">03</div><h3>Условия участия</h3><p class="muted">20% от стоимости участия — это невозвратный организационный сбор. Он фиксирует ваше место в проекте и позволяет нам сразу запускать работу.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="brand">
+      <div class="container">
+        <div class="eyebrow">Как книга работает на ваш личный бренд</div>
+        <h2>Личный бренд, который работает дольше одной публикации</h2>
+        <div class="card-grid-2" style="margin-top: 24px;">
+          <article class="card"><h3>Книга выходит в крупном издательстве</h3><p class="muted">Издательство организует стенды на крупнейших IT-конференциях. Книга представлена там, где собираются тысячи специалистов, рекрутеры и лидеры индустрии.</p></article>
+          <article class="card"><h3>Вашу историю увидят, даже если не купят книгу</h3><p class="muted">Человек может пройти мимо стенда, взять книгу в руки, полистать — и увидеть вашу историю. Ваше имя и опыт фиксируются в сознании потенциального работодателя, партнёра или клиента, даже без покупки книги.</p></article>
+          <article class="card"><h3>Вы присутствуете на конференциях, где вас нет</h3><p class="muted">Книга работает как ваше цифровое присутствие. Пока вы на своём месте, ваша история уже представлена на ключевых отраслевых событиях.</p></article>
+          <article class="card"><h3>Личные презентации в Москве</h3><p class="muted">Для героев книги будут организованы специальные презентационные мероприятия. Вы сможете присутствовать лично, показать себя, пообщаться с аудиторией, привлечь дополнительное внимание к своему бренду и установить живые контакты.</p></article>
+        </div>
+        <div class="soft-box" style="margin-top: 20px;">
+          <h3>О вас расскажут 30 сильных экспертов</h3>
+          <p class="muted">Все участники проекта расскажут о своём участии в своих блогах и на своих ресурсах. Вы получите упоминания в сообществах других топ-специалистов — это дополнительный охват и доверие через рекомендацию равных. И конечно, вы сами сможете рассказать в своём блоге о том, что участвуете в таком проекте, укрепляя свой статус и привлекая внимание к своей экспертизе.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="social-proof">
+      <div class="container">
+        <div class="eyebrow">Герои книги</div>
+        <h2>Герои прошлого проекта Debug выгорания</h2>
+        <div class="slider-wrap">
+          <div class="slider-controls">
+            <button class="slider-btn" type="button" aria-label="Прокрутить влево" data-slider-prev>←</button>
+            <button class="slider-btn" type="button" aria-label="Прокрутить вправо" data-slider-next>→</button>
+          </div>
+          <div class="heroes-slider" id="heroes-slider">
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/александр-крылов-преза.jpg" alt="Александр Крылов" /></div></div><div class="phoenix-hero-name">Александр Крылов</div><div class="phoenix-hero-role">CPO продукта Штурвал</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-24-01.jpg" alt="Сергей Задорожный" /></div></div><div class="phoenix-hero-name">Сергей Задорожный</div><div class="phoenix-hero-role">Руководитель Platform Engineering и Enabling Team в банке «Центр-инвест». Техлид, деврел</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-23-02.jpg" alt="Александр Ковалёв" /></div></div><div class="phoenix-hero-name">Александр Ковалёв</div><div class="phoenix-hero-role">Руководитель группы разработки, Ozon</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_00-24-39.jpg" alt="Марина Гончарова" /></div></div><div class="phoenix-hero-name">Марина Гончарова</div><div class="phoenix-hero-role">Старший менеджер IT-проектов, Купер</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-16.jpg" alt="Андрей Чуян" /></div></div><div class="phoenix-hero-name">Андрей Чуян</div><div class="phoenix-hero-role">DevOps-инженер</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-01.jpg" alt="Андрей Гирин" /></div></div><div class="phoenix-hero-name">Андрей Гирин</div><div class="phoenix-hero-role">Партнёр | Лидеры изменений</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-13.jpg" alt="Иван Морщагин" /></div></div><div class="phoenix-hero-name">Иван Морщагин</div><div class="phoenix-hero-role">IT-консультант, трекер, организатор хакатонов по ИИ</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-22-15.jpg" alt="Тимур Сагитов" /></div></div><div class="phoenix-hero-name">Тимур Сагитов</div><div class="phoenix-hero-role">Основатель онлайн-школы по программированию / fullstack разработчик на C++, python, typescript</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-21.jpg" alt="Соня Львова" /></div></div><div class="phoenix-hero-name">Соня Львова</div><div class="phoenix-hero-role">Руководитель ux-редактуры</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-21-55.jpg" alt="Александр Лебедев" /></div></div><div class="phoenix-hero-name">Александр Лебедев</div><div class="phoenix-hero-role">Старший разработчик систем искусственного интеллекта</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-18-08.jpg" alt="Андрей Гуляйкин" /></div></div><div class="phoenix-hero-name">Андрей Гуляйкин</div><div class="phoenix-hero-role">Фронтенд-разработчик, Контур</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_00-07-50.jpg" alt="Андрей Сальков" /></div></div><div class="phoenix-hero-name">Андрей Сальков</div><div class="phoenix-hero-role">php-разработчик</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-24-42.jpg" alt="Андрей Важенин" /></div></div><div class="phoenix-hero-name">Андрей Важенин</div><div class="phoenix-hero-role">SRE</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-25-16.jpg" alt="Анна Прокопьева" /></div></div><div class="phoenix-hero-name">Анна Прокопьева</div><div class="phoenix-hero-role">CEO и арт-директор дизайн-студии
+[ n u t i c h ]</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-07.jpg" alt="Данила Фокин" /></div></div><div class="phoenix-hero-name">Данила Фокин</div><div class="phoenix-hero-role">Руководитель направления системного анализа</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/heroes/dmitry-alin" alt="Дмитрий Алин" /></div></div><div class="phoenix-hero-name">Дмитрий Алин</div><div class="phoenix-hero-role">Тимлид</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-25.jpg" alt="Екатерина Лысенко" /></div></div><div class="phoenix-hero-name">Екатерина Лысенко</div><div class="phoenix-hero-role">TechProduct</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-24-23.jpg" alt="Екатерина Самсонова" /></div></div><div class="phoenix-hero-name">Екатерина Самсонова</div><div class="phoenix-hero-role">Основатель Grow IT, со-основатель и консультант Convergate</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-26-04.jpg" alt="Евгения Филонова" /></div></div><div class="phoenix-hero-name">Евгения Филонова</div><div class="phoenix-hero-role">Middle QA Manual, Dats.Team</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-26-04.jpg" alt="Ирина Михайлова" /></div></div><div class="phoenix-hero-name">Ирина Михайлова</div><div class="phoenix-hero-role">Ведущий бизнес-аналитик, АО «ПравоТех»</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-13.jpg" alt="Константин Чуйков" /></div></div><div class="phoenix-hero-name">Константин Чуйков</div><div class="phoenix-hero-role">Автор проекта «Вайб-кодинг по Чуйкову», лидер сообщества Vibe Coding Community, IT-предприниматель</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-22-36.jpg" alt="Лена Конькова" /></div></div><div class="phoenix-hero-name">Лена Конькова</div><div class="phoenix-hero-role">CPO digital, билайн</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_00-12-37.jpg" alt="Моника Дабас" /></div></div><div class="phoenix-hero-name">Моника Дабас</div><div class="phoenix-hero-role">системный аналитик</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-10.jpg" alt="Олег Скирюк" /></div></div><div class="phoenix-hero-name">Олег Скирюк</div><div class="phoenix-hero-role">Frontend Team Lead</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-20-46.jpg" alt="Павел Виноградов" /></div></div><div class="phoenix-hero-name">Павел Виноградов</div><div class="phoenix-hero-role">Старший разработчик, MPSTATS</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-09-23.jpg" alt="Рустам Каримов" /></div></div><div class="phoenix-hero-name">Рустам Каримов</div><div class="phoenix-hero-role">Предприниматель</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-22-15.jpg" alt="Виталий Лотник" /></div></div><div class="phoenix-hero-name">Виталий Лотник</div><div class="phoenix-hero-role">FPGA дизайнер</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-03-21_01-08-58.jpg" alt="Виталий Мягков" /></div></div><div class="phoenix-hero-name">Виталий Мягков</div><div class="phoenix-hero-role">Предприниматель</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-23-18.jpg" alt="Владимир Пашковский" /></div></div><div class="phoenix-hero-name">Владимир Пашковский</div><div class="phoenix-hero-role">Тимлид команды DevOps в компании «Магнит»</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-18-58.jpg" alt="Владислав Лукашенко" /></div></div><div class="phoenix-hero-name">Владислав Лукашенко</div><div class="phoenix-hero-role">Руководитель SEO и web-аналитики, Тензор</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-25-40.jpg" alt="Ярослав Колобков" /></div></div><div class="phoenix-hero-name">Ярослав Колобков</div><div class="phoenix-hero-role">Senior frontend developer</div></article>
+            <article class="phoenix-hero-card"><div class="phoenix-hero-avatar-wrap"><div class="phoenix-hero-avatar-ring"><img class="phoenix-hero-avatar" src="https://phoenix-book.julove-coach.ru/images/uploads/photo_2026-01-27_22-21-24.jpg" alt="Юлия Федотова" /></div></div><div class="phoenix-hero-name">Юлия Федотова</div><div class="phoenix-hero-role">Директор по продукту в Топвизоре</div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="author">
+      <div class="container author-grid">
+        <div class="author-photo"><img src="https://julove-coach.ru/wp-content/uploads/2025/01/1-61-scaled.jpg" alt="Юлия Уварова" /></div>
+        <div class="card">
+          <div class="eyebrow">Об авторе</div>
+          <h2>Юлия Уварова</h2>
+          <div class="rich-text">
+            <p>IT-психолог, автор книги «Debug выгорания: истории IT-Фениксов», автор подкаста «Debug карьеры», ех-разработчик (9 лет опыта).</p>
+            <p>Выступала с докладами по soft skills на Merge, Стачке, HolyJS, КаргоКульт, Summer Merge, MoscowJS.</p>
+            <p>Вела нетворкинг на MoscowJS.</p>
+            <p>Блог с подкастами, записями докладов: @julia_uvarova_psy_cab</p>
+            <p>Личный контакт: @julia_uvarova_psy</p>
+          </div>
+          <div class="soft-box" style="margin-top: 22px;">
+            <p>Для меня главная ценность — это люди. Я люблю раскрывать красоту людей и доносить их смыслы на широкую аудиторию. Меня вдохновляет творчество. Не верю в «успешный успех», зато верю в настоящие истории — с взлетами и падениями.</p>
+            <p style="margin-top:12px;">В своих книгах я раскрываю людей через доверие. Для меня важно показать не только приятные моменты карьеры, но и как человек справился с неудачей или трудным периодом. Это вдохновляет читателей не опускать руки в своей жизни, а также формирует теплое отношение к Героям книги. В этом и есть секрет сильного личного бренда и роста продаж.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" id="faq">
+      <div class="container">
+        <div class="eyebrow">Частые вопросы</div>
+        <h2>FAQ</h2>
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-button" type="button"><span>Как будет проходить интервью?</span><span>+</span></button>
+            <div class="faq-content">Онлайн-встреча (телемост) около 1 часа. Формат — доверительная беседа. Юлия мягко направляет разговор, чтобы вы раскрыли самое важное, без жёсткого сценария.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Что происходит после интервью?</span><span>+</span></button>
+            <div class="faq-content">Мы оформляем диалог в текст «вопрос — ответ» и присылаем вам на согласование. Рекомендуем вычитать дважды: «по ощущениям» и «по деталям». Доводим до результата, который вам нравится.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Книга будет просто сборником интервью?</span><span>+</span></button>
+            <div class="faq-content">Нет. Книга выстроена как единое путешествие: от трудностей к осознанному успеху. В каждой главе — уникальная история героя + психологический комментарий для читателя.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Сколько героев и какой объем главы?</span><span>+</span></button>
+            <div class="faq-content">Не менее 30 героев. На каждого — около 10 страниц (объём может варьироваться, главное — пользу и смысл).</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Что входит в стоимость участия?</span><span>+</span></button>
+            <div class="faq-content">Интервью, обработка и согласование главы, работа над целостностью книги, редактура/корректура/верстка/дизайн, печать тиража, 15 авторских экземпляров, персональная страница в экосистеме проекта и дистрибуция.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Будет ли договор и как оплачивать участие?</span><span>+</span></button>
+            <div class="faq-content">Да, работаем официально (ИП). Можно выставить счёт или принять перевод. Рассрочка 2–3 платежа — по договорённости.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" type="button"><span>Когда выйдет книга?</span><span>+</span></button>
+            <div class="faq-content">Сроки зависят от набора героев. При полном наборе: месяц на интервью и согласования, два месяца на написание и сборку книги, 4-6 месяцев на работу издательства.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">Финальный шаг</div>
+            <h2 style="margin-bottom:10px;">Стать героем книги</h2>
+            <p class="muted">Присоединяйтесь к проекту и превратите свою карьерную историю в сильный профессиональный актив.</p>
+          </div>
+          <div class="btns">
+            <a class="btn btn-primary" href="#">Оставить заявку</a>
+            <a class="btn btn-secondary" href="#author">Связаться с автором</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"></div></footer>
+
+  <script>
+    document.querySelectorAll('.faq-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        button.parentElement.classList.toggle('active');
+      });
+    });
+
+    const slider = document.getElementById('heroes-slider');
+    const prev = document.querySelector('[data-slider-prev]');
+    const next = document.querySelector('[data-slider-next]');
+
+    if (slider && prev && next) {
+      const step = () => Math.min(720, Math.max(240, slider.clientWidth * 0.8));
+      prev.addEventListener('click', () => slider.scrollBy({ left: -step(), behavior: 'smooth' }));
+      next.addEventListener('click', () => slider.scrollBy({ left: step(), behavior: 'smooth' }));
+    }
+  </script>
+</body>
+</html>
