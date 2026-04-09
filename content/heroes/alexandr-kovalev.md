@@ -1,6 +1,6 @@
 ---
 name: Александр Ковалёв
-photo: /images/uploads/photo_2026-01-27_22-23-02.jpg
+photo: /images/uploads/dsc_9967_02.jpg
 position: Руководитель группы разработки, Ozon
 short_phrase: Когда тебя любят клиенты и ненавидит твоё здоровье
 tags:

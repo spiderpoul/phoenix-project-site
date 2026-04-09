@@ -1,6 +1,6 @@
 ---
 name: Виталий Мягков
-photo: /images/uploads/photo_2026-03-21_01-08-58.jpg
+photo: /images/uploads/photo_2026-04-10_00-39-35.jpg
 position: Предприниматель
 short_phrase: Я выпускал успешных предпринимателей пачками, а сам выгорел
 tags:
