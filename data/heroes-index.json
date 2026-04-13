@@ -2,7 +2,7 @@
   {
     "slug": "alexandr-kovalev",
     "name": "Александр Ковалёв",
-    "photo": "/images/uploads/photo_2026-01-27_22-23-02.jpg",
+    "photo": "/images/uploads/dsc_9967_02.jpg",
     "position": "Руководитель группы разработки, Ozon",
     "short_phrase": "Когда тебя любят клиенты и ненавидит твоё здоровье",
     "weight": 0,
@@ -53,7 +53,7 @@
         "url": "https://www.youtube.com/@devopsforlove"
       }
     ],
-    "full_story": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь\r\n"
+    "full_story": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь\n"
   },
   {
     "slug": "alexandr-lebedev",
@@ -85,7 +85,7 @@
     "slug": "andrey-chuyan",
     "name": "Андрей Чуян",
     "photo": "/images/uploads/photo_2026-03-21_01-09-16.jpg",
-    "position": "DevOps-инженер",
+    "position": "Full-stack разработчик",
     "short_phrase": "«1+1=11: как DevOps-инженер победил выгорание с помощью семьи и AI»",
     "weight": 0,
     "tags": [
@@ -93,12 +93,12 @@
     ],
     "socials": [
       {
-        "type": "Telegram",
-        "url": "https://t.me/Andrey_Chuyan"
+        "type": "Сообщество по фуллстек разработке",
+        "url": "https://vk.ru/polnyistek"
       },
       {
-        "type": "Telegram канал",
-        "url": "https://t.me/IT_Chuyana"
+        "type": "Личный сайт",
+        "url": " https://chuyana.ru/"
       }
     ],
     "full_story": "«1+1=11: как DevOps-инженер победил выгорание с помощью семьи и AI»\r\n"
@@ -107,7 +107,7 @@
     "slug": "andrey-girin",
     "name": "Андрей Гирин",
     "photo": "/images/uploads/photo_2026-03-21_01-09-01.jpg",
-    "position": "Партнёр | Лидеры изменений",
+    "position": "Директор по развитию",
     "short_phrase": "«От тебя больше вреда, чем пользы»: фраза, которая запустила мою управленческую трансформацию",
     "weight": 0,
     "tags": [
@@ -195,7 +195,7 @@
     "slug": "anna-prokopeva",
     "name": "Анна Прокопьева",
     "photo": "/images/uploads/photo_2026-01-27_22-25-16.jpg",
-    "position": "CEO и арт-директор дизайн-студии\n[ n u t i c h ]",
+    "position": "CEO и арт-директор дизайн-студии\n[ ню:тич ]",
     "short_phrase": "За паникой «денег нет!» скрывалось глубокое «я не верю в себя…»",
     "weight": 0,
     "tags": [
@@ -209,31 +209,13 @@
       {
         "type": "Telegram канал",
         "url": "https://t.me/nutich_life"
+      },
+      {
+        "url": "https://nutich.com",
+        "type": "Сайт студии"
       }
     ],
     "full_story": "За паникой «денег нет!» скрывалось глубокое «я не верю в себя…»\r\n"
-  },
-  {
-    "slug": "anna-shiryaeva",
-    "name": "Анна Ширяева",
-    "photo": "/images/uploads/photo_2026-03-21_01-06-30.jpg",
-    "position": "Организатор MoscowJS",
-    "short_phrase": "«Я уперлась в потолок, но выше была только я сама»",
-    "weight": 0,
-    "tags": [
-      "сообщество"
-    ],
-    "socials": [
-      {
-        "type": "Telegram",
-        "url": "https://t.me/numbingmist"
-      },
-      {
-        "type": "Telegram канал",
-        "url": "https://t.me/it_wildlife"
-      }
-    ],
-    "full_story": "«Я уперлась в потолок, но выше была только я сама»\r\n"
   },
   {
     "slug": "danila-fokin",
@@ -479,7 +461,7 @@
   {
     "slug": "oleg-skiryuk",
     "name": "Олег Скирюк",
-    "photo": "/images/uploads/photo_2026-03-21_01-09-10.jpg",
+    "photo": "/images/uploads/photo_2026-04-10_00-39-30.jpg",
     "position": "Frontend Team Lead",
     "short_phrase": "«Выгорание – это индикатор, что ты взял на себя слишком много»",
     "weight": 0,
@@ -638,7 +620,7 @@
   {
     "slug": "vitaliy-myagkov",
     "name": "Виталий Мягков",
-    "photo": "/images/uploads/photo_2026-03-21_01-08-58.jpg",
+    "photo": "/images/uploads/photo_2026-04-10_00-39-35.jpg",
     "position": "Предприниматель",
     "short_phrase": "Я выпускал успешных предпринимателей пачками, а сам выгорел",
     "weight": 0,
@@ -719,7 +701,7 @@
     "photo": "/images/uploads/photo_2026-01-27_22-25-40.jpg",
     "position": "Senior frontend developer",
     "short_phrase": "«Решить любой ценой»: как упорство привело в тупик выгорания",
-    "weight": 0,
+    "weight": -1,
     "tags": [
       "разработка"
     ],
@@ -760,5 +742,25 @@
       }
     ],
     "full_story": "Сравнение себя с другими съело меня быстрее дедлайнов\r\n"
+  },
+  {
+    "slug": "данила-елистратов",
+    "name": "Данила Елистратов",
+    "photo": "/images/uploads/photo_2026-04-10_00-33-15.jpg",
+    "position": "Лид образовательных программ в Центральному Университете и Skypro",
+    "short_phrase": "Тридцать секунд подачи такси, которые стоили мне профессии",
+    "weight": 0,
+    "tags": [],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/DanilaElis"
+      },
+      {
+        "url": "https://t.me/gptjob",
+        "type": "Канал \"Данялитика. Анализ данных\""
+      }
+    ],
+    "full_story": "Тридцать секунд подачи такси, которые стоили мне профессии\n"
   }
 ]
