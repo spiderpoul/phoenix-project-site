@@ -482,6 +482,49 @@
       .actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
     }
+
+    /* Portrait and speaking gallery shared with the trainings page. */
+    .portrait { padding: 0; display: block; }
+    .portrait::before { content: none; }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .about-grid > *, .hero-grid > * { min-width: 0; }
+    .about-highlight { border-left: 4px solid var(--accent-2); padding: 12px 16px; background: rgba(255,255,255,.06); border-radius: 0 14px 14px 0; }
+    .about .signature { color: #fff; font-weight: 750; }
+    .fact strong { font-size: clamp(22px, 2.5vw, 34px); overflow-wrap: anywhere; }
+    .fact-wide { grid-column: 1 / -1; min-height: auto; }
+    .live-wrap { width: 100%; max-width: 850px; margin-inline: auto; }
+    .live-slider { min-width: 0; }
+    .live-stage { position: relative; padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); }
+    .live-slides { display: flex; overflow-x: auto; overflow-y: hidden; aspect-ratio: 16 / 10; border-radius: 18px; background: var(--surface-2); scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; }
+    .live-slides::-webkit-scrollbar { display: none; }
+    .live-slide { position: relative; flex: 0 0 100%; min-width: 0; height: 100%; margin: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+    .live-slide img { width: 100%; height: 100%; object-fit: contain; }
+    .live-slide figcaption { position: absolute; left: 14px; right: 14px; bottom: 14px; margin: 0; padding: 10px 14px; color: #fff; background: rgba(35,28,51,.8); border-radius: 14px; font-size: 14px; line-height: 1.35; }
+    .live-slide-counter { position: absolute; top: 14px; right: 14px; padding: 7px 11px; color: #fff; background: rgba(35,28,51,.8); border-radius: 999px; font-size: 13px; }
+    .live-slide-nav { position: absolute; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: rgba(255,255,255,.94); color: var(--ink); font: inherit; font-size: 32px; line-height: 1; cursor: pointer; box-shadow: 0 8px 22px rgba(35,28,51,.12); }
+    .live-slide-nav.prev { left: 20px; }
+    .live-slide-nav.next { right: 20px; }
+    .live-slide-nav:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .live-dots { display: flex; justify-content: center; align-items: center; gap: 8px; height: 30px; padding-top: 10px; }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+    .live-dot.active { background: var(--accent); transform: scale(1.4); }
+    @media (max-width: 900px) {
+      .portrait { width: min(100%, 480px); justify-self: center; }
+    }
+    @media (max-width: 620px) {
+      .portrait { min-height: 0; max-height: none; }
+      .live-stage { padding: 10px; }
+      .live-slides { aspect-ratio: 4 / 3; }
+      .live-slide figcaption { left: 8px; right: 8px; bottom: 8px; padding: 8px 10px; font-size: 12px; }
+      .live-slide-counter { top: 8px; right: 8px; font-size: 11px; padding: 5px 8px; }
+      .live-slide-nav { width: 36px; height: 36px; font-size: 26px; }
+      .live-slide-nav.prev { left: 12px; }
+      .live-slide-nav.next { right: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .live-slides { scroll-behavior: auto; }
+    }
+
   </style>
 </head>
 
@@ -518,11 +561,8 @@
           <p class="micro">Индивидуальная работа · тренинги для команд · выступления · книги для компаний</p>
         </div>
 
-        <div class="portrait" aria-label="Место для фотографии Юлии">
-          <div class="portrait-note">
-            <strong>Здесь лучше поставить живое фото</strong>
-            <span>Например, портрет с конференции или спокойную профессиональную съёмку. Заменить блок можно обычным &lt;img&gt;.</span>
-          </div>
+        <div class="portrait">
+          <img src="../trainings/assets/image-01.jpg" alt="Юлия Уварова — IT-психолог, автор и спикер" width="800" height="1000" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -568,24 +608,25 @@
           <div class="about-grid">
             <div>
               <span class="eyebrow">Обо мне</span>
-              <h2>Я знаю IT не только из кабинета психолога.</h2>
-              <p>
-                До психологической практики я 9 лет работала в разработке. Поэтому могу говорить
-                с айтишниками на одном языке — без необходимости сначала объяснять, что такое
-                релиз, легаси, on-call или почему «просто меньше переживать» не работает.
-              </p>
+              <h2>Привет, я Юлия Уварова</h2>
+              <p><strong>Я знаю IT изнутри и говорю с айтишниками и руководителями на их языке.</strong></p>
+              <p>Сложные психологические и управленческие вещи объясняю <strong>простым человеческим языком</strong> — без заумных терминов и нравоучений.</p>
+              <p class="about-highlight">Моя сильная сторона — задавать те вопросы, после которых знакомая ситуация вдруг выглядит иначе.</p>
+              <p class="signature">То, что казалось тупиком, становится понятной и решаемой задачей.</p>
             </div>
-
             <div class="facts">
-              <div class="fact"><strong>9 лет</strong><span>опыта в разработке</span></div>
-              <div class="fact"><strong>11 лет</strong><span>в психологии и коучинге</span></div>
-              <div class="fact"><strong>33</strong><span>реальных кейса о выгорании в книге</span></div>
-              <div class="fact"><strong>IT‑сцена</strong><span>выступления на профильных конференциях и митапах</span></div>
+              <div class="fact"><strong>9 лет</strong><span>в разработке</span></div>
+              <div class="fact"><strong>11 лет</strong><span>в психологии</span></div>
+              <div class="fact"><strong>«Дебаг выгорания»</strong><span>автор книги</span></div>
+              <div class="fact"><strong>«Дебаг карьеры»</strong><span>автор подкаста</span></div>
+              <div class="fact fact-wide"><strong>IT-конференции</strong><span>спикер</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section id="live-format"><div class="container"><div class="section-head"><h2>Как это выглядит вживую</h2><p>Выступаю на IT-конференциях, веду мастер-классы и работаю с командами — от камерной группы до большого зала.</p></div><div class="live-wrap"><div class="live-slider" data-slider="speaking" role="region" aria-roledescription="карусель" aria-label="Фотографии выступлений"><div class="live-stage"><div class="live-slides"><figure class="live-slide" id="live-photo-1" data-index="0"><img loading="lazy" decoding="async" src="../trainings/assets/image-02.webp" alt="Юлия Уварова выступает перед большой аудиторией"><figcaption>Выступление перед большой IT-аудиторией</figcaption><span class="live-slide-counter">1 / 10</span></figure><figure class="live-slide" id="live-photo-2" data-index="1"><img loading="lazy" decoding="async" src="../trainings/assets/image-03.webp" alt="Выступление на открытой IT-площадке"><figcaption>Живые выступления и работа с аудиторией</figcaption><span class="live-slide-counter">2 / 10</span></figure><figure class="live-slide" id="live-photo-3" data-index="2"><img loading="lazy" decoding="async" src="../trainings/assets/image-04.webp" alt="Выступление перед аудиторией в конференц-зале"><figcaption>Доклады и разборы для IT-аудитории</figcaption><span class="live-slide-counter">3 / 10</span></figure><figure class="live-slide" id="live-photo-4" data-index="3"><img loading="lazy" decoding="async" src="../trainings/assets/image-05.webp" alt="Юлия Уварова выступает с микрофоном"><figcaption>Выступления и дискуссии</figcaption><span class="live-slide-counter">4 / 10</span></figure><figure class="live-slide" id="live-photo-5" data-index="4"><img loading="lazy" decoding="async" src="../trainings/assets/image-06.webp" alt="Выступление на большой IT-конференции"><figcaption>Работа с большой аудиторией</figcaption><span class="live-slide-counter">5 / 10</span></figure><figure class="live-slide" id="live-photo-6" data-index="5"><img loading="lazy" decoding="async" src="../trainings/assets/image-07.webp" alt="Юлия Уварова на сцене конференции"><figcaption>Живые форматы и вовлечение аудитории</figcaption><span class="live-slide-counter">6 / 10</span></figure><figure class="live-slide" id="live-photo-7" data-index="6"><img loading="lazy" decoding="async" src="../trainings/assets/image-08.webp" alt="Интервью с участником IT-конференции"><figcaption>Разговоры с IT-сообществом</figcaption><span class="live-slide-counter">7 / 10</span></figure><figure class="live-slide" id="live-photo-8" data-index="7"><img loading="lazy" decoding="async" src="../trainings/assets/image-09.webp" alt="Юлия Уварова на панельной дискуссии"><figcaption>Панельные дискуссии и публичные выступления</figcaption><span class="live-slide-counter">8 / 10</span></figure><figure class="live-slide" id="live-photo-9" data-index="8"><img loading="lazy" decoding="async" src="../trainings/assets/image-10.webp" alt="Выступление на открытой площадке"><figcaption>Тренинги и выступления в разных форматах</figcaption><span class="live-slide-counter">9 / 10</span></figure><figure class="live-slide" id="live-photo-10" data-index="9"><img loading="lazy" decoding="async" src="../trainings/assets/image-11.webp" alt="Юлия Уварова выступает с микрофоном"><figcaption>Практические доклады для IT-аудитории</figcaption><span class="live-slide-counter">10 / 10</span></figure></div><div class="live-dots" aria-hidden="true"><span class="live-dot active"></span><span class="live-dot"></span><span class="live-dot"></span><span class="live-dot"></span><span class="live-dot"></span><span class="live-dot"></span><span class="live-dot"></span><span class="live-dot"></span><span class="live-dot"></span><span class="live-dot"></span></div><button class="live-slide-nav prev" type="button" aria-label="Предыдущее фото">‹</button><button class="live-slide-nav next" type="button" aria-label="Следующее фото">›</button></div></div></div></div></section>
 
     <section id="books">
       <div class="container">
@@ -676,5 +717,62 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+<script>
+(function () {
+  var ROTATE_MS = 5000;
+  var RESUME_AFTER_MANUAL_MS = 10000;
+  function initGallery(slider) {
+    var strip = slider.querySelector('.live-slides');
+    if (!strip) return;
+    var slides = Array.prototype.slice.call(strip.querySelectorAll('.live-slide'));
+    var dots = Array.prototype.slice.call(slider.querySelectorAll('.live-dots .live-dot'));
+    var prev = slider.querySelector('.live-slide-nav.prev');
+    var next = slider.querySelector('.live-slide-nav.next');
+    var latestIndex = -1, pausedUntil = 0, hovering = false, inView = false, scrollingRaf = 0;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!slides.length) return;
+    function current() {
+      var width = strip.clientWidth || 1;
+      return Math.max(0, Math.min(slides.length - 1, Math.round(strip.scrollLeft / width)));
+    }
+    function setActive(index) {
+      index = Math.max(0, Math.min(slides.length - 1, index));
+      if (index === latestIndex) return;
+      latestIndex = index;
+      dots.forEach(function (dot, i) { dot.classList.toggle('active', i === index); });
+    }
+    function sync() { scrollingRaf = 0; setActive(current()); }
+    function scheduleSync() { if (!scrollingRaf) scrollingRaf = requestAnimationFrame(sync); }
+    function goTo(index, manual) {
+      index = (index + slides.length) % slides.length;
+      if (manual) pausedUntil = Date.now() + RESUME_AFTER_MANUAL_MS;
+      setActive(index);
+      try {strip.scrollTo({left:index * strip.clientWidth, behavior:reduceMotion ? 'auto' : 'smooth'});}
+      catch (e) {strip.scrollLeft = index * strip.clientWidth;}
+    }
+    if (prev) prev.addEventListener('click', function (e) {e.preventDefault(); goTo(current() - 1, true);});
+    if (next) next.addEventListener('click', function (e) {e.preventDefault(); goTo(current() + 1, true);});
+    strip.addEventListener('scroll', scheduleSync, {passive:true});
+    strip.addEventListener('touchstart', function () {pausedUntil = Date.now() + RESUME_AFTER_MANUAL_MS;}, {passive:true});
+    strip.addEventListener('pointerdown', function () {pausedUntil = Date.now() + RESUME_AFTER_MANUAL_MS;}, {passive:true});
+    strip.addEventListener('touchend', function () {setTimeout(sync,120);setTimeout(sync,450);}, {passive:true});
+    slider.addEventListener('mouseenter', function () {hovering = true;});
+    slider.addEventListener('mouseleave', function () {hovering = false;});
+    slider.addEventListener('focusin', function () {hovering = true;});
+    slider.addEventListener('focusout', function () {hovering = false;});
+    window.addEventListener('resize', scheduleSync, {passive:true});
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {inView = entries[0] && entries[0].isIntersecting;}, {threshold:0.3});
+      observer.observe(slider);
+    } else inView = true;
+    if (!reduceMotion) setInterval(function () {
+      if (document.hidden || !inView || hovering || Date.now() < pausedUntil) return;
+      goTo(current() + 1, false);
+    }, ROTATE_MS);
+    setActive(current());
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-slider="speaking"]'), initGallery);
+})();
+</script>
 </body>
 </html>
