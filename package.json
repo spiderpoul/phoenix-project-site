@@ -8,7 +8,7 @@
     "prebuild": "node scripts/generate-heroes-index.js && node scripts/generate-sitemap.js",
     "build": "next build",
     "export": "next export",
-    "deploy": "node scripts/deploy.js",
+    "deploy": "npm run build && node scripts/deploy.js",
     "lint": "next lint",
     "prepare": "husky install"
   },
