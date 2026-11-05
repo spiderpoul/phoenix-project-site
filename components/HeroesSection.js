@@ -53,7 +53,7 @@ export default function HeroesSection({ heroes = [] }) {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4">
         <div className="flex flex-col gap-3">
           <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Каталог</p>
-          <h1 className="section-title">Все герои проекта</h1>
+          <h1 className="section-title">Герои книги</h1>
           <p className="muted max-w-2xl">Поиск работает по имени, должности, тегам и тексту истории.</p>
         </div>
         <div className="grid gap-4 rounded-2xl border border-slate-200/60 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-800/80 dark:bg-slate-900/60">

@@ -8,18 +8,18 @@ const ABOUT_PATH = path.join(process.cwd(), 'content', 'about.json');
 
 const FALLBACK_ABOUT = {
   heroTitle: 'Debug выгорания',
-  heroSubtitle: '50 историй IT-фениксов',
+  heroSubtitle: '33 истории IT-фениксов',
   heroLead: 'Истории восстановления и нового старта в IT.',
-  heroPrimaryCtaText: 'Стать героем',
-  heroPrimaryCtaHref: '/join',
+  heroPrimaryCtaText: 'Узнать о предзаказе',
+  heroPrimaryCtaHref: '/#preorder',
   heroSecondaryCtaText: 'Посмотреть героев',
   heroSecondaryCtaHref: '/heroes',
   heroNote: '',
   sections: [],
-  finalCtaTitle: 'Готовы стать частью книги?',
+  finalCtaTitle: 'Хотите прочитать книгу?',
   finalCtaText: 'Поделитесь своей историей или поддержите героев.',
-  finalCtaPrimaryText: 'Стать героем',
-  finalCtaPrimaryHref: '/join',
+  finalCtaPrimaryText: 'Узнать о предзаказе',
+  finalCtaPrimaryHref: '/#preorder',
   finalCtaSecondaryText: '',
   finalCtaSecondaryHref: ''
 };

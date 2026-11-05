@@ -160,7 +160,7 @@ export default function Home({ heroes }) {
       <section className="py-14">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 rounded-3xl border border-ember-200/70 bg-gradient-to-r from-ember-50 via-white to-orange-50 px-6 py-10 text-slate-700 shadow-sm dark:border-ember-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 dark:text-slate-200 sm:px-10">
           <div className="flex flex-col gap-2">
-            <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Как стать героем</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Предзаказ книги</p>
             <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{home.join_cta_title}</h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

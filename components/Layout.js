@@ -5,8 +5,8 @@ import ThemeToggle from './ThemeToggle';
 const navItems = [
   { href: '/', label: 'Главная' },
   { href: '/heroes', label: 'Герои' },
-  { href: '/about', label: 'О проекте' },
-  { href: '/join', label: 'Стать участником' }
+  { href: '/about', label: 'О книге' },
+  { href: '/join', label: 'Предзаказ' }
 ];
 
 export default function Layout({ children }) {
@@ -70,7 +70,7 @@ export default function Layout({ children }) {
       <main>{children}</main>
       <footer className="border-t border-slate-200/60 py-10 text-sm text-slate-500 dark:border-slate-800/80 dark:text-slate-400">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 sm:flex-row sm:items-center sm:justify-between">
-          <span>Проект книги «Debug выгорания: 50 историй IT-фениксов»</span>
+          <span>Книга «Debug выгорания: 33 истории IT-фениксов»</span>
           <Link href="/" className="text-ember-600 hover:underline">
             На главную
           </Link>

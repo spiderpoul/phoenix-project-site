@@ -35,7 +35,7 @@ export default function JoinPage() {
         <div className="mx-auto grid max-w-5xl gap-10 px-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="flex flex-col gap-6">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Как стать участником</p>
+              <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">О книге и предзаказе</p>
               <h1 className="text-4xl font-semibold">{join.title}</h1>
               <p className="muted mt-3 text-lg">{join.subtitle}</p>
             </div>
@@ -50,9 +50,9 @@ export default function JoinPage() {
           </div>
           <div className="flex flex-col gap-4">
             <div className="card p-6">
-              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Готовы рассказать историю?</h2>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Хотите предзаказать книгу?</h2>
               <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                Напишите нам — обсудим формат, темп и комфортный уровень публичности.
+                Напишите нам в Telegram — расскажем о старте предзаказа, формате и цене, когда они будут объявлены.
               </p>
               <a
                 href={join.cta.href}
@@ -62,7 +62,7 @@ export default function JoinPage() {
               </a>
             </div>
             <div className="card p-6">
-              <h3 className="text-base font-semibold text-slate-900 dark:text-white">Что важно знать</h3>
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white">О предзаказе</h3>
               <ul className="mt-3 grid gap-2 text-sm text-slate-600 dark:text-slate-300">
                 {join.notes.map((note) => (
                   <li key={note}>• {note}</li>

@@ -1,12 +1,12 @@
 {
   "heroTitle": "Debug выгорания",
-  "heroSubtitle": "50 историй IT-фениксов",
-  "heroLead": "Книга о тех, кто оказался на грани, сделал паузу и нашёл новый ритм.\n\nМы собираем честные истории восстановления, чтобы поддержать героев и показать читателям: возвращение к энергии возможно.",
-  "heroPrimaryCtaText": "Стать героем",
-  "heroPrimaryCtaHref": "/join",
+  "heroSubtitle": "33 истории IT-фениксов",
+  "heroLead": "Книга о тех, кто оказался на грани, сделал паузу и нашёл новый ритм.\n\nМы собрали 33 честные истории восстановления, чтобы поддержать героев и показать читателям: возвращение к энергии возможно.",
+  "heroPrimaryCtaText": "Узнать о предзаказе",
+  "heroPrimaryCtaHref": "/#preorder",
   "heroSecondaryCtaText": "Посмотреть героев",
   "heroSecondaryCtaHref": "/heroes",
-  "heroNote": "Новые истории открываются каждую неделю — присоединяйтесь.",
+  "heroNote": "Познакомьтесь с героями книги и их историями.",
   "sections": [
     {
       "id": "why",
@@ -129,10 +129,10 @@
       "variant": "text"
     }
   ],
-  "finalCtaTitle": "Готовы стать частью книги?",
-  "finalCtaText": "Поделитесь своей историей или познакомьтесь с теми, кто уже прошёл этот путь.",
-  "finalCtaPrimaryText": "Стать героем",
-  "finalCtaPrimaryHref": "/join",
+  "finalCtaTitle": "Хотите прочитать книгу?",
+  "finalCtaText": "Познакомьтесь с героями и узнайте о предзаказе книги.",
+  "finalCtaPrimaryText": "Узнать о предзаказе",
+  "finalCtaPrimaryHref": "/#preorder",
   "finalCtaSecondaryText": "Связаться с командой",
   "finalCtaSecondaryHref": "/contacts"
 }
