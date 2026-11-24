@@ -4,6 +4,7 @@ const fs = require('fs');
 const os = require('os');
 const crypto = require('crypto');
 const ftp = require('basic-ftp');
+const { Readable } = require('stream');
 
 const {
   FTP_HOST,
@@ -54,6 +55,7 @@ function sha256File(filePath) {
 }
 
 async function buildLocalManifest() {
+  require('./version-styles');
   const files = {};
   const all = await walkDir(localDir);
 
@@ -104,7 +106,17 @@ async function uploadRemoteManifest(client, remoteManifestPath, manifest) {
   const tempPath = path.join(tempDir, 'manifest.json');
   try {
     await fs.promises.writeFile(tempPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
-    await client.uploadFrom(tempPath, remoteManifestPath);
+    const bytes = await fs.promises.readFile(tempPath);
+    async function* manifestChunks() {
+      for (let offset = 0; offset < bytes.length; offset += 1024) {
+        yield bytes.subarray(offset, offset + 1024);
+        await new Promise(resolve => setTimeout(resolve, 10));
+      }
+    }
+    await client.uploadFrom(Readable.from(manifestChunks()), remoteManifestPath);
+    if (await client.size(remoteManifestPath) !== bytes.length) {
+      throw new Error('Incomplete deployment manifest upload');
+    }
   } finally {
     await fs.promises.rm(tempDir, { recursive: true, force: true });
   }
@@ -117,7 +129,9 @@ async function ensureRemoteDir(client, remoteDir, baseDir) {
 
 async function deploy() {
   const client = new ftp.Client();
-  client.ftp.verbose = true;
+  // This hosting provider resets EPSV data connections; use PASV for reliable transfers.
+  client.prepareTransfer = ftp.enterPassiveModeIPv4;
+  client.ftp.verbose = process.env.FTP_VERBOSE === 'true';
 
   const remoteBase = toPosix(FTP_REMOTE_DIR);
   const remoteManifestPath = path.posix.join(remoteBase, MANIFEST_NAME);
@@ -149,6 +163,13 @@ async function deploy() {
         toUpload.push(rel);
       } else if (r.hash !== meta.hash) {
         toUpload.push(rel);
+      } else if (/\.(css|js)$/.test(rel) &&
+        await client.size(path.posix.join(remoteBase, rel)).catch((err) => {
+          if (isMissingRemoteFile(err)) return -1;
+          throw err;
+        }) !== meta.size) {
+        // A previous interrupted upload can leave a valid manifest beside a partial asset.
+        toUpload.push(rel);
       } else {
         toSkip.push(rel);
       }
@@ -169,7 +190,19 @@ async function deploy() {
       const remoteAbs = path.posix.join(remoteBase, rel);
       const remoteDir = path.posix.dirname(remoteAbs);
       await ensureRemoteDir(client, remoteDir, remoteBase);
-      await client.uploadFrom(localAbs, remoteAbs);
+      // Pace data writes: the hosting provider resets bursts and leaves partial files.
+      const bytes = await fs.promises.readFile(localAbs);
+      async function* chunks() {
+        for (let offset = 0; offset < bytes.length; offset += 1024) {
+          yield bytes.subarray(offset, offset + 1024);
+          await new Promise(resolve => setTimeout(resolve, 10));
+        }
+      }
+      await client.uploadFrom(Readable.from(chunks()), remoteAbs);
+      const uploadedSize = await client.size(remoteAbs);
+      if (uploadedSize !== localFiles[rel].size) {
+        throw new Error(`Incomplete upload: ${rel} (${uploadedSize}/${localFiles[rel].size} bytes)`);
+      }
       console.log(`Uploaded: ${rel}`);
     }
 

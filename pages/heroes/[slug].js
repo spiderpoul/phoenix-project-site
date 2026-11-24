@@ -17,7 +17,7 @@ export async function getStaticProps({ params }) {
   if (!hero) {
     return { notFound: true };
   }
-  const storyHtml = await parseMarkdown(hero.content);
+  const storyHtml = hero.customHtml ? '' : await parseMarkdown(hero.content);
   const otherHeroes = getAllHeroes().filter((item) => item.slug !== hero.slug).slice(0, 3);
 
   return {
@@ -61,16 +61,16 @@ export default function HeroPage({ hero, otherHeroes }) {
         <meta property="twitter:card" content="summary_large_image" />
       </Head>
 
-      <main className="mx-auto flex max-w-5xl flex-col gap-12 px-4 py-12">
-        <section className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
-          <div className="card flex flex-col gap-6 p-6 pt-14 sm:p-8 sm:pt-16">
+      <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-8 sm:py-12">
+        <div className="flow-root">
+          <header className="card mb-6 p-6 pt-14 sm:p-8 sm:pt-16 lg:float-left lg:mb-0 lg:mr-8 lg:w-[38%]">
             <div className="flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-br from-ember-500/10 via-white/60 to-sky-500/10 p-6 dark:from-ember-500/20 dark:via-slate-900/40 dark:to-sky-500/20">
               <HeroAvatar
                 name={hero.name}
                 photo={hero.photo}
                 size={176}
                 className="-mt-12 h-44 w-44 rounded-full object-cover text-4xl ring-4 ring-ember-500/30 shadow-lg shadow-ember-500/20 sm:h-52 sm:w-52"
-                sizes="(min-width: 1024px) 11rem, 11rem"
+                sizes="(min-width: 640px) 13rem, 11rem"
                 priority
               />
               <h1 className="text-center text-3xl font-semibold text-slate-950 dark:text-white sm:text-4xl">
@@ -108,26 +108,24 @@ export default function HeroPage({ hero, otherHeroes }) {
                 </div>
               ) : null}
             </div>
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="card p-6">
-              <h2 className="text-xl font-semibold">История</h2>
+          </header>
+
+          {hero.customHtml ? (
+            <section
+              className="hero-custom"
+              aria-label={`${hero.name}: подробная информация`}
+              dangerouslySetInnerHTML={{ __html: hero.customHtml }}
+            />
+          ) : (
+            <section className="card hero-story min-w-0 p-6 sm:p-8" aria-labelledby="hero-story">
+              <h2 id="hero-story" className="text-xl font-semibold">История</h2>
               <div
-                className="prose prose-slate mt-4 max-w-none dark:prose-invert"
+                className="prose prose-slate mt-4 max-w-none break-words dark:prose-invert"
                 dangerouslySetInnerHTML={{ __html: hero.storyHtml }}
               />
-            </div>
-            <div className="card p-6 text-sm text-slate-600 dark:text-slate-300">
-              <h3 className="text-base font-semibold text-slate-900 dark:text-white">О проекте</h3>
-              <p className="mt-2">
-                «Debug выгорания» — серия честных историй о восстановлении и силе. Проект создан, чтобы поддерживать и вдохновлять IT-сообщество.
-              </p>
-              <Link href="/" className="mt-3 inline-flex text-ember-600 hover:underline">
-                Узнать о проекте
-              </Link>
-            </div>
-          </div>
-        </section>
+            </section>
+          )}
+        </div>
 
         {otherHeroes.length ? (
           <section className="flex flex-col gap-4">
@@ -158,7 +156,17 @@ export default function HeroPage({ hero, otherHeroes }) {
             </div>
           </section>
         ) : null}
-      </main>
+
+        <section aria-labelledby="about-project" className="border-t border-slate-200/70 pt-6 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-300">
+          <h2 id="about-project" className="text-base font-semibold text-slate-900 dark:text-white">О проекте</h2>
+          <p className="mt-2">
+            «Debug выгорания» — серия честных историй о восстановлении и силе. Проект создан, чтобы поддерживать и вдохновлять IT-сообщество.
+          </p>
+          <Link href="/" className="mt-3 inline-flex text-ember-600 hover:underline">
+            Узнать о проекте
+          </Link>
+        </section>
+      </div>
     </Layout>
   );
 }

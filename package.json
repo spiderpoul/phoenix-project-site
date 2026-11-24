@@ -10,7 +10,8 @@
     "export": "next export",
     "deploy": "npm run build && node scripts/deploy.js",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postbuild": "node scripts/version-styles.js"
   },
   "dependencies": {
     "basic-ftp": "^5.0.5",

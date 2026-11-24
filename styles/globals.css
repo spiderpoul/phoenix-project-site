@@ -38,6 +38,60 @@ body {
   @apply bg-gradient-to-r from-ember-500 via-orange-400 to-amber-400 bg-clip-text text-transparent;
 }
 
+/* Reusable trusted custom HTML blocks for individual hero profiles.
+   Prefix all selectors with .hero-custom to keep page styles isolated. */
+.hero-custom, .hero-custom .phx-profile { @apply min-w-0 space-y-6; overflow-wrap: anywhere; }
+.hero-custom .phx-intro { @apply bg-gradient-to-br from-ember-500/10 via-white to-sky-500/10 dark:from-ember-500/20 dark:via-slate-900 dark:to-sky-500/10; }
+.hero-custom .phx-copy > * + * { @apply mt-3; }
+.hero-custom .phx-section-title { @apply mb-5 text-2xl sm:text-3xl; }
+.hero-custom .phx-section[id] { scroll-margin-top: 6rem; }
+.hero-custom .phx-copy + .phx-grid,
+.hero-custom .phx-grid + .phx-copy { @apply mt-5; }
+.hero-custom .phx-grid.phx-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+}
+.hero-custom .phx-links { @apply mt-5 flex flex-wrap gap-2; }
+.hero-custom .phx-links a { @apply rounded-full border border-ember-500/30 bg-ember-500/10 px-4 py-2 text-sm font-medium no-underline hover:bg-ember-500/20; }
+.hero-custom .phx-index { @apply mt-0; }
+.hero-custom .phx-index a { @apply border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800; }
+.hero-custom .phx-timeline h3 { @apply mb-0 mt-6; }
+.hero-custom .phx-timeline h3 + p { @apply mt-1; }
+.hero-custom .phx-press ol { @apply list-decimal space-y-4 pl-6; }
+.hero-custom .phx-language summary { @apply cursor-pointer font-semibold; }
+.hero-custom .phx-language .phx-profile { @apply mt-6; }
+.hero-custom .phx-interview .phx-reading { @apply max-w-prose; }
+.hero-custom .phx-interview .phx-qa { @apply space-y-7; }
+.hero-custom .phx-interview .phx-questions { @apply list-decimal space-y-4 pl-6 marker:font-semibold marker:text-ember-600 dark:marker:text-ember-400; }
+/* Let each card fit beside the profile or expand once it clears the photo. */
+.hero-custom > :not(.phx-profile),
+.hero-custom .phx-profile > :not(nav) { display: flow-root; }
+.hero-custom .phx-section { @apply rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm sm:p-9 dark:border-slate-800/80 dark:bg-slate-900/70; }
+.hero-custom .phx-kicker { @apply mb-3 text-xs font-bold uppercase tracking-[.18em] text-ember-600 dark:text-ember-400; }
+.hero-custom h2 { @apply mb-5 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl dark:text-white; }
+.hero-custom h3 { @apply mb-2 text-lg font-semibold text-slate-900 dark:text-white; }
+.hero-custom p { @apply leading-relaxed text-slate-600 dark:text-slate-300; }
+.hero-custom .phx-grid { @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3; }
+.hero-custom .phx-card { @apply rounded-2xl border border-slate-200/70 bg-white/70 p-5 dark:border-slate-700/70 dark:bg-slate-950/50; }
+.hero-custom .phx-stat strong { @apply block text-3xl font-bold text-ember-600 dark:text-ember-400; }
+.hero-custom .phx-stat span { @apply mt-1 block text-sm text-slate-600 dark:text-slate-300; }
+.hero-custom .phx-quote { @apply rounded-2xl border-l-4 border-ember-500 bg-ember-500/5 px-6 py-5 text-lg font-medium text-slate-800 dark:text-slate-100; }
+.hero-custom .phx-pill { @apply inline-flex rounded-full bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-700 dark:text-sky-300; }
+.hero-custom .phx-tags { @apply mt-4 flex flex-wrap gap-2; }
+.hero-custom a { @apply text-ember-600 underline decoration-ember-500/30 underline-offset-4 hover:decoration-ember-500 dark:text-ember-400; }
+
+@media (min-width: 1024px) {
+  /* Keep prose in the same line layout as the floated participant card. */
+  .hero-story,
+  .hero-custom .phx-section.phx-flow {
+    @apply block border-0 bg-none bg-transparent px-0 shadow-none backdrop-blur-none;
+  }
+
+  .hero-custom .phx-flow > .phx-copy > blockquote,
+  .hero-story pre {
+    display: flow-root;
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -46,3 +100,56 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@media (min-width: 1024px) {
+  .hero-custom .krylov-profile .phx-flow {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Compact profile: preserve prose wrapping around the participant card. */
+.hero-custom .gulyaykin-profile { @apply space-y-5; }
+.hero-custom .gulyaykin-profile .phx-section { @apply p-5 sm:p-6; }
+.hero-custom .gulyaykin-profile h2 { @apply mb-3; }
+.hero-custom .gulyaykin-links { @apply list-disc space-y-3 pl-5 leading-relaxed text-slate-600 dark:text-slate-300; }
+@media (min-width: 1024px) {
+  .hero-custom .gulyaykin-profile .phx-flow { padding: 0; }
+}
+
+/* Marina: retain the book's ember cards at every screen size. */
+.hero-custom .marina-profile .phx-section {
+  display: flow-root;
+  border: 1px solid rgb(226 232 240 / .8);
+  border-radius: 24px;
+  padding: clamp(22px, 4vw, 36px);
+  background: #fff;
+  box-shadow: 0 6px 26px rgb(15 23 42 / .035);
+}
+.hero-custom .marina-profile .phx-intro {
+  border-color: #ff7a3d40;
+  background: linear-gradient(135deg,#fff0e6,#fffaf5 55%,#edf7ff);
+}
+.hero-custom .marina-profile .phx-kicker { color: #c64d18; }
+.hero-custom .marina-profile .phx-grid { margin-top: 22px; }
+.hero-custom .marina-profile .phx-card { background: #fffaf6; border-color: #ff7a3d30; }
+.hero-custom .marina-profile .phx-quote {
+  margin-block: 24px;
+  background: linear-gradient(100deg,#fff0e5,#fffaf5);
+  padding: 26px 30px;
+}
+.hero-custom .marina-profile .phx-quote p { color: #9a421e; font-size: 1.2rem; }
+.dark .hero-custom .marina-profile .phx-section { background:#0f172a; border-color:#334155; }
+.dark .hero-custom .marina-profile .phx-intro { background:linear-gradient(135deg,#40251e,#0f172a 65%,#122c40); }
+.dark .hero-custom .marina-profile .phx-card { background:#172033; border-color:#ff7a3d40; }
+.dark .hero-custom .marina-profile .phx-quote { background:#ff7a3d12; }
+.dark .hero-custom .marina-profile .phx-quote p,
+.dark .hero-custom .marina-profile .phx-kicker { color:#ffb48e; }
+
+/* Oleg Skiryuk profile */
+
+.hero-custom .oleg-profile .phx-intro {background:linear-gradient(135deg,rgba(255,122,61,.14),rgba(255,255,255,.04) 60%,rgba(14,165,233,.09));border-color:rgba(255,122,61,.3)}
+.hero-custom .oleg-profile .phx-section {margin-bottom:24px}
+.hero-custom .oleg-profile .phx-card {border-top:3px solid #ff7a3d}
+.hero-custom .oleg-profile .phx-quote {clear:both;padding:28px 32px;font-size:1.25rem}
+.hero-custom .oleg-profile .phx-links a {padding:12px 20px;font-weight:600}

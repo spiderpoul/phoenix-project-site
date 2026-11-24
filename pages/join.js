@@ -42,7 +42,7 @@ export default function JoinPage() {
             <div className="grid gap-3">
               {join.steps.map((step, index) => (
                 <div key={step} className="card flex items-center gap-4 p-4 text-sm">
-                  <span className="text-sm font-semibold text-ember-500">0{index + 1}</span>
+                  <span className="text-sm font-semibold text-ember-500">{index + 1}</span>
                   <span className="text-slate-700 dark:text-slate-200">{step}</span>
                 </div>
               ))}
@@ -50,9 +50,9 @@ export default function JoinPage() {
           </div>
           <div className="flex flex-col gap-4">
             <div className="card p-6">
-              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Хотите предзаказать книгу?</h2>
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Хотите узнать о выходе книги первыми?</h2>
               <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                Напишите нам в Telegram — расскажем о старте предзаказа, формате и цене, когда они будут объявлены.
+                Отправьте письмо о предзаказе. Я сообщу вам дату выхода, цену и формат книги, когда они будут известны.
               </p>
               <a
                 href={join.cta.href}

@@ -23,17 +23,19 @@
         "url": "https://alkov.pro"
       }
     ],
-    "full_story": "Когда тебя любят клиенты и ненавидит твоё здоровье\r\n"
+    "full_story": "Когда тебя любят клиенты и ненавидит твоё здоровье\n"
   },
   {
     "slug": "alexandr-krylov",
     "name": "Александр Крылов",
     "photo": "/images/uploads/александр-крылов-преза.jpg",
-    "position": "CPO продукта Штурвал",
-    "short_phrase": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь",
+    "position": "Технический директор «ИТ Школы Ростелеком»",
+    "short_phrase": "DevOps, Kubernetes, конференции и обучение",
     "weight": 0,
     "tags": [
-      "топ-менеджмент"
+      "DevOps",
+      "Kubernetes",
+      "обучение"
     ],
     "socials": [
       {
@@ -41,19 +43,11 @@
         "url": "https://t.me/darkbenladan"
       },
       {
-        "type": "K8S сообщество",
-        "url": "https://t.me/+NU1F9DTpHLc3NTQy"
-      },
-      {
-        "type": "DevOpsForLove",
-        "url": "https://t.me/devopsforlove"
-      },
-      {
-        "type": "Podcast",
-        "url": "https://www.youtube.com/@devopsforlove"
+        "type": "Все ссылки",
+        "url": "https://linktr.ee/aleksandr_krylov"
       }
     ],
-    "full_story": "Как переход в топ-менеджмент заставил меня пересмотреть жизнь\n"
+    "full_story": ""
   },
   {
     "slug": "alexandr-lebedev",
@@ -79,7 +73,7 @@
         "url": "https://vk.com/hard_work_player"
       }
     ],
-    "full_story": "Жадность до результата: в чем опасность системы целей-лестниц\r\n"
+    "full_story": "Жадность до результата: в чем опасность системы целей-лестниц\n"
   },
   {
     "slug": "andrey-girin",
@@ -101,7 +95,7 @@
         "url": "https://t.me/proagilerussia"
       }
     ],
-    "full_story": "«От тебя больше вреда, чем пользы»: фраза, которая запустила мою управленческую трансформацию\r\n"
+    "full_story": "«От тебя больше вреда, чем пользы»: фраза, которая запустила мою управленческую трансформацию\n"
   },
   {
     "slug": "andrey-gulyaykin",
@@ -123,13 +117,13 @@
         "url": "https://t.me/canicomein"
       }
     ],
-    "full_story": "Я был слишком занят «чужой» карьерой, чтобы услышать детскую мечту\r\n"
+    "full_story": ""
   },
   {
     "slug": "andrey-salkov",
     "name": "Андрей Сальков",
     "photo": "/images/uploads/photo_2026-01-27_00-07-50.jpg",
-    "position": "php-разработчик",
+    "position": "Backend-разработчик",
     "short_phrase": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался",
     "weight": 0,
     "tags": [
@@ -145,13 +139,13 @@
         "type": "FoxDev_Heart"
       }
     ],
-    "full_story": "Меня закидали тремя знаками вопроса вместо обратной связи – и я сломался\r\n"
+    "full_story": ""
   },
   {
     "slug": "andrey-vazhenin",
     "name": "Андрей Важенин",
     "photo": "/images/uploads/photo_2026-01-27_22-24-42.jpg",
-    "position": "SRE",
+    "position": "SRE-инженер и гештальт-терапевт",
     "short_phrase": "Мои грыжи и разрывы: итоговый лог всех непрожитых мною эмоций",
     "weight": 0,
     "tags": [
@@ -167,7 +161,7 @@
         "url": "https://t.me/sahn_der"
       }
     ],
-    "full_story": "Мои грыжи и разрывы: итоговый лог всех непрожитых мною эмоций\r\n"
+    "full_story": ""
   },
   {
     "slug": "anna-prokopeva",
@@ -193,7 +187,7 @@
         "type": "Сайт студии"
       }
     ],
-    "full_story": "За паникой «денег нет!» скрывалось глубокое «я не верю в себя…»\r\n"
+    "full_story": "За паникой «денег нет!» скрывалось глубокое «я не верю в себя…»\n"
   },
   {
     "slug": "danila-fokin",
@@ -213,9 +207,25 @@
       {
         "type": "Telegram канал",
         "url": "https://t.me/fokin_media"
+      },
+      {
+        "type": "ВКонтакте",
+        "url": "https://vk.ru/fokin_media"
+      },
+      {
+        "type": "MAX",
+        "url": "https://max.ru/id5040188372_biz"
+      },
+      {
+        "type": "YouTube",
+        "url": "https://youtube.com/@fokin_media?si=nCNwrrZJgcGkfFj-"
+      },
+      {
+        "type": "Rutube",
+        "url": "https://rutube.ru/channel/16172054/shorts/"
       }
     ],
-    "full_story": "«Выгораю не от нагрузки, а от несостыковки»\r\n"
+    "full_story": "«Выгораю не от нагрузки, а от несостыковки»\n"
   },
   {
     "slug": "dmitry-alin",
@@ -241,7 +251,7 @@
         "url": "https://t.me/live_php_news"
       }
     ],
-    "full_story": "Карьерный лифт сломался между этажами «Скучно» и «Не мое»\r\n"
+    "full_story": "Карьерный лифт сломался между этажами «Скучно» и «Не мое»\n"
   },
   {
     "slug": "ekaterina-lysenko",
@@ -263,13 +273,13 @@
         "url": "https://t.me/ValueGoalsDDD"
       }
     ],
-    "full_story": "Как можно превратиться в «говно» и потерять себя даже в компании мечты\r\n"
+    "full_story": "Как можно превратиться в «говно» и потерять себя даже в компании мечты\n"
   },
   {
     "slug": "ekaterina-samsonova",
     "name": "Екатерина Самсонова",
     "photo": "/images/uploads/photo_2026-03-21_01-09-04.jpg",
-    "position": "Основатель Grow IT, со-основатель и консультант Convergate",
+    "position": "Head of Marketing MENA в Usetech, консультант по PR и маркетингу для IT-компаний, психоаналитический психолог",
     "short_phrase": "«Систему создала я сама»: как жажда строить с нуля приводит и к свободе, и к новым выгораниям",
     "weight": 0,
     "tags": [
@@ -281,11 +291,11 @@
         "url": "https://t.me/SEkaterin"
       },
       {
-        "type": "Telegram канал",
+        "type": "MENA IT hub",
         "url": "https://t.me/GrowIT_Samsonova"
       }
     ],
-    "full_story": "«Систему создала я сама»: как жажда строить с нуля приводит и к свободе, и к новым выгораниям\r\n"
+    "full_story": "«Систему создала я сама»: как жажда строить с нуля приводит и к свободе, и к новым выгораниям\n"
   },
   {
     "slug": "evgeniya-filonova",
@@ -307,13 +317,13 @@
         "url": "https://vk.com/evga_f"
       }
     ],
-    "full_story": "Выгорание – это когда игра становится не в кайф\r\n"
+    "full_story": "Выгорание – это когда игра становится не в кайф\n"
   },
   {
     "slug": "irina-mikhailova",
     "name": "Ирина Михайлова",
     "photo": "/images/uploads/photo_2026-01-27_22-26-04.jpg",
-    "position": "Ведущий бизнес-аналитик, АО \"ПравоТех\"",
+    "position": "AI-юрист в ПравоТех · ментор · учусь психотерапии",
     "short_phrase": "Когда под ногами нет ни одной опоры",
     "weight": 0,
     "tags": [
@@ -325,17 +335,25 @@
         "url": "https://t.me/mihailova"
       },
       {
+        "type": "ВКонтакте",
+        "url": "https://vk.com/mihailovaperm"
+      },
+      {
         "type": "Telegram канал",
         "url": "https://t.me/mihailova_tech"
+      },
+      {
+        "type": "Сайт",
+        "url": "https://mihailovaperm.ru/"
       }
     ],
-    "full_story": "Когда под ногами нет ни одной опоры\r\n"
+    "full_story": "Когда под ногами нет ни одной опоры\n"
   },
   {
     "slug": "ivan-morshagin",
     "name": "Иван Морщагин",
     "photo": "/images/uploads/photo_2026-01-27_00-17-35.jpg",
-    "position": "IT-консультант, трекер, организатор хакатонов по ИИ",
+    "position": "IT-консультант, архитектор цифровых решений, создатель AI-продуктов, трекер и организатор хакатонов.",
     "short_phrase": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу",
     "weight": 0,
     "tags": [
@@ -353,9 +371,13 @@
       {
         "url": "https://www.youtube.com/@IvanSkAInet",
         "type": "YouTube"
+      },
+      {
+        "type": "Сайт",
+        "url": "https://www.morshchagin.ru/"
       }
     ],
-    "full_story": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу\r\n"
+    "full_story": "Пик карьеры как ловушка. Как блестящий рост приводит к экзистенциальному коллапсу\n"
   },
   {
     "slug": "lena-konkova",
@@ -377,7 +399,7 @@
         "url": "https://t.me/balanciada"
       }
     ],
-    "full_story": "Когда утонули три кита, всплыл самозванец\r\n"
+    "full_story": "Когда утонули три кита, всплыл самозванец\n"
   },
   {
     "slug": "marina-goncharova",
@@ -390,7 +412,7 @@
       "топ-менеджмент"
     ],
     "socials": [],
-    "full_story": "«Проще сделать самой»: роковая фраза, которая остановила карьеру\r\n"
+    "full_story": ""
   },
   {
     "slug": "monica-dabas",
@@ -412,7 +434,7 @@
         "type": "Группа в Telegram"
       }
     ],
-    "full_story": "Я привыкла игнорировать свои желания\r\n"
+    "full_story": "Я привыкла игнорировать свои желания\n"
   },
   {
     "slug": "oleg-skiryuk",
@@ -430,7 +452,26 @@
         "url": "https://t.me/skiryukoleg"
       }
     ],
-    "full_story": "«Выгорание – это индикатор, что ты взял на себя слишком много»\r\n"
+    "full_story": "«Выгорание – это индикатор, что ты взял на себя слишком много»\n"
+  },
+  {
+    "slug": "pavel-uvarov",
+    "name": "Павел Уваров",
+    "photo": "/images/uploads/spiderpoul.jpeg",
+    "position": "Software Expert, Kaspersky",
+    "short_phrase": "Я выгорал в школе, в университете, в инфобизнесе и в IT — пока не понял, что бегу спринт там, где нужен марафон",
+    "weight": 0,
+    "tags": [
+      "разработка",
+      "управление"
+    ],
+    "socials": [
+      {
+        "type": "Telegram",
+        "url": "https://t.me/spiderpoul"
+      }
+    ],
+    "full_story": ""
   },
   {
     "slug": "pavel-vinogradov",
@@ -460,7 +501,7 @@
         "url": "https://vk.com/turmagger"
       }
     ],
-    "full_story": "«Вот наймем людей, и всё наладится» – ловушка для ответственных\r\n"
+    "full_story": "«Вот наймем людей, и всё наладится» – ловушка для ответственных\n"
   },
   {
     "slug": "rustam-karimov",
@@ -478,7 +519,7 @@
         "url": "https://t.me/Rustik_Karimov"
       }
     ],
-    "full_story": "Я променял код на бизнес мечты и погряз в ксерокопиях и тоске\r\n"
+    "full_story": "Я променял код на бизнес мечты и погряз в ксерокопиях и тоске\n"
   },
   {
     "slug": "sergey-zadorozhny",
@@ -500,7 +541,7 @@
         "url": "https://t.me/IT_Friday"
       }
     ],
-    "full_story": "Осознанное выгорание: когда сопротивление – это система\r\n"
+    "full_story": "Осознанное выгорание: когда сопротивление – это система\n"
   },
   {
     "slug": "sonya-lvova",
@@ -522,7 +563,7 @@
         "url": "https://t.me/uxw_sobor"
       }
     ],
-    "full_story": "«Ты не выгорел, ты просто хочешь пить»\r\n"
+    "full_story": "«Ты не выгорел, ты просто хочешь пить»\n"
   },
   {
     "slug": "timur-sagitov",
@@ -545,7 +586,7 @@
         "url": "https://t.me/sudoteach"
       }
     ],
-    "full_story": "Ошибка на 1,5 миллиона: как я перепутал упорство с саморазрушением\r\n"
+    "full_story": "Ошибка на 1,5 миллиона: как я перепутал упорство с саморазрушением\n"
   },
   {
     "slug": "vitaliy-lotnik",
@@ -571,7 +612,7 @@
         "url": "https://vk.com/vlotnik"
       }
     ],
-    "full_story": "Когда архитектура компании – legacy\r\n"
+    "full_story": "Когда архитектура компании – legacy\n"
   },
   {
     "slug": "vitaliy-myagkov",
@@ -605,13 +646,13 @@
         "url": "https://t.me/itservisy"
       }
     ],
-    "full_story": "Я выпускал успешных предпринимателей пачками, а сам выгорел\r\n"
+    "full_story": "Я выпускал успешных предпринимателей пачками, а сам выгорел\n"
   },
   {
     "slug": "vladimir-pashkovsky",
     "name": "Владимир Пашковский",
     "photo": "/images/uploads/photo_2026-01-27_22-23-18.jpg",
-    "position": "Тимлид команды DevOps в компании «Магнит»",
+    "position": "Head of DevOps, эксперт в области Platform Engineering, спикер и предприниматель",
     "short_phrase": "Как я покупал свою незаменимость сверхурочными и потерял интерес ко всему",
     "weight": 0,
     "tags": [
@@ -627,7 +668,7 @@
         "url": "https://t.me/secrets_of_devops"
       }
     ],
-    "full_story": "Как я покупал свою незаменимость сверхурочными и потерял интерес ко всему\r\n"
+    "full_story": "Как я покупал свою незаменимость сверхурочными и потерял интерес ко всему\n"
   },
   {
     "slug": "vladislav-lukashenko",
@@ -649,7 +690,7 @@
         "url": "https://t.me/vlukaspro"
       }
     ],
-    "full_story": "Идеальный, но лишний сотрудник: как система уволила того, кто ее наладил\r\n"
+    "full_story": "Идеальный, но лишний сотрудник: как система уволила того, кто ее наладил\n"
   },
   {
     "slug": "yaroslav-kolobkov",
@@ -671,7 +712,7 @@
         "url": "https://t.me/mythsfer"
       }
     ],
-    "full_story": "«Решить любой ценой»: как упорство привело в тупик выгорания\r\n"
+    "full_story": "«Решить любой ценой»: как упорство привело в тупик выгорания\n"
   },
   {
     "slug": "yuliya-fedotova",
@@ -697,7 +738,7 @@
         "url": "https://t.me/topvisor"
       }
     ],
-    "full_story": "Сравнение себя с другими съело меня быстрее дедлайнов\r\n"
+    "full_story": "Сравнение себя с другими съело меня быстрее дедлайнов\n"
   },
   {
     "slug": "данила-елистратов",

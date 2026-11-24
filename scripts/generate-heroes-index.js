@@ -27,7 +27,7 @@ const heroes = files
       slug: data.slug || getSlugFromFile(file),
       name: data.name,
       photo: data.photo,
-      position: data.position || data.company || '',
+      position: data.card_position || data.position || data.company || '',
       short_phrase: data.short_phrase,
       weight: data.weight || 0,
       tags: Array.isArray(data.tags) ? data.tags : [],

@@ -29,20 +29,21 @@ export default function Home({ heroes }) {
   return (
     <Layout>
       <Head>
-        <title>{home.hero_title} — истории IT-фениксов</title>
+        <title>Debug выгорания — 33 истории IT-фениксов</title>
         <meta name="description" content={home.hero_subtitle} />
       </Head>
 
-      <section className="py-20">
+      <section className="py-10 sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 sm:gap-6">
             <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">
-              Книга о возрождении в IT
+              Книга · 33 истории IT-фениксов
             </p>
-            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
+            <h1 className="text-3xl font-semibold leading-tight sm:text-5xl">
               <span className="gradient-text">{home.hero_title}</span>
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-300">{home.hero_subtitle}</p>
+            <p className="text-xl font-semibold leading-snug text-slate-900 dark:text-white sm:text-2xl">{home.hero_hook}</p>
+            <p className="text-base text-slate-600 dark:text-slate-300 sm:text-lg">{home.hero_subtitle}</p>
             <div className="flex flex-wrap gap-4">
               <a
                 href={home.hero_cta_primary.href}
@@ -66,7 +67,7 @@ export default function Home({ heroes }) {
         <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-[0.48fr_0.52fr] lg:items-start">
           <div className="flex max-w-xl flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ember-500">О проекте</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ember-500">О книге</p>
               <h2 className="section-title">{home.about_manifesto.title}</h2>
               <div className="space-y-4 text-base text-slate-600 dark:text-slate-300">
                 {home.about_manifesto.intro.map((paragraph) => (
@@ -155,9 +156,45 @@ export default function Home({ heroes }) {
         </div>
       </section>
 
+      <section id="themes" className="py-14 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Темы книги</p>
+          <h2 className="section-title mt-3">{home.causes.title}</h2>
+          <p className="muted mt-3 max-w-3xl">{home.causes.intro}</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {home.causes.items.map((item, index) => (
+              <article key={item.title} className="card card-hover p-4">
+                <span className="text-xs font-semibold text-ember-500">{index + 1} / {home.causes.items.length}</span>
+                <h3 className="mt-2 text-base font-semibold leading-snug text-slate-900 dark:text-white">{item.title}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <FeaturedHeroes heroes={featuredHeroes} />
 
-      <section className="py-14">
+      <section id="author" className="py-14 sm:py-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 lg:grid-cols-[0.6fr_0.4fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Об авторе</p>
+            <h2 className="section-title mt-3">{home.author.title}</h2>
+            <p className="mt-5 text-lg font-semibold text-slate-900 dark:text-white">{home.author.lead}</p>
+            <div className="mt-4 space-y-3 text-slate-600 dark:text-slate-300">
+              {home.author.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {home.author.facts.map((fact) => <span key={fact} className="rounded-full border border-ember-200/70 bg-ember-50 px-4 py-2 text-sm font-semibold text-slate-700 dark:border-ember-500/20 dark:bg-slate-900 dark:text-slate-200">{fact}</span>)}
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-slate-600 dark:text-slate-300"><strong className="text-slate-900 dark:text-white">Выступала на конференциях:</strong> {home.author.conferences.join(' · ')}</p>
+          </div>
+          <div className="mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-slate-200/70 shadow-xl shadow-slate-900/10 dark:border-slate-800">
+            <img src="/images/julia-uvarova-author.jpg" alt="Юлия Уварова на IT-конференции КаргоКульт" width="2333" height="3500" loading="lazy" className="aspect-[4/5] w-full object-cover object-top" />
+          </div>
+        </div>
+      </section>
+
+      <section id="preorder" className="py-14">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 rounded-3xl border border-ember-200/70 bg-gradient-to-r from-ember-50 via-white to-orange-50 px-6 py-10 text-slate-700 shadow-sm dark:border-ember-500/20 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 dark:text-slate-200 sm:px-10">
           <div className="flex flex-col gap-2">
             <p className="text-sm font-semibold uppercase tracking-widest text-ember-500">Предзаказ книги</p>

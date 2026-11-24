@@ -13,6 +13,6 @@ socials:
   - type: Telegram канал
     url: https://t.me/vibe_coding
 slug: konstantin-chuykov
-published: true
+published: false
 ---
 «Я надеялся, что армия поможет вылечить выгорание»
